@@ -3,7 +3,6 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 const LandingPage = () => {
-  const [displyName, setDisplyName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const history = useHistory();
