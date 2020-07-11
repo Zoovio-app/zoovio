@@ -8,8 +8,8 @@ DROP TABLE IF EXISTS users;
 
 CREATE TABLE users
 (
-    user_id VARCHAR PRIMARY KEY UNIQUE,
-    email VARCHAR UNIQUE,
+    user_id VARCHAR NOT NULL PRIMARY KEY UNIQUE ,
+    email VARCHAR NOT NULL UNIQUE,
     name VARCHAR,
     phone VARCHAR
 );
