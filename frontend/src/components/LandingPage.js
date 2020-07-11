@@ -18,9 +18,24 @@ const LandingPage = () => {
         console.log(signUpForm)
         setsignUpForm(!signUpForm)
     }
-    const HandleLogin = () => {
-
+    const handleLogin = async(e) => {
+        e.preventDefault()
+        let display_name = e.target.display_name.value
+        let url=`http://localhost:3001/users/search/${display_name}`
+        try{
+        let res = await axios.get(url)
+        let user=res.data.body.searchUser
+            if(user.length){
+                sessionStorage.setItem("currentUser",user[0].id)
+                history.push(`/feed`)
+            }else{
+                alert("fail")
+            }
+        }catch(error){
+            console.log(error);
+        }
     }
+
 
   const login = ()=>{
         return <div className="login-info">
@@ -39,13 +54,9 @@ const LandingPage = () => {
          <p>Don't have an account? get started!</p> <button id="signUp">Signup</button>
 
         </div>
-        
-        <form>
-        
-
-        </form>
+        <h1>ZooVio</h1>
          {Form?login():null}
-        {signUpForm?signup():null}
+        {/* {signUpForm?signup():null} */}
         </div>
     )
 }
