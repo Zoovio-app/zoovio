@@ -32,4 +32,16 @@ const createUser = async (req, res, next) => {
   }
 };
 
-module.exports = { getUserInfo, createUser };
+const checkEmail = async (req, res, next) => {
+  const { email } = req.body;
+  try {
+    let user = await db.one(`SELECT * from users WHERE email =$1`, [email]);
+    if (user.email) {
+      throw error;
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { getUserInfo, createUser, checkEmail };
