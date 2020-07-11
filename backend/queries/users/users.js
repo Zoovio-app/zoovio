@@ -17,4 +17,19 @@ const getUserInfo = async (req, res, next) => {
   }
 };
 
-module.exports = { getUserInfo };
+const createUser = async (req, res, next) => {
+  const { id, email, name, phone } = req.body;
+  try {
+    await db.none(`INSERT INTO users VALUES($1,$2,$3,$4)`, [
+      id,
+      email,
+      name,
+      phone,
+    ]);
+    res.status(200).json({ status: 200, message: "user created" });
+  } catch (error) {
+    res.status(400).json({ status: 400, message: "error" });
+  }
+};
+
+module.exports = { getUserInfo, createUser };
