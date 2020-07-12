@@ -14,10 +14,12 @@ function App() {
           <AuthRoute exact path="/login">
             <LandingPage />
           </AuthRoute>
+
           <ProtectedRoute exact path="/home">
             <Home />
           </ProtectedRoute>
-          <AuthRoute path="/">
+
+          <AuthRoute exact path="/">
             <LandingPage />
           </AuthRoute>
         </Switch>

@@ -6,6 +6,7 @@ const LandingPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const history = useHistory();
+  const { REACT_APP_APIKEY } = process.env;
 
   return (
     <div className="login-info">
