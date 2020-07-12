@@ -40,7 +40,7 @@ const LandingPage = () => {
         return <div className="login-info">
             <form id="loginForm" onSubmit={handleLogin}>
                 <input name="display_name" placeholder="username"></input>
-                {/* <input name="password" type="password" placeholder="password"></input> */}
+                <input name="password" type="password" placeholder="password"></input> 
                 <button type="submit">submit</button>
             </form>
         
