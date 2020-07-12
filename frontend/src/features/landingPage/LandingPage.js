@@ -10,6 +10,7 @@ const LandingPage = () => {
 
   return (
     <div className="login-info">
+      <button>Demo Login</button>
       <h1>ZooVio</h1>
       <form id="loginForm">
         <input
