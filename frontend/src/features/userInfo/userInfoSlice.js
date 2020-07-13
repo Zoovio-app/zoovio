@@ -9,3 +9,7 @@ export const userInfoSlice = createSlice({
     },
   },
 });
+
+export const userInfoState = (state) => state.userInfo;
+export const { updateUserInfo } = userInfoSlice.actions;
+export default userInfoSlice.reducer;
