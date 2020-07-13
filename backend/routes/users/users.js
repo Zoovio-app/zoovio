@@ -5,7 +5,9 @@ const {
   checkEmail,
 } = require("../../queries/users/users");
 
-users.get("/:id", getUserInfo);
+const { checkToken } = require("../../middleware/auth");
+
+users.get("/:id", checkToken, getUserInfo);
 users.post("/", createUser);
 users.post("/check", checkEmail);
 module.exports = users;
