@@ -29,12 +29,12 @@ const Home = () => {
 
   useEffect(() => {
     getUserInfo();
-  }, []);
+  }, [token]);
 
   return (
     <div>
       <h1>hi,{state.user ? state.user.name : null} </h1>
-      <button onClick={getUserInfo}>test</button>
+
       <button onClick={logOut}> Log Out</button>
     </div>
   );
