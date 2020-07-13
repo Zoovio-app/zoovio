@@ -8,3 +8,12 @@ export const demoLogin = async () => {
     console.log(error);
   }
 };
+
+export const userLogin = (e, email, password) => async (dispatch, getState) => {
+  e.preventDefault();
+  try {
+    await login(email, password);
+  } catch (error) {
+    alert(error.message);
+  }
+};

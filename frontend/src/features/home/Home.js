@@ -27,8 +27,8 @@ const Home = () => {
 
   return (
     <div>
-      HOME
-      <button onClick={getUserInfo}>TEST</button>
+      <h1>hi, {}</h1>
+
       <button onClick={logOut}> Log Out</button>
     </div>
   );
