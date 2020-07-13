@@ -3,7 +3,6 @@ const { error } = require("console");
 
 const getUserInfo = async (req, res, next) => {
   const { id } = req.params;
-
   try {
     let user = await db.any(`SELECT * FROM users WHERE user_id =$1`, [id]);
     if (user.length === 0) throw error;
