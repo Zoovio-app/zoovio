@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { login } from "../util/firebaseFunctions";
 
 export const demoLogin = async () => {

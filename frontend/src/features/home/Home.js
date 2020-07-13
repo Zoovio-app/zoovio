@@ -12,24 +12,23 @@ const Home = () => {
   const API = apiUrl();
   const state = useSelector(userInfoState);
 
-  const getUserInfo = async (e) => {
-    try {
-      let res = await axios({
-        method: "get",
-        url: `${API}/api/users/${currentUser.id}`,
-        headers: {
-          authToken: token,
-        },
-      });
-      dispatch(updateUserInfo({ user: res.data.user.pop() }));
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    getUserInfo();
-  }, [token]);
+  useEffect(
+    () => async () => {
+      try {
+        let res = await axios({
+          method: "get",
+          url: `${API}/api/users/${currentUser.id}`,
+          headers: {
+            authToken: token,
+          },
+        });
+        dispatch(updateUserInfo({ user: res.data.user.pop() }));
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    [token, dispatch, API, currentUser.id]
+  );
 
   return (
     <div>

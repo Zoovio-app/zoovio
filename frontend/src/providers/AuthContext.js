@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect, useContext } from "react";
+import React, { createContext, useState, useEffect } from "react";
 import firebase from "../firebase";
 import { getFirebaseToken } from "../util/firebaseFunctions";
 
