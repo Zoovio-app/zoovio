@@ -9,7 +9,7 @@ const LandingPage = () => {
     <div className="login-info">
       <button onClick={demoLogin}>Demo Login</button>
       <h1>ZooVio</h1>
-      <form id="loginForm">
+      <form className="loginForm">
         <input
           name="email"
           onChange={(e) => setEmail(e.target.value)}
