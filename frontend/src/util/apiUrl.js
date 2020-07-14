@@ -1,5 +1,5 @@
 export const apiUrl = () => {
-  if (window.location.hostname === "localhost") {
-    return "http://localhost:3001";
-  }
+  window.location.hostname === "localhost"
+    ? "http://localhost:3001"
+    : "https://zoovio.herokuapp.com/";
 };
