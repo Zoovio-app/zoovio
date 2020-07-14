@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useLayoutEffect } from "react";
 import { logOut } from "../../util/firebaseFunctions";
 import axios from "axios";
 import { apiUrl } from "../../util/apiUrl";
@@ -13,7 +13,7 @@ const Home = () => {
   const API = apiUrl();
   const state = useSelector(userInfoState);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const getUserInfo = async (e) => {
       try {
         let res = await axios({
@@ -31,7 +31,7 @@ const Home = () => {
     const timer = setTimeout(() => {
       getUserInfo();
       setIsLoading(false);
-    }, 800);
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, [token, API, currentUser.id, dispatch]);
