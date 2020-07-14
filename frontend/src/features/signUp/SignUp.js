@@ -1,46 +1,80 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { NavLink, useHistory } from 'react-router-dom';
-import { signUp } from '../../util/firebaseFunctions';
-import { apiURL } from '../../util/apiURL';
+import React, { useState } from "react";
+import axios from "axios";
+import { NavLink } from "react-router-dom";
+import { signUp } from "../../util/firebaseFunctions";
+import { apiUrl } from "../../util/apiUrl";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [full_name, setFullname] = useState("");
-  const [username, setUsername] = useState("");
-  const history = useHistory();
-  const API = apiURL();
-  
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const API = apiUrl();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-        let res = await signUp(email, password);
-        await axios.post(`${API}/users/`, { id: res.user.uid, username, password, full_name, email }); 
-        sessionStorage.loggedUser = res.user.uid
-        history.push("/home")
+      let res = await signUp(email, password);
+
+      await axios.post(`${API}/api/users`, {
+        id: res.user.uid,
+        name,
+        email,
+        phone,
+      });
     } catch (err) {
-        console.log(err);
+      alert(err.message);
     }
-  }
+  };
 
   return (
     <div className="signUp">
-        <div className="topDiv">
-            <form className="signUpForm" onSubmit={handleSubmit}>
-                <input className="signup_input" type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} value={email} />
-                <input className="signup_input" type="text" placeholder="Full Name" onChange={(e) => setFullname(e.target.value)} value={full_name} />
-                <input className="signup_input" type="text" placeholder="Username" onChange={(e) => setUsername(e.target.value)} value={username} />
-                <input className="signup_input" type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} value={password} autoComplete="on" />
-                <button className="signUp_button" type="submit">Sign Up</button>
-            </form>
-        </div>
-        <div className="bottomDiv">
-            <nav className="midNav">
-                Have an account?
-                <NavLink className="login" exact to={"/"}> Log in</NavLink>
-            </nav>
-        </div>
+      <div className="topDiv">
+        <form className="signUpForm" onSubmit={handleSubmit}>
+          <input
+            className="signup_input"
+            type="email"
+            placeholder="Email"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+          />
+          <input
+            className="signup_input"
+            type="text"
+            placeholder="Full Name"
+            onChange={(e) => setName(e.target.value)}
+            value={name}
+          />
+
+          <input
+            className="signup_input"
+            type="password"
+            placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+            autoComplete="on"
+          />
+          <input
+            className="signup_input"
+            type="text"
+            placeholder="phone"
+            onChange={(e) => setPhone(e.target.value)}
+            value={phone}
+          />
+          <button className="signUp_button" type="submit">
+            Sign Up
+          </button>
+        </form>
+      </div>
+      <div className="bottomDiv">
+        <nav className="midNav">
+          Have an account?
+          <NavLink className="login" exact to={"/"}>
+            {" "}
+            Log in
+          </NavLink>
+        </nav>
+      </div>
     </div>
   );
 };

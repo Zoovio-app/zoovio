@@ -2,10 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const userInfoSlice = createSlice({
   name: "userInfo",
-  initialState: {},
+  initialState: { user: null },
   reducers: {
     updateUserInfo: (state, action) => {
-      return { ...state, ...action.payload };
+      state.user = action.payload;
     },
   },
 });

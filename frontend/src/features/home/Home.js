@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { logOut } from "../../util/firebaseFunctions";
 import axios from "axios";
 import { apiUrl } from "../../util/apiUrl";
@@ -7,13 +7,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateUserInfo, userInfoState } from "../userInfo/userInfoSlice";
 
 const Home = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const { token, currentUser } = useContext(AuthContext);
   const dispatch = useDispatch();
   const API = apiUrl();
   const state = useSelector(userInfoState);
 
-  useEffect(
-    () => async () => {
+  useEffect(() => {
+    const getUserInfo = async (e) => {
       try {
         let res = await axios({
           method: "get",
@@ -22,15 +23,22 @@ const Home = () => {
             authToken: token,
           },
         });
-        dispatch(updateUserInfo({ user: res.data.user.pop() }));
+        dispatch(updateUserInfo(res.data.user.pop()));
       } catch (error) {
         console.log(error);
       }
-    },
-    [token, dispatch, API, currentUser.id]
-  );
+    };
+    const timer = setTimeout(() => {
+      getUserInfo();
+      setIsLoading(false);
+    }, 800);
 
-  return (
+    return () => clearTimeout(timer);
+  }, [token, API, currentUser.id, dispatch]);
+
+  return isLoading ? (
+    <div>Loading.......</div>
+  ) : (
     <div>
       <h1>hi,{state.user ? state.user.name : null} </h1>
 

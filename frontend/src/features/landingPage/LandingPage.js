@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { demoLogin, userLogin } from "../../util/loginFunctions.js";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 const LandingPage = () => {
   const [email, setEmail] = useState("");
@@ -28,7 +29,7 @@ const LandingPage = () => {
         ></input>
         <button type="submit">submit</button>
       </form>
-      <p>Don't have an account? get started!</p>{" "}
+      <Link to="/signup">Don't have an account? get started!</Link>
     </div>
   );
 };

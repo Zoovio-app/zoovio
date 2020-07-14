@@ -5,6 +5,7 @@ import LandingPage from "./features/landingPage/LandingPage";
 import { AuthRoute, ProtectedRoute } from "./util/routeUtil";
 import AuthProvider from "./providers/AuthContext";
 import Home from "./features/home/Home";
+import SignUp from "./features/signUp/SignUp";
 
 function App() {
   return (
@@ -20,6 +21,14 @@ function App() {
           </ProtectedRoute>
 
           <AuthRoute exact path="/">
+            <LandingPage />
+          </AuthRoute>
+
+          <AuthRoute exact path="/signup">
+            <SignUp />
+          </AuthRoute>
+
+          <AuthRoute path="*">
             <LandingPage />
           </AuthRoute>
         </Switch>

@@ -3,8 +3,10 @@ const { error } = require("console");
 
 const getUserInfo = async (req, res, next) => {
   const { id } = req.params;
+
   try {
     let user = await db.any(`SELECT * FROM users WHERE user_id =$1`, [id]);
+
     if (user.length === 0) throw error;
     res.status(200).json({
       status: 200,
@@ -18,6 +20,7 @@ const getUserInfo = async (req, res, next) => {
 
 const createUser = async (req, res, next) => {
   const { id, email, name, phone } = req.body;
+
   try {
     await db.none(`INSERT INTO users VALUES($1,$2,$3,$4)`, [
       id,

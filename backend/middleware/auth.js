@@ -8,7 +8,6 @@ const checkToken = async (req, res, next) => {
     req.user_id = uid;
     next();
   } catch (error) {
-    console.log(error);
     res.status(401).json({ message: "no authenticated user" });
   }
 };
