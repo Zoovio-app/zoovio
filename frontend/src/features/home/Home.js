@@ -4,7 +4,11 @@ import axios from "axios";
 import { apiUrl } from "../../util/apiUrl";
 import { AuthContext } from "../../providers/AuthContext";
 import { useDispatch, useSelector } from "react-redux";
-import { updateUserInfo, userInfoState } from "../userInfo/userInfoSlice";
+import {
+  updateUserInfo,
+  userInfoState,
+  clearUserInfo,
+} from "../userInfo/userInfoSlice";
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -36,13 +40,18 @@ const Home = () => {
     return () => clearTimeout(timer);
   }, [token, API, currentUser.id, dispatch]);
 
+  const signOut = () => {
+    logOut();
+    dispatch(clearUserInfo());
+  };
+
   return isLoading ? (
     <div>Loading.......</div>
   ) : (
     <div>
       <h1>hi,{state.user ? state.user.name : null} </h1>
 
-      <button onClick={logOut}> Log Out</button>
+      <button onClick={signOut}> Log Out</button>
     </div>
   );
 };
