@@ -6,6 +6,7 @@ import { AuthRoute, ProtectedRoute } from "./util/routeUtil";
 import AuthProvider from "./providers/AuthContext";
 import Home from "./features/home/Home";
 import SignUp from "./features/signUp/SignUp";
+import VetSearch from './features/VetSearch/VetSearch'
 
 function App() {
   return (
@@ -26,6 +27,10 @@ function App() {
 
           <AuthRoute exact path="/signup">
             <SignUp />
+          </AuthRoute>
+
+          <AuthRoute exact path="search">
+            <VetSearch />
           </AuthRoute>
 
           <AuthRoute path="*">
