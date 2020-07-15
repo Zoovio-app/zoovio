@@ -6,6 +6,7 @@ import { AuthRoute, ProtectedRoute } from "./util/routeUtil";
 import AuthProvider from "./providers/AuthContext";
 import Home from "./features/home/Home";
 import SignUp from "./features/signUp/SignUp";
+import Messages from './features/messages/Messages';
 
 function App() {
   return (
@@ -31,6 +32,11 @@ function App() {
           <AuthRoute path="*">
             <LandingPage />
           </AuthRoute>
+
+          <ProtectedRoute exact path="/messages">
+            <Messages/>
+          </ProtectedRoute>
+
         </Switch>
       </div>
     </AuthProvider>

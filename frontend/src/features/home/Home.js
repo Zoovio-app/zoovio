@@ -1,9 +1,10 @@
-import React, { useContext, useEffect, useState, useLayoutEffect } from "react";
+import React, { useContext, useState, useLayoutEffect } from "react";
 import { logOut } from "../../util/firebaseFunctions";
 import axios from "axios";
 import { apiUrl } from "../../util/apiUrl";
 import { AuthContext } from "../../providers/AuthContext";
 import { useDispatch, useSelector } from "react-redux";
+import { NavLink } from 'react-router-dom'
 import {
   updateUserInfo,
   userInfoState,
@@ -49,6 +50,7 @@ const Home = () => {
     <div>Loading.......</div>
   ) : (
     <div>
+      <NavLink className="messages" to={"/messages"}> Messages </NavLink>
       <h1>hi,{state.user ? state.user.name : null} </h1>
 
       <button onClick={signOut}> Log Out</button>
