@@ -4,7 +4,6 @@ import axios from "axios";
 import { apiUrl } from "../../util/apiUrl";
 import { AuthContext } from "../../providers/AuthContext";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink } from 'react-router-dom'
 import {
   updateUserInfo,
   userInfoState,
@@ -19,7 +18,8 @@ const Home = () => {
   const state = useSelector(userInfoState);
 
   useLayoutEffect(() => {
-    const getUserInfo = async (e) => {
+    const getUserInfo = async () => {
+      // debugger
       try {
         let res = await axios({
           method: "get",
@@ -28,6 +28,7 @@ const Home = () => {
             authToken: token,
           },
         });
+        debugger
         dispatch(updateUserInfo(res.data.user.pop()));
       } catch (error) {
         console.log(error);
@@ -50,7 +51,7 @@ const Home = () => {
     <div>Loading.......</div>
   ) : (
     <div>
-      <NavLink className="messages" to={"/messages"}> Messages </NavLink>
+      {/* <NavLink className="messages" to={"/messages"}> Messages </NavLink> */}
       <h1>hi,{state.user ? state.user.name : null} </h1>
 
       <button onClick={signOut}> Log Out</button>

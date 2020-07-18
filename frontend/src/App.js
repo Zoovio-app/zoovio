@@ -6,12 +6,14 @@ import { AuthRoute, ProtectedRoute } from "./util/routeUtil";
 import AuthProvider from "./providers/AuthContext";
 import Home from "./features/home/Home";
 import SignUp from "./features/signUp/SignUp";
-import Messages from './features/messages/Messages';
+// import CompleteFeature from './features/MessagingFeature/CompleteFeature';
+import Navbar from './features/navbar/Navbar'
 
 function App() {
   return (
     <AuthProvider>
       <div className="App">
+        <Navbar/>
         <Switch>
           <AuthRoute exact path="/login">
             <LandingPage />
@@ -29,13 +31,14 @@ function App() {
             <SignUp />
           </AuthRoute>
 
+          {/* <ProtectedRoute exact path="/messages">
+            <CompleteFeature/>
+          </ProtectedRoute> */}
+
           <AuthRoute path="*">
             <LandingPage />
           </AuthRoute>
 
-          <ProtectedRoute exact path="/messages">
-            <Messages/>
-          </ProtectedRoute>
 
         </Switch>
       </div>
