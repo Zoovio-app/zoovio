@@ -6,8 +6,12 @@ import { AuthRoute, ProtectedRoute } from "./util/routeUtil";
 import AuthProvider from "./providers/AuthContext";
 import Home from "./features/home/Home";
 import SignUp from "./features/signUp/SignUp";
-// import CompleteFeature from './features/MessagingFeature/CompleteFeature';
+import CompleteFeature from './features/MessagingFeature/CompleteFeature';
 import Navbar from './features/navbar/Navbar'
+
+
+import Chat from './features/MessagingFeature/Chat/Chat'
+import Join from './features/MessagingFeature/Join/Join'
 
 function App() {
   return (
@@ -31,9 +35,19 @@ function App() {
             <SignUp />
           </AuthRoute>
 
-          {/* <ProtectedRoute exact path="/messages">
+          <ProtectedRoute exact path="/messages">
             <CompleteFeature/>
-          </ProtectedRoute> */}
+          </ProtectedRoute>
+
+          <ProtectedRoute path="/chat">
+            <Chat/>
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/join">
+            <Join/>
+          </ProtectedRoute>
+
+          
 
           <AuthRoute path="*">
             <LandingPage />
