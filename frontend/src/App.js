@@ -6,11 +6,16 @@ import { AuthRoute, ProtectedRoute } from "./util/routeUtil";
 import AuthProvider from "./providers/AuthContext";
 import Home from "./features/home/Home";
 import SignUp from "./features/signUp/SignUp";
+import CalendarPage from "./features/calendar/Calendar";
+import Nav from "./features/navBar/Nav";
 
 function App() {
   return (
     <AuthProvider>
       <div className="App">
+        <ProtectedRoute>
+          <Nav />
+        </ProtectedRoute>
         <Switch>
           <AuthRoute exact path="/login">
             <LandingPage />
@@ -18,6 +23,10 @@ function App() {
 
           <ProtectedRoute exact path="/home">
             <Home />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/calendar">
+            <CalendarPage />
           </ProtectedRoute>
 
           <AuthRoute exact path="/">

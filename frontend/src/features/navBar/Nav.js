@@ -1,18 +1,14 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import Home from "../home/Home";
-import Calender from "../calender/Calender";
+import Calender from "../calendar/Calendar";
 
 const Nav = () => {
   return (
-    <div>
-      <NavLink to="/home">
-        <Home />
-      </NavLink>
+    <div style={{ display: "flex", flexDirection: " column" }}>
+      <NavLink to="/home">HOME</NavLink>
 
-      <NavLink to="/calender">
-        <Calender />
-      </NavLink>
+      <NavLink to="/calendar">CALENDAR</NavLink>
     </div>
   );
 };
