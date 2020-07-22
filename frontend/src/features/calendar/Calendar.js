@@ -2,6 +2,8 @@ import React from "react";
 import { Calendar } from "react-calendar";
 import "./css/styles.css";
 import "react-calendar/dist/Calendar.css";
+import { motion } from "framer-motion";
+// import { pageVariants, pageTransition } from "../../util/framerStyles";
 
 const CalendarPage = () => {
   const dayClick = (e) => {
@@ -9,6 +11,7 @@ const CalendarPage = () => {
   };
 
   const func = (date, dates, view) => {
+    // eslint-disable-next-line
     return dates.map((element, i) => {
       if (view === "month" && date.getDate() === element) {
         return <div key={i} className="dotDiv"></div>;
@@ -19,7 +22,7 @@ const CalendarPage = () => {
   const check = [4, 21, 17];
 
   return (
-    <div className="calDiv">
+    <motion.div className="calDiv">
       <Calendar
         className={"cally"}
         showNavigation={false}
@@ -28,7 +31,7 @@ const CalendarPage = () => {
         }
         onClickDay={dayClick}
       />
-    </div>
+    </motion.div>
   );
 };
 

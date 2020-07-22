@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch } from "react-router-dom";
+import { Switch, useLocation } from "react-router-dom";
 import "./App.css";
 import LandingPage from "./features/landingPage/LandingPage";
 import { AuthRoute, ProtectedRoute } from "./util/routeUtil";
@@ -8,8 +8,10 @@ import Home from "./features/home/Home";
 import SignUp from "./features/signUp/SignUp";
 import CalendarPage from "./features/calendar/Calendar";
 import Nav from "./features/navBar/Nav";
+import { AnimatePresence } from "framer-motion";
 
 function App() {
+  const location = useLocation();
   return (
     <AuthProvider>
       <div className="App">
@@ -21,13 +23,17 @@ function App() {
             <LandingPage />
           </AuthRoute>
 
-          <ProtectedRoute exact path="/home">
-            <Home />
-          </ProtectedRoute>
+          <AnimatePresence>
+            <Switch location={location} key={location.pathname}>
+              <ProtectedRoute exact path="/home">
+                <Home />
+              </ProtectedRoute>
 
-          <ProtectedRoute exact path="/calendar">
-            <CalendarPage />
-          </ProtectedRoute>
+              <ProtectedRoute exact path="/calendar">
+                <CalendarPage />
+              </ProtectedRoute>
+            </Switch>
+          </AnimatePresence>
 
           <AuthRoute exact path="/">
             <LandingPage />
