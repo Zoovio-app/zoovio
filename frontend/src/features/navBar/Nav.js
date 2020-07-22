@@ -1,7 +1,5 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import Home from "../home/Home";
-import Calender from "../calendar/Calendar";
 
 const Nav = () => {
   return (
