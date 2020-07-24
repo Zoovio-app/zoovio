@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState, useLayoutEffect } from "react";
+import React, { useContext, useState, useLayoutEffect } from "react";
 import { logOut } from "../../util/firebaseFunctions";
 import axios from "axios";
 import { apiUrl } from "../../util/apiUrl";
