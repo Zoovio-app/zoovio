@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const usersRouter = require("./routes/users/users");
+const tasksRouter = require("./routes/tasks/tasks");
 require("dotenv").config();
 const port = process.env.PORT;
 
@@ -11,6 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use("/api/users", usersRouter);
+app.use("/api/users/tasks", tasksRouter);
 
 const errorHandling = (error, req, res, next) => {
   if (error.received === 0) {
