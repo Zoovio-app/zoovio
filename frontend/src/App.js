@@ -9,6 +9,7 @@ import SignUp from "./features/signUp/SignUp";
 import CalendarPage from "./features/calendar/Calendar";
 import Nav from "./features/navBar/Nav";
 import { AnimatePresence } from "framer-motion";
+import Tasks from "./features/calendar/tasks/Tasks";
 
 function App() {
   const location = useLocation();
@@ -23,10 +24,14 @@ function App() {
             <LandingPage />
           </AuthRoute>
 
-          <AnimatePresence>
+          <ProtectedRoute exact path="/home">
+            <Home />
+          </ProtectedRoute>
+
+          <AnimatePresence exitBeforeEnter>
             <Switch location={location} key={location.pathname}>
-              <ProtectedRoute exact path="/home">
-                <Home />
+              <ProtectedRoute exact path="/calendar/tasks">
+                <Tasks />
               </ProtectedRoute>
 
               <ProtectedRoute exact path="/calendar">
