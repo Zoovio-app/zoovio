@@ -37,7 +37,6 @@ const createNewTask = async (req, res, next) => {
       status: "Success",
       message: "Created new task",
       payload: {
-        // pet: pet_id,
         newTask,
       },
     });

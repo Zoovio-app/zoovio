@@ -5,6 +5,7 @@ import {
   pageVariants,
   pageTransition,
 } from "../../../util/framerStyles";
+import TasksDisplay from "../../tasksDisplay/TasksDisplay";
 
 const Tasks = () => {
   return (
@@ -17,6 +18,7 @@ const Tasks = () => {
       transition={pageTransition}
     >
       TASKS
+      <TasksDisplay />
     </motion.div>
   );
 };
