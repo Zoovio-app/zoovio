@@ -78,13 +78,13 @@ const getAllTasksByUser = async (req, res, next) => {
 const getAllTasksByMonth = async (req, res, next) => {
   try {
     const { month } = req.params;
-    const { user } = req.query;
+    const { user, year } = req.query;
 
     let tasks = await db.any(
       `SELECT tasks.*, pets.* FROM users
         RIGHT JOIN pets ON users.user_id = pets.owner
-        LEFT JOIN tasks ON pets.id = tasks.pet_id WHERE EXTRACT(MONTH FROM due_date) = $1 and owner = $2`,
-      [month, user]
+        LEFT JOIN tasks ON pets.id = tasks.pet_id WHERE EXTRACT(MONTH FROM due_date) = $1 AND owner = $2 AND EXTRACT(YEAR FROM due_date) = $3`,
+      [month, user, year]
     );
     res.status(200).json({
       status: "Success",
@@ -103,19 +103,17 @@ const getAllTasksByMonth = async (req, res, next) => {
 const getAllTasksByDay = async (req, res, next) => {
   try {
     const { day } = req.params;
-    const { user } = req.query;
+    const { user, month, year } = req.query;
     let tasksByDay = await db.any(
       `SELECT tasks.*, pets.* FROM users
         RIGHT JOIN pets ON users.user_id = pets.owner
-        LEFT JOIN tasks ON pets.id = tasks.pet_id WHERE EXTRACT(DAY FROM due_date) = $1 AND owner = $2`,
-      [day, user]
+        LEFT JOIN tasks ON pets.id = tasks.pet_id WHERE EXTRACT(DAY FROM due_date) = $1 AND owner = $2 AND EXTRACT(MONTH FROM due_date) = $3 AND EXTRACT(YEAR FROM due_date) = $4 `,
+      [day, user, month, year]
     );
     res.status(200).json({
       status: "Success",
       message: "Selected All Tasks For this Day",
-      payload: {
-        tasksByDay,
-      },
+      tasksByDay,
     });
   } catch (error) {
     res.status(400).json({

@@ -14,7 +14,10 @@ const CalendarPage = () => {
   const API = apiUrl();
   const history = useHistory();
   const { currentUser } = useContext(AuthContext);
-  const [currentMonth, setCurrentMonth] = useState(new Date().getMonth() + 1);
+  const [currentDate, setCurrentDate] = useState({
+    month: new Date().getMonth() + 1,
+    year: new Date().getFullYear(),
+  });
   const [tasks, setTasks] = useState([]);
 
   const dayClick = (e) => {
@@ -24,7 +27,10 @@ const CalendarPage = () => {
   };
 
   const onClick = (value, e) => {
-    setCurrentMonth(new Date(value.activeStartDate).getMonth() + 1);
+    setCurrentDate({
+      month: new Date(value.activeStartDate).getMonth() + 1,
+      year: new Date(value.activeStartDate).getFullYear(),
+    });
   };
 
   useEffect(() => {
@@ -32,7 +38,7 @@ const CalendarPage = () => {
       try {
         let res = await axios({
           method: "GET",
-          url: `${API}/api/users/tasks/month/${currentMonth}?user=${currentUser.id}`,
+          url: `${API}/api/users/tasks/month/${currentDate.month}?user=${currentUser.id}&year=${currentDate.year}`,
         });
         setTasks(res.data.tasks);
       } catch (error) {
@@ -40,7 +46,7 @@ const CalendarPage = () => {
       }
     };
     getMonthsTasks();
-  }, [API, currentMonth, currentUser.id]);
+  }, [API, currentDate.month, currentDate.year, currentUser.id]);
 
   return (
     <motion.div
