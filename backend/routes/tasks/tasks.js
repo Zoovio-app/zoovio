@@ -13,6 +13,6 @@ tasks.get("/pet/:id", getAllTasksByPet);
 tasks.post("/", createNewTask);
 tasks.get("/:id", getAllTasksByUser);
 tasks.get("/month/:month", getAllTasksByMonth);
-tasks.get("/:day", getAllTasksByDay);
+tasks.get("/day/:day", getAllTasksByDay);
 
 module.exports = tasks;

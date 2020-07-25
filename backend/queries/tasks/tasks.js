@@ -102,12 +102,13 @@ const getAllTasksByMonth = async (req, res, next) => {
 
 const getAllTasksByDay = async (req, res, next) => {
   try {
-    const { day } = req.body;
+    const { day } = req.params;
+    const { user } = req.query;
     let tasksByDay = await db.any(
-      `SELECT tasks.*, pets.*, users.* FROM users
+      `SELECT tasks.*, pets.* FROM users
         RIGHT JOIN pets ON users.user_id = pets.owner
-        LEFT JOIN tasks ON pets.id = tasks.pet_id WHERE EXTRACT(DAY FROM due_date) = $1`,
-      [day]
+        LEFT JOIN tasks ON pets.id = tasks.pet_id WHERE EXTRACT(DAY FROM due_date) = $1 AND owner = $2`,
+      [day, user]
     );
     res.status(200).json({
       status: "Success",
@@ -121,7 +122,7 @@ const getAllTasksByDay = async (req, res, next) => {
       status: "Error",
       message: "Did not select all tasks for this day",
     });
-    next(err);
+    console.log(error);
   }
 };
 
