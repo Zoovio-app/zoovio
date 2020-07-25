@@ -1,28 +1,43 @@
-import React from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { Calendar } from "react-calendar";
 import "./css/styles.css";
 import "react-calendar/dist/Calendar.css";
 import { motion } from "framer-motion";
 import { useHistory } from "react-router-dom";
 import { pageVariants, pageTransition } from "../../util/framerStyles";
+import axios from "axios";
+import { apiUrl } from "../../util/apiUrl";
+import { AuthContext } from "../../providers/AuthContext";
+import { taskDatesArr, func } from "./helpers/helpers";
 
 const CalendarPage = () => {
+  const API = apiUrl();
+  const currentDate = new Date();
   const history = useHistory();
+  const currentMonth = currentDate.getMonth() + 1;
+  const { currentUser } = useContext(AuthContext);
+  const [tasks, setTasks] = useState([]);
+
   const dayClick = (e) => {
-    console.log(new Date(e));
+    let t = new Date(e);
+    console.log(t.toISOString().slice(0, 10));
     history.push("/calendar/tasks");
   };
 
-  const func = (date, dates, view) => {
-    // eslint-disable-next-line
-    return dates.map((element, i) => {
-      if (view === "month" && date.getDate() === element) {
-        return <div key={i} className="dotDiv"></div>;
+  useEffect(() => {
+    const getMonthsTasks = async () => {
+      try {
+        let res = await axios({
+          method: "GET",
+          url: `${API}/api/users/tasks/month/${currentMonth}?user=${currentUser.id}`,
+        });
+        setTasks(res.data.tasks);
+      } catch (error) {
+        console.log(error);
       }
-    });
-  };
-
-  const check = [4, 21, 17];
+    };
+    getMonthsTasks();
+  }, [API, currentMonth, currentUser.id]);
 
   return (
     <motion.div
@@ -37,7 +52,7 @@ const CalendarPage = () => {
         className={"cally"}
         showNavigation={false}
         tileContent={({ activeStartDate, date, view }) =>
-          func(date, check, view)
+          func(date, taskDatesArr(tasks), view)
         }
         onClickDay={dayClick}
       />
