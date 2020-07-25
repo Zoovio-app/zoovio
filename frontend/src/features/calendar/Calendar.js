@@ -21,9 +21,9 @@ const CalendarPage = () => {
   const [tasks, setTasks] = useState([]);
 
   const dayClick = (e) => {
-    let t = new Date(e);
-    console.log(t.toISOString().slice(0, 10));
-    history.push("/calendar/tasks");
+    let day = new Date(e).toISOString();
+    console.log(day);
+    history.push(`/calendar/tasks/${day}`);
   };
 
   const onClick = (value, e) => {

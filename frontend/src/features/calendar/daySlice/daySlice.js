@@ -11,5 +11,5 @@ export const daySlice = createSlice({
 });
 
 export const { setDay } = daySlice.actions;
-export const state = (state) => state.day;
+export const dayState = (state) => state.day;
 export default daySlice.reducer;

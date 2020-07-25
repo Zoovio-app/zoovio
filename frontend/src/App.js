@@ -30,7 +30,7 @@ function App() {
 
           <AnimatePresence exitBeforeEnter>
             <Switch location={location} key={location.pathname}>
-              <ProtectedRoute exact path="/calendar/tasks">
+              <ProtectedRoute exact path="/calendar/tasks/:day">
                 <Tasks />
               </ProtectedRoute>
 
