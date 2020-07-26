@@ -10,6 +10,7 @@ import CalendarPage from "./features/calendar/Calendar";
 import Nav from "./features/navBar/Nav";
 import { AnimatePresence } from "framer-motion";
 import Tasks from "./features/calendar/tasks/Tasks";
+import VetSearch from "./features/search/VetSearch"
 
 function App() {
   const location = useLocation();
@@ -37,6 +38,11 @@ function App() {
               <ProtectedRoute exact path="/calendar">
                 <CalendarPage />
               </ProtectedRoute>
+
+              <ProtectedRoute exact path="/search">
+                <VetSearch />
+              </ProtectedRoute>
+
             </Switch>
           </AnimatePresence>
 
