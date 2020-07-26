@@ -10,6 +10,7 @@ import CalendarPage from "./features/calendar/Calendar";
 import Nav from "./features/navBar/Nav";
 import { AnimatePresence } from "framer-motion";
 import Tasks from "./features/calendar/tasks/Tasks";
+import TaskForm from "./features/taskForm/TaskForm";
 
 function App() {
   const location = useLocation();
@@ -32,6 +33,10 @@ function App() {
             <Switch location={location} key={location.pathname}>
               <ProtectedRoute exact path="/calendar/tasks/:day">
                 <Tasks />
+              </ProtectedRoute>
+
+              <ProtectedRoute exact path="/tasks/create">
+                <TaskForm />
               </ProtectedRoute>
 
               <ProtectedRoute exact path="/calendar">

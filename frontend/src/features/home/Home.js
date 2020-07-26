@@ -9,7 +9,8 @@ import {
   userInfoState,
   clearUserInfo,
 } from "../userInfo/userInfoSlice";
-import Tasks from "../tasks/Tasks";
+import TasksDisplay from "../tasksDisplay/TasksDisplay";
+import { useHistory } from "react-router-dom";
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -17,6 +18,7 @@ const Home = () => {
   const dispatch = useDispatch();
   const API = apiUrl();
   const state = useSelector(userInfoState);
+  const history = useHistory();
 
   useLayoutEffect(() => {
     const getUserInfo = async (e) => {
@@ -50,9 +52,12 @@ const Home = () => {
     <div>Loading.......</div>
   ) : (
     <div>
-      <h1>hi,{state.user ? state.user.name : null} </h1>
-      <Tasks/>
       <button onClick={signOut}> Log Out</button>
+      <h1>hi,{state.user ? state.user.name : null} </h1>
+      <button onClick={() => history.push("/tasks/create")}>
+        Create New Task
+      </button>
+      <TasksDisplay />
     </div>
   );
 };

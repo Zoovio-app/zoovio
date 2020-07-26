@@ -1,6 +1,6 @@
 import React from "react";
 
-const TasksDisplay = ({ tasks }) => {
+const TasksDisplay = ({ tasks = [] }) => {
   if (tasks.length === 0)
     return (
       <div>
