@@ -2,6 +2,8 @@ import React, { useEffect, useContext, useState } from "react";
 import { apiUrl } from "../../util/apiUrl";
 import axios from "axios";
 import { AuthContext } from "../../providers/AuthContext";
+import { pageVariants, pageTransition } from "../../util/framerStyles";
+import { motion } from "framer-motion";
 
 const TaskForm = () => {
   const API = apiUrl();
@@ -54,7 +56,13 @@ const TaskForm = () => {
   }, [API, currentUser.id, token]);
 
   return (
-    <div>
+    <motion.div
+      initial="initial"
+      animate="in"
+      exit="out"
+      transition={pageTransition}
+      variants={pageVariants}
+    >
       <h2>Create new task</h2>
       <form className="tasksForm" onSubmit={handleSubmit}>
         <select onChange={(e) => setPetID(e.target.value)}>
@@ -80,7 +88,7 @@ const TaskForm = () => {
           Add
         </button>
       </form>
-    </div>
+    </motion.div>
   );
 };
 

@@ -25,12 +25,12 @@ function App() {
             <LandingPage />
           </AuthRoute>
 
-          <ProtectedRoute exact path="/home">
-            <Home />
-          </ProtectedRoute>
-
           <AnimatePresence exitBeforeEnter>
             <Switch location={location} key={location.pathname}>
+              <ProtectedRoute exact path="/home">
+                <Home />
+              </ProtectedRoute>
+
               <ProtectedRoute exact path="/calendar/tasks/:day">
                 <Tasks />
               </ProtectedRoute>

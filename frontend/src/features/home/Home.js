@@ -11,6 +11,8 @@ import {
 } from "../userInfo/userInfoSlice";
 import TasksDisplay from "../tasksDisplay/TasksDisplay";
 import { useHistory } from "react-router-dom";
+import { pageTransition, pageVariants } from "../../util/framerStyles";
+import { motion } from "framer-motion";
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -51,14 +53,20 @@ const Home = () => {
   return isLoading ? (
     <div>Loading.......</div>
   ) : (
-    <div>
+    <motion.div
+      initial="initial"
+      animate="in"
+      exit="out"
+      transition={pageTransition}
+      variants={pageVariants}
+    >
       <button onClick={signOut}> Log Out</button>
       <h1>hi,{state.user ? state.user.name : null} </h1>
       <button onClick={() => history.push("/tasks/create")}>
         Create New Task
       </button>
       <TasksDisplay />
-    </div>
+    </motion.div>
   );
 };
 
