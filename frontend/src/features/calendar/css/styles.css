@@ -1,0 +1,28 @@
+.react-calendar__tile {
+  height: 15vh;
+}
+
+.dotDiv {
+  background-color: red;
+  border-radius: 50%;
+  width: 15px;
+  margin-bottom: -21px;
+  height: 15px;
+}
+
+.react-calendar button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.calDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.calDiv .react-calendar {
+  width: unset;
+}

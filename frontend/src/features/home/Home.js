@@ -9,6 +9,7 @@ import {
   userInfoState,
   clearUserInfo,
 } from "../userInfo/userInfoSlice";
+import Tasks from "../tasks/Tasks";
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -53,7 +54,7 @@ const Home = () => {
     <div>
       {/* <NavLink className="messages" to={"/messages"}> Messages </NavLink> */}
       <h1>hi,{state.user ? state.user.name : null} </h1>
-
+      <Tasks/>
       <button onClick={signOut}> Log Out</button>
     </div>
   );

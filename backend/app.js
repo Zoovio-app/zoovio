@@ -11,8 +11,10 @@ const { addUser, removeUser, getUser, getUsersInMessage } = require('./middlewar
 
 const usersRouter = require("./routes/users/users");
 const messagesRouter = require("./routes/messages/messages");
+const tasksRouter = require("./routes/tasks/tasks");
+const petsRouter = require("./routes/pets/pets");
 
-
+require("dotenv").config();
 const port = process.env.PORT;
 const server = app.listen(port, () => {
   console.log(`LISTENING TO PORT ${port}`);
@@ -33,13 +35,6 @@ app.use("/api/users", usersRouter);
 //   })
 
 
-
-
-
-
-
-
-
 // const whitelist = ['http://localhost:3003'];
 // const corsOptions = {
 //   credentials: true, // This is important.
@@ -56,22 +51,7 @@ app.use("/api/users", usersRouter);
 // app.use(cors(corsOptions));
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 // app.use("/", (req, res) => res.sendFile(__dirname + "/index.html"));
-
-
-
 
 
 // http.listen(3003, () => console.log("listening on http://localhost:3003"));
@@ -81,9 +61,6 @@ io.on('connection', (socket) => {
 
   socket.join('some room');
   
-
-  
-
   // socket.on('join', ({ name, room }, callback) => {
   //   const { error, user } = addUser({ id: socket.id, name, room});
   //   console.log(name)
@@ -121,6 +98,8 @@ io.on('connection', (socket) => {
 app.use(messagesRouter)
 
 
+app.use("/api/users/tasks", tasksRouter);
+app.use("api/pets", petsRouter);
 
 const errorHandling = (error, req, res, next) => {
   if (error.received === 0) {
