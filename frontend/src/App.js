@@ -1,22 +1,40 @@
 import React from "react";
-import { Route, Switch } from 'react-router-dom'
+import { Switch } from "react-router-dom";
 import "./App.css";
-import LandingPage from './components/LandingPage'
+import LandingPage from "./features/landingPage/LandingPage";
+import { AuthRoute, ProtectedRoute } from "./util/routeUtil";
+import AuthProvider from "./providers/AuthContext";
+import Home from "./features/home/Home";
+import SignUp from "./features/signUp/SignUp";
 
 function App() {
-  return(
+  return (
+    <AuthProvider>
+      <div className="App">
+        <Switch>
+          <AuthRoute exact path="/login">
+            <LandingPage />
+          </AuthRoute>
 
-  <div className="App">
-  <Switch>
-    <Route exact path={"/"}>
-      <LandingPage/>
-    </Route>
-    
-  </Switch>
+          <ProtectedRoute exact path="/home">
+            <Home />
+          </ProtectedRoute>
 
-  </div>
+          <AuthRoute exact path="/">
+            <LandingPage />
+          </AuthRoute>
+
+          <AuthRoute exact path="/signup">
+            <SignUp />
+          </AuthRoute>
+
+          <AuthRoute path="*">
+            <LandingPage />
+          </AuthRoute>
+        </Switch>
+      </div>
+    </AuthProvider>
   );
 }
 
 export default App;
-
