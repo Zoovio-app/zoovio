@@ -4,24 +4,39 @@ import axios from "axios";
 import { AuthContext } from "../../providers/AuthContext";
 import { pageVariants, pageTransition } from "../../util/framerStyles";
 import { motion } from "framer-motion";
+import { useHistory } from "react-router-dom";
+
+const date = new Date();
 
 const TaskForm = () => {
   const API = apiUrl();
   const { token, currentUser } = useContext(AuthContext);
   const [allPetNames, setAllPetNames] = useState([]);
-  const [dueDate, setDueDate] = useState(new Date().toISOString().slice(0, 10));
+  const [dueDate, setDueDate] = useState(
+    date.toLocaleDateString("pt-br").split("/").reverse().join("-")
+  );
   const [allPetID, setAllPetID] = useState([]);
   const [petID, setPetID] = useState("");
   const [newTask, setNewTask] = useState("");
+  const history = useHistory();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${API}/api/users/tasks/`, {
-        pet_id: petID,
-        task: newTask,
-        due_date: dueDate,
+      await axios({
+        method: "POST",
+        url: `${API}/api/users/tasks/`,
+        data: {
+          pet_id: petID,
+          task: newTask,
+          due_date: dueDate,
+        },
+        headers: {
+          authToken: token,
+        },
       });
+
+      history.push("/home");
     } catch (err) {
       alert(err.message);
     }

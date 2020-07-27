@@ -10,9 +10,9 @@ const {
 } = require("../../queries/tasks/tasks");
 
 tasks.get("/pet/:id", getAllTasksByPet);
-tasks.post("/", createNewTask);
+tasks.post("/", checkToken, createNewTask);
 tasks.get("/:id", getAllTasksByUser);
-tasks.get("/month/:month", getAllTasksByMonth);
+tasks.get("/month/:month", checkToken, getAllTasksByMonth);
 tasks.get("/day/:day", checkToken, getAllTasksByDay);
 
 module.exports = tasks;

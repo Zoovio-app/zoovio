@@ -13,7 +13,7 @@ import { useParams } from "react-router-dom";
 
 const Tasks = () => {
   const API = apiUrl();
-  const { currentUser } = useContext(AuthContext);
+  const { currentUser, token } = useContext(AuthContext);
   const { day } = useParams();
   const date = new Date(day);
   const [tasks, setTasks] = useState([]);
@@ -26,6 +26,9 @@ const Tasks = () => {
           url: `${API}/api/users/tasks/day/${date.getDate()}?user=${
             currentUser.id
           }&year=${date.getFullYear()}&month=${date.getMonth() + 1}`,
+          headers: {
+            authToken: token,
+          },
         });
         setTasks(res.data.tasks);
       } catch (error) {
@@ -33,7 +36,7 @@ const Tasks = () => {
       }
     };
     getDayTasks();
-  }, [API, currentUser.id, date]);
+  }, [API, currentUser.id, date, token]);
 
   return (
     <motion.div

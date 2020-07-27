@@ -1,8 +1,14 @@
 import React from "react";
 
 export const taskDatesArr = (tasks) => {
+  let count = new Set();
+  // eslint-disable-next-line
   return tasks.map((task) => {
-    return new Date(task.due_date).getDate();
+    let value = new Date(task.due_date).getDate();
+    if (!count.has(value)) {
+      count.add(value);
+      return value;
+    }
   });
 };
 

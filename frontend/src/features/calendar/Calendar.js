@@ -13,7 +13,7 @@ import { taskDatesArr, func } from "./helpers/helpers";
 const CalendarPage = () => {
   const API = apiUrl();
   const history = useHistory();
-  const { currentUser } = useContext(AuthContext);
+  const { currentUser, token } = useContext(AuthContext);
   const [currentDate, setCurrentDate] = useState({
     month: new Date().getMonth() + 1,
     year: new Date().getFullYear(),
@@ -22,7 +22,6 @@ const CalendarPage = () => {
 
   const dayClick = (e) => {
     let day = new Date(e).toISOString();
-    console.log(day);
     history.push(`/calendar/tasks/${day}`);
   };
 
@@ -39,6 +38,9 @@ const CalendarPage = () => {
         let res = await axios({
           method: "GET",
           url: `${API}/api/users/tasks/month/${currentDate.month}?user=${currentUser.id}&year=${currentDate.year}`,
+          headers: {
+            authToken: token,
+          },
         });
         setTasks(res.data.tasks);
       } catch (error) {
@@ -46,7 +48,7 @@ const CalendarPage = () => {
       }
     };
     getMonthsTasks();
-  }, [API, currentDate.month, currentDate.year, currentUser.id]);
+  }, [API, currentDate.month, currentDate.year, currentUser.id, token]);
 
   return (
     <motion.div

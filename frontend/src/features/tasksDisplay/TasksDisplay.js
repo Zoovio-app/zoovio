@@ -8,14 +8,21 @@ const TasksDisplay = ({ tasks = [] }) => {
       </div>
     );
 
-  return tasks.map((task) => {
+  const tasksMap = tasks.map((task) => {
     return (
-      <div key={task.id}>
+      <div key={task.task_id}>
         <h2>{task.pet_name}</h2>
         <h3>{task.task}</h3>
       </div>
     );
   });
+
+  return (
+    <div>
+      <h3>Todays tasks</h3>
+      {tasksMap}
+    </div>
+  );
 };
 
 export default TasksDisplay;
