@@ -104,7 +104,7 @@ const getAllTasksByDay = async (req, res, next) => {
     const { day } = req.params;
     const { user, month, year } = req.query;
     let tasks = await db.any(
-      `SELECT tasks.*, pets.* FROM users
+      `SELECT tasks.*, pets.* users.* FROM users
         RIGHT JOIN pets ON users.user_id = pets.owner
         LEFT JOIN tasks ON pets.id = tasks.pet_id WHERE EXTRACT(DAY FROM due_date) = $1 AND owner = $2 AND EXTRACT(MONTH FROM due_date) = $3 AND EXTRACT(YEAR FROM due_date) = $4 `,
       [day, user, month, year]

@@ -23,7 +23,7 @@ const Home = () => {
   const history = useHistory();
 
   useLayoutEffect(() => {
-    const getUserInfo = async (e) => {
+    const getUserInfo = async () => {
       try {
         let res = await axios({
           method: "get",
