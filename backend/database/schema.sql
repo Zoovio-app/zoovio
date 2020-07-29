@@ -22,7 +22,7 @@ CREATE TABLE pets
     owner VARCHAR REFERENCES users(user_id) ON DELETE CASCADE,
     pet_name VARCHAR,
     img VARCHAR DEFAULT NULL,
-    birth_date VARCHAR DEFAULT NULL
+    dob VARCHAR DEFAULT NULL
 );
 
 CREATE TABLE tasks
