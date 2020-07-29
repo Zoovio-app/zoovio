@@ -1,28 +1,54 @@
-import React from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { Calendar } from "react-calendar";
 import "./css/styles.css";
 import "react-calendar/dist/Calendar.css";
 import { motion } from "framer-motion";
 import { useHistory } from "react-router-dom";
 import { pageVariants, pageTransition } from "../../util/framerStyles";
+import axios from "axios";
+import { apiUrl } from "../../util/apiUrl";
+import { AuthContext } from "../../providers/AuthContext";
+import { taskDatesArr, func } from "./helpers/helpers";
 
 const CalendarPage = () => {
+  const API = apiUrl();
   const history = useHistory();
+  const { currentUser, token } = useContext(AuthContext);
+  const [currentDate, setCurrentDate] = useState({
+    month: new Date().getMonth() + 1,
+    year: new Date().getFullYear(),
+  });
+  const [tasks, setTasks] = useState([]);
+
   const dayClick = (e) => {
-    console.log(new Date(e));
-    history.push("/calendar/tasks");
+    let day = new Date(e).toISOString();
+    history.push(`/calendar/tasks/${day}`);
   };
 
-  const func = (date, dates, view) => {
-    // eslint-disable-next-line
-    return dates.map((element, i) => {
-      if (view === "month" && date.getDate() === element) {
-        return <div key={i} className="dotDiv"></div>;
-      }
+  const onClick = (value, e) => {
+    setCurrentDate({
+      month: new Date(value.activeStartDate).getMonth() + 1,
+      year: new Date(value.activeStartDate).getFullYear(),
     });
   };
 
-  const check = [4, 21, 17];
+  useEffect(() => {
+    const getMonthsTasks = async () => {
+      try {
+        let res = await axios({
+          method: "GET",
+          url: `${API}/api/users/tasks/month/${currentDate.month}?user=${currentUser.id}&year=${currentDate.year}`,
+          headers: {
+            authToken: token,
+          },
+        });
+        setTasks(res.data.tasks);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getMonthsTasks();
+  }, [API, currentDate.month, currentDate.year, currentUser.id, token]);
 
   return (
     <motion.div
@@ -35,11 +61,15 @@ const CalendarPage = () => {
     >
       <Calendar
         className={"cally"}
-        showNavigation={false}
+        showNavigation={true}
         tileContent={({ activeStartDate, date, view }) =>
-          func(date, check, view)
+          func(date, taskDatesArr(tasks), view)
         }
         onClickDay={dayClick}
+        onClickMonth={onClick}
+        value={new Date()}
+        onActiveStartDateChange={onClick}
+        showNeighboringMonth={false}
       />
     </motion.div>
   );
