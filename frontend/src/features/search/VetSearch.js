@@ -1,6 +1,9 @@
-import React from 'react'
+import React, {useState}  from 'react'
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api"
+import usePlacesAutocomplete, { getGeocode, getLatlng } from "use-places-autocomplete"
 import mapStyle from "./mapStyle"
+
+//const [markers, setMarkers] = useState([])
 const libaries = ['places']
 
 const mapContainerStyle = {
@@ -24,11 +27,29 @@ const options = {
     });
     if(loadError) return "Error loading maps";
     if(!isLoaded) return "Loading maps";
+
+    const Search = () => {
+        const {ready, value, suggestions: {status, data, setValue, clearSuggestions} } = usePlacesAutocomplete ({
+            requestOptions: {
+                location: {lat: () => 40.71427, lng:() => -74.00597 },
+                radius: 300 * 1000
+            }
+        })
+        return(
+            <div>
+                
+            </div>
+        )
+    }
     
     return(
         <div>
-        <GoogleMap mapContainerStyle={mapContainerStyle} zoom={7} center={center}
-        options={options}>
+        <GoogleMap mapContainerStyle={mapContainerStyle} 
+        zoom={13} 
+        center={center}
+        options={options}
+    
+    Search />
 
         </GoogleMap>
         </div>
@@ -40,23 +61,5 @@ const options = {
 
 export default VetSearch
 
-// import React from 'react'
-// import { Map, GoogleApiWrapper } from 'google-maps-react'
-
-// const VetSearch = () => {
-
-//     return(
-//         <Map
-//         google={this.props.google}
-//         zoom={7}
-//         style={mapStyles}
-//         initialCenter = {{lat: 40.7128, lng: 74.0060}}
-//         />
-//     )
-// }
-
-// export default VetSearch ({
-//     apikey: REACT_APP_GOOGLE_MAPS_API_KEY
-// }) 
 
 
