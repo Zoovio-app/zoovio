@@ -1,6 +1,8 @@
 import React, {useState}  from 'react'
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api"
-import usePlacesAutocomplete, { getGeocode, getLatlng } from "use-places-autocomplete"
+import usePlacesAutocomplete, { getGeocode, getLatLng } from "use-places-autocomplete"
+import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption } from "@reach/combobox"
+import "@reach/combobox/styles.css"
 import mapStyle from "./mapStyle"
 
 //const [markers, setMarkers] = useState([])
@@ -28,8 +30,11 @@ const options = {
     if(loadError) return "Error loading maps";
     if(!isLoaded) return "Loading maps";
 
-    const Search = () => {
-        const {ready, value, suggestions: {status, data, setValue, clearSuggestions} } = usePlacesAutocomplete ({
+
+
+
+    const Search = ({ panTo }) => {
+        const {ready, value, suggestions: {status, data}, setValue, clearSuggestions } = usePlacesAutocomplete ({
             requestOptions: {
                 location: {lat: () => 40.71427, lng:() => -74.00597 },
                 radius: 300 * 1000
@@ -37,7 +42,32 @@ const options = {
         })
         return(
             <div>
-                
+            <Combobox onSelect = { async (address) => {
+                try{
+                    const results = await getGeocode({address})
+                    const  { lat, lng } = await getLatLng(results[0])
+                    console.log(lat,lng);
+                }catch(error) {
+                    console.log("Failed to load location");
+
+                }
+                    console.log(address);
+            }}
+            >
+            <ComboboxInput value={value} onChange={(e) => {
+                setValue(e.target.value)
+            }}
+            disabled={!ready}
+            placeholder="Search for a Vet"
+            />
+            <ComboboxPopover>
+            <ComboboxList>
+                {status === "Success" && data.map(({id, description}) =>(
+                    <ComboboxOption key={id} value={description} />
+                ))}
+                </ComboboxList>
+            </ComboboxPopover>
+            </Combobox>
             </div>
         )
     }
@@ -49,7 +79,8 @@ const options = {
         center={center}
         options={options}
     
-    Search />
+     >
+     <Search />
 
         </GoogleMap>
         </div>
