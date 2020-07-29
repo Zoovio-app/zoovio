@@ -1,4 +1,4 @@
-import React, {useState}  from 'react'
+import React, { useState, useCallback, useRef }  from 'react'
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api"
 import usePlacesAutocomplete, { getGeocode, getLatLng } from "use-places-autocomplete"
 import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption } from "@reach/combobox"
@@ -27,6 +27,12 @@ const options = {
         googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
         libaries,
     });
+
+   const mapRef = useRef()
+   const onMapLoad  = useCallback((map) => {
+        mapRef.current = map
+   }, [])
+
     if(loadError) return "Error loading maps";
     if(!isLoaded) return "Loading maps";
 
@@ -74,14 +80,16 @@ const options = {
     
     return(
         <div>
+        <Search />
+
         <GoogleMap mapContainerStyle={mapContainerStyle} 
         zoom={13} 
         center={center}
         options={options}
+        onLoad={onMapLoad}
     
      >
-     <Search />
-
+     
         </GoogleMap>
         </div>
     )
