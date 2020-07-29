@@ -20,7 +20,9 @@ CREATE TABLE pets
 (
     id SERIAL PRIMARY KEY UNIQUE,
     owner VARCHAR REFERENCES users(user_id) ON DELETE CASCADE,
-    pet_name VARCHAR
+    pet_name VARCHAR,
+    img VARCHAR DEFAULT NULL,
+    birth_date VARCHAR DEFAULT NULL
 );
 
 CREATE TABLE tasks
