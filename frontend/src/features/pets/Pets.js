@@ -5,6 +5,7 @@ import { AuthContext } from "../../providers/AuthContext";
 import axios from "axios";
 import { apiUrl } from "../../util/apiUrl";
 import { useHistory } from "react-router-dom";
+import PetsDisplay from "../petsDisplay/PetsDisplay";
 
 const Pets = () => {
   const { currentUser, token } = useContext(AuthContext);
@@ -23,6 +24,7 @@ const Pets = () => {
           },
         });
         setPets(res.data.payload.pets);
+        // debugger;
       } catch (error) {
         alert(error);
       }
@@ -40,6 +42,7 @@ const Pets = () => {
     >
       <h1>Pets</h1>
       <button onClick={() => history.push("/pets/create")}>Add new pet</button>
+      <PetsDisplay pets={pets} />
     </motion.div>
   );
 };
