@@ -9,7 +9,12 @@ import {
   userInfoState,
   clearUserInfo,
 } from "../userInfo/userInfoSlice";
-import Tasks from "../tasks/Tasks";
+import TasksDisplay from "../tasksDisplay/TasksDisplay";
+import { useHistory } from "react-router-dom";
+import { pageTransition, pageVariants } from "../../util/framerStyles";
+import { motion } from "framer-motion";
+const date = new Date();
+let apiCalls = 0;
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -17,10 +22,24 @@ const Home = () => {
   const dispatch = useDispatch();
   const API = apiUrl();
   const state = useSelector(userInfoState);
+  const history = useHistory();
+
+  const [tasks, setTasks] = useState([]);
 
   useLayoutEffect(() => {
-    const getUserInfo = async (e) => {
+    const getUserInfo = async () => {
       try {
+        let rez = await axios({
+          method: "GET",
+          url: `${API}/api/users/tasks/day/${date.getDate()}?user=${
+            currentUser.id
+          }&year=${date.getFullYear()}&month=${date.getMonth() + 1}`,
+
+          headers: {
+            authToken: token,
+          },
+        });
+        setTasks(rez.data.tasks);
         let res = await axios({
           method: "get",
           url: `${API}/api/users/${currentUser.id}`,
@@ -30,6 +49,10 @@ const Home = () => {
         });
         dispatch(updateUserInfo(res.data.user.pop()));
       } catch (error) {
+        if (apiCalls <= 2) {
+          apiCalls += 1;
+          getUserInfo();
+        }
         console.log(error);
       }
     };
@@ -39,7 +62,7 @@ const Home = () => {
     }, 1000);
 
     return () => clearTimeout(timer);
-  }, [token, API, currentUser.id, dispatch]);
+  }, [API, currentUser.id, dispatch, token]);
 
   const signOut = () => {
     logOut();
@@ -49,11 +72,20 @@ const Home = () => {
   return isLoading ? (
     <div>Loading.......</div>
   ) : (
-    <div>
-      <h1>hi,{state.user ? state.user.name : null} </h1>
-      <Tasks/>
+    <motion.div
+      initial="initial"
+      animate="in"
+      exit="out"
+      transition={pageTransition}
+      variants={pageVariants}
+    >
       <button onClick={signOut}> Log Out</button>
-    </div>
+      <h1>hi,{state.user ? state.user.name : null} </h1>
+      <button onClick={() => history.push("/tasks/create")}>
+        Create New Task
+      </button>
+      <TasksDisplay tasks={tasks} />
+    </motion.div>
   );
 };
 
