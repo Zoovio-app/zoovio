@@ -5,6 +5,7 @@ import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption 
 import "@reach/combobox/styles.css"
 import mapStyle from "./mapStyle"
 
+
 //const [markers, setMarkers] = useState([])
 const libaries = ['places']
 
@@ -23,30 +24,31 @@ const options = {
 
   const VetSearch = () => {
 
-     const { isLoaded, loadError } = useLoadScript({
-        googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
-        libaries,
-    });
+      
+    //  const { isLoaded, loadError } = useLoadScript({
+    //     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+    //     libaries,
+    // });
 
    const mapRef = useRef()
    const onMapLoad  = useCallback((map) => {
         mapRef.current = map
    }, [])
 
-    if(loadError) return "Error loading maps";
-    if(!isLoaded) return "Loading maps";
+    // if(loadError) return "Error loading maps";
+    // if(!isLoaded) return "Loading maps";
 
 
 
 
     const Search = ({ panTo }) => {
         const {ready, value, suggestions: {status, data}, setValue, clearSuggestions } = usePlacesAutocomplete ({
-            requestOptions: {
-                location: {lat: () => 40.71427, lng:() => -74.00597 },
-                radius: 100 * 1000
-            },
+            // requestOptions: {
+            //     types: ["veterinary_care"]
+            // },
 
         })
+        
         return(
             <div className="search">
             <Combobox onSelect = { async (address) => {
