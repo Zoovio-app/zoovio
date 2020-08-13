@@ -1,4 +1,5 @@
 import React from "react";
+import "./css/display.css";
 
 const TasksDisplay = ({ tasks = [] }) => {
   if (tasks.length === 0)
@@ -10,9 +11,9 @@ const TasksDisplay = ({ tasks = [] }) => {
 
   const tasksMap = tasks.map((task) => {
     return (
-      <div key={task.task_id}>
-        <h2>{task.pet_name}</h2>
-        <h3>{task.task}</h3>
+      <div className="allUsersTasks" key={task.task_id}>
+        <p className="petName">{task.pet_name}</p>
+        <p className="taskContent">{task.task}</p>
       </div>
     );
   });
@@ -20,7 +21,7 @@ const TasksDisplay = ({ tasks = [] }) => {
   return (
     <div>
       <h3>Todays tasks</h3>
-      {tasksMap}
+      <div className="showTasks">{tasksMap}</div>
     </div>
   );
 };

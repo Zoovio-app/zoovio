@@ -12,7 +12,6 @@ import { AnimatePresence } from "framer-motion";
 import Tasks from "./features/calendar/tasks/Tasks";
 import TaskForm from "./features/taskForm/TaskForm";
 import Pets from "./features/pets/Pets";
-import PetsDisplay from "./features/petsDisplay/PetsDisplay";
 import PetForm from "./features/petForm/PetForm";
 
 function App() {

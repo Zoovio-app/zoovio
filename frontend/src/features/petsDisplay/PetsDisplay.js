@@ -5,7 +5,7 @@ const PetsDisplay = ({ pets }) => {
     return (
       <div className="petCard" key={pet.id}>
         <div>
-          <img style={{ height: "100px" }} src={pet.img} />
+          <img alt="" style={{ height: "100px" }} src={pet.img} />
         </div>
         <div style={{ display: "flex", alignItems: "center" }}>
           <span style={{ fontWeight: "bold" }}>{pet.pet_name}</span>

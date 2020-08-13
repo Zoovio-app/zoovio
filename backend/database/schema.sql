@@ -38,9 +38,9 @@ INSERT INTO users
 VALUES('hp0PJ7vUfJX4JCOjgGxZkkMzXTs2', 'user1@gmail.com', 'Uduakabasi', '718-554-6799');
 
 INSERT INTO pets
-    (id, owner, pet_name, img, dob)
-VALUES('1', 'hp0PJ7vUfJX4JCOjgGxZkkMzXTs2', 'Coco Bunny', 'https://firebasestorage.googleapis.com/v0/b/zoovio-app.appspot.com/o/images%2FRabbit3.jpg?alt=media&token=1d64e478-e1e3-45c8-bec5-0eb3e7d421f', '02/22/2020'),
-    ('2', 'hp0PJ7vUfJX4JCOjgGxZkkMzXTs2', 'Buddy', 'https://firebasestorage.googleapis.com/v0/b/zoovio-app.appspot.com/o/images%2Fbuddy.jpg?alt=media&token=0c666e54-9007-4bc0-b15e-e5c425917870', '07/1/2020');
+    ( owner, pet_name, img, dob)
+VALUES( 'hp0PJ7vUfJX4JCOjgGxZkkMzXTs2', 'Coco Bunny', 'https://firebasestorage.googleapis.com/v0/b/zoovio-app.appspot.com/o/images%2FRabbit3.jpg?alt=media&token=1d64e478-e1e3-45c8-bec5-0eb3e7d421f', '02/22/2020'),
+    ( 'hp0PJ7vUfJX4JCOjgGxZkkMzXTs2', 'Buddy', 'https://firebasestorage.googleapis.com/v0/b/zoovio-app.appspot.com/o/images%2Fbuddy.jpg?alt=media&token=0c666e54-9007-4bc0-b15e-e5c425917870', '07/1/2020');
 
 INSERT INTO tasks
     (task_id, pet_id, task, due_date)
