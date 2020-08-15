@@ -11,6 +11,8 @@ import Nav from "./features/navBar/Nav";
 import { AnimatePresence } from "framer-motion";
 import Tasks from "./features/calendar/tasks/Tasks";
 import TaskForm from "./features/taskForm/TaskForm";
+import Pets from "./features/pets/Pets";
+import PetForm from "./features/petForm/PetForm";
 
 function App() {
   const location = useLocation();
@@ -24,11 +26,18 @@ function App() {
           <AuthRoute exact path="/login">
             <LandingPage />
           </AuthRoute>
+          <ProtectedRoute exact path="/pets/create">
+            <PetForm />
+          </ProtectedRoute>
 
           <AnimatePresence exitBeforeEnter>
             <Switch location={location} key={location.pathname}>
               <ProtectedRoute exact path="/home">
                 <Home />
+              </ProtectedRoute>
+
+              <ProtectedRoute exact path="/pets">
+                <Pets />
               </ProtectedRoute>
 
               <ProtectedRoute exact path="/calendar/tasks/:day">

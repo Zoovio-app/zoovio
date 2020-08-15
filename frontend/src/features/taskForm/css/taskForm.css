@@ -1,0 +1,40 @@
+.tasksForm {
+  color: rgba(var(--i1d, 38, 38, 38), 1);
+  font: inherit;
+  vertical-align: baseline;
+  align-items: center;
+  border: 0 solid #000;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  padding: 0;
+  position: relative;
+}
+.tasks_input {
+  font: inherit;
+  vertical-align: baseline;
+  flex-shrink: 0;
+  margin: 10px;
+  padding: 10px;
+  align-items: center;
+  -webkit-appearance: none;
+  background: rgba(var(--b3f, 250, 250, 250), 1);
+  border: 1px solid rgba(var(--ca6, 219, 219, 219), 1);
+  border-radius: 3px;
+  box-sizing: border-box;
+  color: rgba(var(--i1d, 38, 38, 38), 1);
+  display: flex;
+  flex-direction: row;
+  font-size: 14px;
+  position: relative;
+  width: 450px;
+}
+.addTaskButton {
+  background-color: #255f85;
+  color: white;
+}
+.addTaskButton:hover {
+  background-color: #255f85;
+  opacity: 0.7;
+}

@@ -5,6 +5,7 @@ import { AuthContext } from "../../providers/AuthContext";
 import { pageVariants, pageTransition } from "../../util/framerStyles";
 import { motion } from "framer-motion";
 import { useHistory } from "react-router-dom";
+import "./css/taskForm.css";
 
 const date = new Date();
 
@@ -15,7 +16,6 @@ const TaskForm = () => {
   const [dueDate, setDueDate] = useState(
     date.toLocaleDateString("pt-br").split("/").reverse().join("-")
   );
-  const [allPetID, setAllPetID] = useState([]);
   const [petID, setPetID] = useState("");
   const [newTask, setNewTask] = useState("");
   const history = useHistory();
@@ -44,9 +44,9 @@ const TaskForm = () => {
 
   const petNames = allPetNames.map((el, i) => {
     return (
-      <option key={i} value={el.pets[i].id}>
+      <option key={i} value={el.id}>
         {" "}
-        {el.pets[i].pet_name}{" "}
+        {el.pet_name}{" "}
       </option>
     );
   });
@@ -61,8 +61,8 @@ const TaskForm = () => {
             AuthToken: token,
           },
         });
-        setAllPetNames([res.data.payload]);
-        setAllPetID([res.data.payload.id]);
+        // debugger;
+        setAllPetNames(res.data.payload.pets);
       } catch (error) {
         setAllPetNames([]);
       }
@@ -80,7 +80,10 @@ const TaskForm = () => {
     >
       <h2>Create new task</h2>
       <form className="tasksForm" onSubmit={handleSubmit}>
-        <select onChange={(e) => setPetID(e.target.value)}>
+        <select
+          className="tasks_input"
+          onChange={(e) => setPetID(e.target.value)}
+        >
           <option>Choose Pet</option>
           {petNames}
         </select>
@@ -99,7 +102,7 @@ const TaskForm = () => {
           onChange={(e) => setDueDate(e.target.value)}
           value={dueDate}
         />
-        <button className="addTaskButton" type="submit">
+        <button className="tasks_input addTaskButton" type="submit">
           Add
         </button>
       </form>
