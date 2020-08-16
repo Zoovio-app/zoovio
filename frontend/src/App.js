@@ -26,6 +26,9 @@ function App() {
           <AuthRoute exact path="/login">
             <LandingPage />
           </AuthRoute>
+          <AuthRoute exact path="/signup">
+            <SignUp />
+          </AuthRoute>
           <ProtectedRoute exact path="/pets/create">
             <PetForm />
           </ProtectedRoute>
@@ -58,9 +61,6 @@ function App() {
             <LandingPage />
           </AuthRoute>
 
-          <AuthRoute exact path="/signup">
-            <SignUp />
-          </AuthRoute>
 
           <AuthRoute path="*">
             <LandingPage />

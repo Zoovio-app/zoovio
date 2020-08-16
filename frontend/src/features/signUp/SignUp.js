@@ -9,13 +9,13 @@ const SignUp = () => {
         <SignUpForm />
       </div>
       <div className="bottomDiv">
-        <nav className="midNav">
+        {/* <nav className="midNav">
           Have an account?
-          <NavLink className="login" exact to={"/"}>
+          <NavLink className="login" exact to={"/login"}>
             {" "}
             Log in
           </NavLink>
-        </nav>
+        </nav> */}
       </div>
     </div>
   );
