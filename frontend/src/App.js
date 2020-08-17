@@ -12,7 +12,8 @@ import { AnimatePresence } from "framer-motion";
 import Tasks from "./features/calendar/tasks/Tasks";
 import VetSearch from "./features/search/VetSearch"
 import TaskForm from "./features/taskForm/TaskForm";
-
+import YelpSearch from "./features/search/SearchBar"
+import "bulma/css/bulma.css"
 
 function App() {
   const location = useLocation();
@@ -46,7 +47,7 @@ function App() {
               </ProtectedRoute>
 
               <ProtectedRoute exact path="/search">
-                <VetSearch />
+                <YelpSearch />
               </ProtectedRoute>
 
             </Switch>
