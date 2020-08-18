@@ -16,7 +16,7 @@ const SearchBar = () => {
                      <option value="Veterinarian">Veterinarian</option>
                      <option value="Pet Shop">Pet Shop</option>
                      <option value="Pet Grooming">Pet Grooming</option>
-                     <option value="Pet Care">Pet Care</option>
+                     <option value="Pet Adoption">Pet Adoption</option>
                    </select>
                  </div>
                </div>
