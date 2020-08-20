@@ -17,6 +17,9 @@ const SearchBar = () => {
                      <option value="Pet Shop">Pet Shop</option>
                      <option value="Pet Grooming">Pet Grooming</option>
                      <option value="Pet Adoption">Pet Adoption</option>
+                     <option value="Pet Shelter">Pet Shelter</option>
+                     <option value="Pet Daycare">Pet Daycare</option>
+                     <option value="Pet Training">Pet Training</option>
                    </select>
                  </div>
                </div>
@@ -27,7 +30,7 @@ const SearchBar = () => {
               <button class="button is-static">Near</button>
                </p>
             <p class="control">
-              <input class="input" type="text" placeholder="Location"/>
+              <input class="input" type="text" placeholder="Location, City, Zip Code"/>
             </p>
             <button class="button">
                 <span class="icon is-small">

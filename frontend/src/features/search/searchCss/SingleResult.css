@@ -1,3 +1,8 @@
 .single-result{
-
+    display: flex;
+}
+.image {
+    width: 175px;
+    height: 175px;
+    border-radius: 4px;
 }

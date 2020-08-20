@@ -6,9 +6,9 @@ const SingleResult = () => {
 
 return(
     <div className='single-result'>
-        <img src="https://via.placeholder.com/175" alt="image" />
+        <img className="image" src="https://via.placeholder.com/175" alt="image" />
         <div className="info">
-            <h2 class="subtitle">Subtitle</h2>
+            <h2 class="subtitle">General Info</h2>
         </div>
         <p>address</p>
     </div>

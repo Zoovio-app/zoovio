@@ -13,7 +13,7 @@ const Search = () => {
     return(
         <div>
             <SearchBar/>
-            <SearchResults/>
+            <SearchResults  />
         </div>
     )
 }
