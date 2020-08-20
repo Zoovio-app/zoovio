@@ -1,4 +1,5 @@
 import { login } from "../util/firebaseFunctions";
+// import { cloudSignin } from '../actions'
 
 export const demoLogin = async () => {
   try {
@@ -16,3 +17,12 @@ export const userLogin = (e, email, password) => async (dispatch, getState) => {
     alert(error.message);
   }
 };
+
+// export const cloudSignin = (e, email, password) => async (dispatch, getState) => {
+//   e.preventDefault();
+//   try {
+//     await cloudSignin(email, password);
+//   } catch (error) {
+//     alert(error.message);
+//   }
+// }
