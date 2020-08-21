@@ -24,6 +24,7 @@
     "react-google-places": "^2.0.3",
     "react-modal": "^3.11.2",
     "react-places-autocomplete": "^7.3.0",
+    "react-rating": "^2.0.5",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.3",

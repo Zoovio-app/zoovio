@@ -1,5 +1,6 @@
 import React from 'react'
 import './searchCss/SingleResult.css'
+import PawRating from './PawRating' 
 
 const SingleResult = () => {
     
@@ -9,8 +10,14 @@ return(
         <img className="image" src="https://via.placeholder.com/175" alt="image" />
         <div className="info">
             <h2 class="subtitle">General Info</h2>
+            <PawRating />
+            <p>$$</p>
         </div>
-        <p>address</p>
+        <div className="contact">
+        <p>Number</p>
+        <p>Address</p>
+        </div>
+        
     </div>
 )
 

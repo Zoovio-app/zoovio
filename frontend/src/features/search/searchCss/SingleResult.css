@@ -4,5 +4,13 @@
 .image {
     width: 175px;
     height: 175px;
-    border-radius: 4px;
+    border-radius: 15px;
+}
+
+.info{
+    min-width: 400px;
+}
+
+.contact p{
+    font-size: .90rem;
 }
