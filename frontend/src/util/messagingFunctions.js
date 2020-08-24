@@ -11,15 +11,7 @@ export const getRealtimeUsers = (uid) => async (dispatch, getState) => {
                             users.push(doc.data());
                         }
                     });
-                    dispatch({ 
-                            type: `${userConstanst.GET_REALTIME_USERS}_SUCCESS`,
-                                     payload: { users }
-                                    });
-    try {
-      await ()
-    } catch (error) {
-      console.log(error);
-    }
+                    dispatch(GET_REALTIME_USERS({users}));
   };
 
 // export const getRealtimeUsers = (uid) => {
@@ -46,9 +38,32 @@ export const getRealtimeUsers = (uid) => async (dispatch, getState) => {
 //     }
 // }
 
-export const updateMessage = (msgObj) => {
-    return async dispatch => {
-        const db = firestore();
+// export const updateMessage = (msgObj) => {
+//     return async dispatch => {
+//         const db = firestore();
+//         db.collection('chats')
+//         .add({
+//             ...msgObj,
+//             isView: false,
+//             createdAt: new Date()
+//         })
+//         .then((data) => {
+//             console.log('here is the data', data)
+//             //success
+//             dispatch({
+//                 type: userConstanst.GET_REALTIME_MESSAGES,
+//                 // payload: {chats: ["testing"]}
+//             })
+//         })
+//         .catch(error => {
+//             console.log(error)
+//         });
+//     }
+// }
+    
+    
+export const updateMessage = (msgObj) => async(dispatch,getState) =>{
+     const db = firestore();
         db.collection('chats')
         .add({
             ...msgObj,
@@ -58,22 +73,49 @@ export const updateMessage = (msgObj) => {
         .then((data) => {
             console.log('here is the data', data)
             //success
-            dispatch({
-                type: userConstanst.GET_REALTIME_MESSAGES,
-                // payload: {chats: ["testing"]}
-            })
+            dispatch(GET_REALTIME_MESSAGES())
         })
         .catch(error => {
             console.log(error)
         });
-    }
-}
+    
+}    
 
-export const getRealtimeConversations = (user) => {
-    return async dispatch => {
-        const db = firestore();
+// export const getRealtimeConversations = (user) => {
+//     return async dispatch => {
+//         const db = firestore();
+//         db.collection('chats')
+//         // .where('user_uid_1', 'in', [user.uid_1, user.uid_2])
+//         .orderBy('createdAt', 'asc')
+//         .onSnapshot((querySnapshot) => {
+//             const chats = [];
+//             querySnapshot.forEach(doc => {
+//                 if(
+//                     (doc.data().user_uid_1 == user.uid_1 && doc.data().user_uid_2 == user.uid_2)
+//                     || 
+//                     (doc.data().user_uid_1 == user.uid_2 && doc.data().user_uid_2 == user.uid_1)
+//                 ){
+//                     chats.push(doc.data())
+//                 }
+//             });
+//             dispatch({
+//                 type: userConstanst.GET_REALTIME_MESSAGES,
+//                 payload: { chats }
+//             })
+//             console.log(chats);
+//         })
+//         //user_uid_1 == 'myid' and user_uid_2 = 'yourId' OR user_uid_1 = 'yourId' and user_uid_2 = 'myId'
+
+
+//     }
+// }
+
+
+
+
+export const getRealtimeConversations = (user)=> async(dispatch,getState)=>{
+    const db = firestore();
         db.collection('chats')
-        // .where('user_uid_1', 'in', [user.uid_1, user.uid_2])
         .orderBy('createdAt', 'asc')
         .onSnapshot((querySnapshot) => {
             const chats = [];
@@ -86,14 +128,13 @@ export const getRealtimeConversations = (user) => {
                     chats.push(doc.data())
                 }
             });
-            dispatch({
-                type: userConstanst.GET_REALTIME_MESSAGES,
-                payload: { chats }
-            })
+            dispatch(GET_REALTIME_MESSAGES({ chats })
             console.log(chats);
         })
         //user_uid_1 == 'myid' and user_uid_2 = 'yourId' OR user_uid_1 = 'yourId' and user_uid_2 = 'myId'
 
 
     }
+   
 }
+    
