@@ -14,14 +14,14 @@ const Nav = () => {
           style={{ borderBottomLeftRadius: "20px" }}
           className="navLinksCont"
         >
-          <NavLink className="link" to="/home">
+          <NavLink activeClassName={"linkF"} className="link" to="/home">
             <div className="navImgCont">
               <img alt="" src={home} />
             </div>
           </NavLink>
         </div>
         <div className="navLinksCont">
-          <NavLink className="link" to="/pets">
+          <NavLink activeClassName={"linkF"} className="link" to="/pets">
             <div className="navImgCont">
               <img alt="" src={pet} />
             </div>
@@ -29,7 +29,7 @@ const Nav = () => {
         </div>
 
         <div className="navLinksCont">
-          <NavLink className="link" to="/calendar">
+          <NavLink activeClassName={"linkF"} className="link" to="/calendar">
             <div className="navImgCont">
               <img alt="" src={calendar} />
             </div>
@@ -39,7 +39,7 @@ const Nav = () => {
           style={{ borderBottomRightRadius: "20px" }}
           className="navLinksCont"
         >
-          <NavLink className="link" to="/calendar">
+          <NavLink activeClassName={"linkF"} className="link" to="/calendar">
             <div className="navImgCont">
               <img alt="" src={vet} />
             </div>

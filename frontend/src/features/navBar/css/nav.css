@@ -19,7 +19,7 @@
   padding: 15px;
 }
 
-.link:focus {
+.linkF {
   border-top-style: solid;
   border-top-width: 3px;
   border-top-color: #f16643;
