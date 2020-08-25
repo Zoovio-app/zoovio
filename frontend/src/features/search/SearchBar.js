@@ -1,9 +1,27 @@
-import React from 'react'
-
+import React, { useState, useHistory } from 'react'
+import useReactRouter from 'use-react-router'
 const SearchBar = () => {
 
+  const [selectTag, setSelectTag] = useState()
+  const [location, setLocation] = useState()
+  const [results, setResults] = useState()
+  const {history} = useReactRouter
+  const handleSubmit = (e,props) => {
+    
+    console.log(selectTag,location)
+    // if(props.Search && typeof props.search === 'const')
+    //   props.Search(selectTag,location)
+      e.preventDefault()
+  }
+
+  // const searchHistoryResults = (selectTag, location) => {
+  //   const urlEncodedSelect = encodeURI(selectTag)
+  //   const urlEncodedLocation = encodeURI(location)
+  //   history.push(`/search?find_desc=${urlEncodedSelect}&find_loc=${urlEncodedLocation}`)
+  // }
+  
         return(
-            <div>
+            <form onSubmit={handleSubmit}>
             <div class="field has-addons">
             
             <p class="control">
@@ -12,7 +30,8 @@ const SearchBar = () => {
                <div class="field has-addons">
                <div class="control is-expanded">
                  <div class="select is-fullwidth">
-                   <select name="Search for Service">
+                   <select onChange={(e) => setSelectTag(e.target.value)}>
+                   <option value ="" disabled selected>Choose a Service</option>
                      <option value="Veterinarian">Veterinarian</option>
                      <option value="Pet Shop">Pet Shop</option>
                      <option value="Pet Grooming">Pet Grooming</option>
@@ -26,13 +45,13 @@ const SearchBar = () => {
                <div class="control">
                </div>
              </div>
+            <div class="control">
+              <div class="button is-static">Near</div>
+               </div>
             <p class="control">
-              <button class="button is-static">Near</button>
-               </p>
-            <p class="control">
-              <input class="input" type="text" placeholder="Location, City, Zip Code"/>
+              <input class="input" type="text" onChange={(e) => setLocation(e.target.value)} placeholder="Location, City, Zip Code" />
             </p>
-            <button class="button">
+            <button class="button" onClick = {handleSubmit}>
                 <span class="icon is-small">
                     <i class="fas fa-paw"></i>
                 </span>
@@ -40,7 +59,7 @@ const SearchBar = () => {
             
             
           </div>
-            </div>
+            </form>
         )
 }
 
