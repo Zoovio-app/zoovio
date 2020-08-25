@@ -5,7 +5,7 @@ import { css, jsx } from '@emotion/core'
 const Dot = ({ active }) => (
   <span
     css={css`
-      padding: 10px;
+      padding: 5px;
       margin-right: 5px;
       cursor: pointer;
       border-radius: 50%;
