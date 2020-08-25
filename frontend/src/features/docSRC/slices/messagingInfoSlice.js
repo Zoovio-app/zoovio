@@ -2,11 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const messagingInfoSlice = createSlice({
     name: "messagingInfo",
-    initalState: {
+    initialState: {
         users: [],
         chats: []
     },
-
     reducers: {
         // action type doing what reducer does when applied
         GET_REALTIME_USERS: (state, action) => {
@@ -16,7 +15,7 @@ export const messagingInfoSlice = createSlice({
         // action type doing what reducer does when applied
         GET_REALTIME_MESSAGES: (state, action) => {
             state.chats = action.payload.chats;
-        }
+        },
     }
 })
 

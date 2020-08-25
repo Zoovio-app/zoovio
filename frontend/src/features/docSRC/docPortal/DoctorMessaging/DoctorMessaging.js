@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import './docMessaging.css'
 import Layout from '../../components/Layout/Layout';
 import { useDispatch, useSelector } from 'react-redux';
-import { getRealtimeUsers, updateMessage, getRealtimeConversations } from '../../actions';
+import { getRealtimeUsers, updateMessage, getRealtimeConversations } from '../../../../util/messagingFunctions';
 // import {
 //     updateUserInfo,
 //     userInfoState,
@@ -10,6 +10,11 @@ import { getRealtimeUsers, updateMessage, getRealtimeConversations } from '../..
 // } from '../../../userInfo/userInfoSlice';
 import { Link } from 'react-router-dom';
 import DoctorNav from '../DoctorNav/DoctorNav'
+import { authInfoState } from '../../slices/authInfoSlice';
+import { messagingInfoState } from '../../slices/messagingInfoSlice';
+import { AuthContext } from '../../../../providers/AuthContext';
+import { current } from '@reduxjs/toolkit';
+
 
 
 const User = (props) => {
@@ -29,15 +34,22 @@ const User = (props) => {
 
 const HomePage = (props) => {
   const dispatch = useDispatch();
-  const auth = useSelector(state => state.auth);
-  const user = useSelector(state => state.user);
+  const auth = useSelector(authInfoState);
+  const user = useSelector(messagingInfoState);
+  const { currentUser } = useContext(AuthContext);
+
+
+
+
+
   const [chatStarted, setChatStarted] = useState(false);
   const [chatUser, setChatUser] = useState('');
   const [message, setMessage] = useState('');
   const [userUid, setUserUid] = useState(null);
   let unsubscribe;
+  console.log(auth)
   useEffect(() => {
-    unsubscribe = dispatch(getRealtimeUsers(auth.uid))
+    unsubscribe = dispatch(getRealtimeUsers(currentUser.id))
     .then(unsubscribe => {
       return unsubscribe;
     })
@@ -61,16 +73,15 @@ const HomePage = (props) => {
     setChatUser(`${user.firstName} ${user.lastName}`)
     setUserUid(user.uid);
     console.log(user);
-    dispatch(getRealtimeConversations({ uid_1: auth.uid, uid_2: user.uid }));
+    dispatch(getRealtimeConversations({ uid_1: currentUser.id, uid_2: user.uid }));
   }
 
   const submitMessage = (e) => {
     const msgObj = {
-      user_uid_1: auth.uid,
+      user_uid_1: currentUser.id,
       user_uid_2: userUid,
       message
     }
-    
     if(message !== ""){
       dispatch(updateMessage(msgObj))
       .then(() => {
@@ -118,7 +129,7 @@ const HomePage = (props) => {
                 {
                   chatStarted ? 
                   user.chats.map(chat =>
-                    <div className="indi-messages" style={{ textAlign: chat.user_uid_1 == auth.uid ? 'right' : 'left' }}>
+                    <div className="indi-messages" style={{ textAlign: chat.user_uid_1 == currentUser.id ? 'right' : 'left' }}>
                     <p className="messageStyle" >{chat.message}</p>
                   </div> )
                   : null

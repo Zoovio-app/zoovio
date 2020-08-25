@@ -25,7 +25,7 @@ export const cloudSignup = (user) => {
                     // companyName: user.companyName,
                     email: user.email,
                     uid: data.user.uid,
-                    createdAt: new Date(),
+                    createdAt: JSON.stringify({ date: new Date() }),
                     isOnline: true
                 })
                 .then(() => {
@@ -57,11 +57,7 @@ export const cloudSignup = (user) => {
         .catch(error => {
             console.log(error);
         })
-
-
     }
-
-
 }
 
 export const cloudSigin = (user) => {
@@ -81,7 +77,6 @@ export const cloudSigin = (user) => {
                 const name = data.user.displayName.split(" ");
                 const firstName = name[0];
                 const lastName = name[1];
-
                 const loggedInUser = {
                     firstName,
                     lastName,
@@ -90,9 +85,7 @@ export const cloudSigin = (user) => {
                     email: data.user.email,
                     phoneNumber: data.user.phoneNumber
                 }
-
                 localStorage.setItem('user', JSON.stringify(loggedInUser));
-
                 dispatch({
                     type: `${authConstanst.USER_LOGIN}_SUCCESS`,
                     payload: { user: loggedInUser }
@@ -126,8 +119,6 @@ export const isLoggedInUser = () => {
                 payload: { error: 'Login again please' }
             });
         }
-
-
     }
 }
 
@@ -158,9 +149,5 @@ export const cloudLogout = (uid) => {
         .catch(error => {
             console.log(error);
         })
-
-        
-
-
     }
 }

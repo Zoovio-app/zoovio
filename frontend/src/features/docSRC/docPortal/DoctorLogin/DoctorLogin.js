@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import Layout from '../../components/Layout/Layout';
 // import Card from '../../components/UI/Card';
-import { cloudSigin, isLoggedInUser } from '../../actions';
+import { cloudSignin } from '../../../../util/loginFunctions';
 // import './style.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { authInfoState } from '../../slices/authInfoSlice';
 
 // /**
 // * @author
@@ -16,12 +17,12 @@ const DoctorLogin = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
-  const auth = useSelector(state => state.auth);
+  const auth = useSelector(authInfoState);
   const history = useHistory();
 
   useEffect(() => {
     if(!auth.authenticated){
-      dispatch(isLoggedInUser())
+      // dispatch(isLoggedInUser())
     }
   }, []);
 
@@ -30,19 +31,9 @@ const DoctorLogin = (props) => {
 
   const userLogin = (e) => {
     e.preventDefault();
-
-    if(email == ""){
-      alert("Email is required");
-      return;
-    }
-    if(password == ""){
-      alert("Password is required");
-      return;
-    }
-
-    dispatch(cloudSigin({ email, password }));
-
+    dispatch(cloudSignin(e, { email, password }));
   }
+
 
 
   // if(auth.authenticated){
@@ -63,6 +54,7 @@ const DoctorLogin = (props) => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Email"
+              required
             />
 
             <input 
@@ -71,6 +63,7 @@ const DoctorLogin = (props) => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Password"
+              required
             />
 
 

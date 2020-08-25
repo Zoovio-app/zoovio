@@ -36,11 +36,11 @@ function App() {
   const dispatch = useDispatch()
 
 
-  useEffect(() => {
-    if(!auth.authenticated){
-      dispatch(isLoggedInUser())
-    }
-  }, []);
+  // useEffect(() => {
+  //   if(!auth.authenticated){
+  //     dispatch(isLoggedInUser())
+  //   }
+  // }, []);
 
   return (
     <AuthProvider>

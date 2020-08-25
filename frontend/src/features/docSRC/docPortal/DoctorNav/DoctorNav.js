@@ -1,12 +1,13 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, Link } from 'react-router-dom';
-import { cloudLogout } from '../../actions/auth.actions';
+import { cloudLogout } from '../../../../util/logoutFunctions';
 import './doctorNav.css';
+import { authInfoState } from '../../slices/authInfoSlice';
 
 
 const DoctorNav = () => {
-    const auth = useSelector(state => state.auth);
+    const auth = useSelector(authInfoState);
     const dispatch = useDispatch();
 
 
@@ -20,7 +21,7 @@ const DoctorNav = () => {
                         <li className="style-navigation"><a class="hoverable" href="/doctor/appointments"> Upcoming Appointments</a></li>
                         <li className="style-navigation"><a class="hoverable" href="/doctor/virtual-appointment"> Virtual Appointments </a></li>
                         <li className="style-navigation"><a class="hoverable" href="/doctor/pet-charts"> Pet Charts </a></li>
-                        <li> <Link to={'/'} onClick={() => {dispatch(cloudLogout(auth.uid))}}>Logout</Link> </li>
+                        {/* <li> <Link to={'/'} onClick={() => {dispatch(cloudLogout(auth.uid))}}>Logout</Link> </li> */}
                     </ul>
                 </div>
              )  
