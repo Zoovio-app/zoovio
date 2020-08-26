@@ -4,7 +4,7 @@ import {
   authInfoState,
 } from '../../authInfoSlice/authInfoSlice';
 import { cloudLogout } from '../../../util/logoutFunctions';
-import './doctorHome.css'
+import '../DoctorHome/doctorHome.css';
 import DoctorNav from '../DoctorNav/DoctorNav';
 import { AuthContext } from '../../../providers/AuthContext';
 
