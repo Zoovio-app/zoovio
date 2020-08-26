@@ -47,45 +47,23 @@ const checkEmail = async (req, res, next) => {
 
 const getAllPetsByUser = async (req, res, next) => {
   try {
-      const { id } = req.params
-      let pets = await db.any(`SELECT * FROM pets WHERE owner = $1`, [id]);
-      res.status(200).json({
-          status: "Success",
-          message: "Selected all pets from user",
-          payload: {
-              user: id,
-              pets
-          }
-      })
+    const { id } = req.params;
+    let pets = await db.any(`SELECT * FROM pets WHERE owner = $1`, [id]);
+    res.status(200).json({
+      status: "Success",
+      message: "Selected all pets from user",
+      payload: {
+        user: id,
+        pets,
+      },
+    });
   } catch (error) {
-      res.status(400).json({
-          status: "Error",
-          message: "Did not select all pets from user"
-      })
-      next(err)
+    res.status(400).json({
+      status: "Error",
+      message: "Did not select all pets from user",
+    });
+    next(err);
   }
 };
 
-const createPet = async (req, res, next) => {
-  const { id, owner, pet_name } = req.body;
-  try {
-    let newPet = await db.one(`INSERT INTO pets VALUES($1, $2, $3)`, [
-      id, 
-      owner, 
-      pet_name
-    ])
-    res.status(200).json({ 
-      status: "success", 
-      message: "pet created",
-      payload: newPet 
-    });
-  } catch(error) {
-    res.status(400).json({
-      status: "Error",
-      message: "Did not create new pet"
-    })
-    next(error)
-  }
-}
-
-module.exports = { getUserInfo, createUser, checkEmail, getAllPetsByUser, createPet };
+module.exports = { getUserInfo, createUser, checkEmail, getAllPetsByUser };

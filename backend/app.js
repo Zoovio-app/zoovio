@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const usersRouter = require("./routes/users/users");
 const tasksRouter = require("./routes/tasks/tasks");
+const petsRouter = require("./routes/pets/pets");
 require("dotenv").config();
 const port = process.env.PORT;
 
@@ -13,6 +14,7 @@ app.use(bodyParser.json());
 
 app.use("/api/users", usersRouter);
 app.use("/api/users/tasks", tasksRouter);
+app.use("/api/users/pets", petsRouter);
 
 const errorHandling = (error, req, res, next) => {
   if (error.received === 0) {

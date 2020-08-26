@@ -9,6 +9,8 @@ const Nav = () => {
       <NavLink to="/calendar">CALENDAR</NavLink>
 
       <NavLink to="/search">MEDICAL</NavLink>
+
+      <NavLink to="/pets">PETS</NavLink>
     </div>
   );
 };

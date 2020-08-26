@@ -14,6 +14,9 @@ import VetSearch from "./features/search/VetSearch"
 import TaskForm from "./features/taskForm/TaskForm";
 import Search from "./features/search/Search"
 import "bulma/css/bulma.css"
+import Pets from "./features/pets/Pets";
+import PetForm from "./features/petForm/PetForm";
+
 
 function App() {
   const location = useLocation();
@@ -27,11 +30,18 @@ function App() {
           <AuthRoute exact path="/login">
             <LandingPage />
           </AuthRoute>
+          <ProtectedRoute exact path="/pets/create">
+            <PetForm />
+          </ProtectedRoute>
 
           <AnimatePresence exitBeforeEnter>
             <Switch location={location} key={location.pathname}>
               <ProtectedRoute exact path="/home">
                 <Home />
+              </ProtectedRoute>
+
+              <ProtectedRoute exact path="/pets">
+                <Pets />
               </ProtectedRoute>
 
               <ProtectedRoute exact path="/calendar/tasks/:day">
