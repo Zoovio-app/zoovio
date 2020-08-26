@@ -4,7 +4,6 @@ import { AuthContext } from "../providers/AuthContext";
 
 export const AuthRoute = ({ children, ...rest }) => {
   const { currentUser } = useContext(AuthContext);
-
   return (
     <Route
       {...rest}
@@ -22,7 +21,7 @@ export const ProtectedRoute = ({ children, ...rest }) => {
     <Route
       {...rest}
       render={({ location }) => {
-        return currentUser ? children : <Redirect to="/login" />;
+        return currentUser ? children : <Redirect to="/doctor/portal" />;
       }}
     />
   );
@@ -54,7 +53,7 @@ export const PrivateRoute = ({component: Component, ...rest}) => {
     <Route
       {...rest}
       render={({ location }) => {
-        return !currentUser ? children : <Redirect to="/doctor/home" />;
+        return !currentUser ? children : <Redirect to="/doctor/portal" />;
       }}
     />
   );

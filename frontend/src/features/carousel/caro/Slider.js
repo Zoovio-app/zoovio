@@ -1,3 +1,4 @@
+/** @jsx jsx */
 import React, { useState, useEffect, useRef } from 'react'
 import { css, jsx } from '@emotion/core'
 import SliderContent from './SliderContent'
