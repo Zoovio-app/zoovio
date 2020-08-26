@@ -1,0 +1,16 @@
+.petCard {
+  display: flex;
+  border-style: solid;
+  border-width: thin;
+  width: 400px;
+  max-width: 27vw;
+  border-color: lightgrey;
+}
+
+.pets {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 50vh;
+  justify-content: space-evenly;
+}
