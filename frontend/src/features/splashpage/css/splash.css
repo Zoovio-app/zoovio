@@ -1,0 +1,104 @@
+.carousel-indicators li {
+  background-color: #f16643;
+}
+
+.carousel-item img {
+  height: 60vh;
+}
+
+.carousel-item {
+  height: 65vh;
+}
+
+.titleE {
+  color: "#225095";
+}
+
+.splashMain {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 90vh;
+  margin-top: -30px;
+}
+
+.topCont {
+  display: flex;
+  justify-content: space-around;
+  box-sizing: border-box;
+}
+
+.blob {
+  height: 240px;
+}
+
+.titleCont {
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  z-index: 1;
+}
+
+.carousel {
+  width: 50vw;
+}
+
+.blob2 {
+  margin-left: -195px;
+}
+
+.bottomCont {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: -285px;
+}
+
+.blob3 {
+  margin-right: -66px;
+}
+
+.splashButtonsCont {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 0.7;
+  padding: 5px;
+  /* align-items: flex-start; */
+  height: 25vh;
+}
+
+.appCont {
+  overflow-y: hidden;
+}
+
+.blob4 {
+  margin-left: -273px;
+}
+
+.blob4 svg {
+  height: 500px;
+}
+
+.buttsHolder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 15vh;
+  justify-content: space-evenly;
+}
+
+.splashSignUpCont {
+  width: 20vw;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+}
+
+.footerDiv {
+  display: flex;
+  justify-content: space-around;
+}
+
+.footerDiv a {
+  color: #8b9cac;
+}
