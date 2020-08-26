@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  font-family: 'Rubik', sans-serif !important;
+  font-family: "Rubik", sans-serif !important;
 }
 
 .App-logo {
@@ -39,53 +39,12 @@
   }
 }
 
-
 .btn-primary {
   background-color: #225095;
 }
 
-.form-group {
-  display: flex;
-  flex-direction: column;
-  width: 25vw;
-  height: 19vh;
-  justify-content: space-around;
-}
-
-.formContainer {
-  display: flex;
-  justify-content: center;
-  height: 47vh;
-  /* z-index: -1; */
-  flex-direction: column;
-}
-
-.landingInfo {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100vh;
-  align-items: center;
-}
-
-svg {
-  /* position: fixed; */
-  z-index: -1;
-}
-
-img {
-  /* object-fit: cover; */
-  width: 300px;
-  /* position: absolute; */
-  /* z-index: -1; */
-}
-
-.vectorImg {
-  z-index: -1;
-}
-
 .list-group-item-danger {
-  background-color: rgb(241, 142, 124, .3);
+  background-color: rgb(241, 142, 124, 0.3);
   border-radius: 13px !important;
 }
 
@@ -106,4 +65,3 @@ img {
   justify-content: center;
   height: 60vh;
 }
-
