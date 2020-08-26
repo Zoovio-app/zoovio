@@ -1,6 +1,6 @@
 import { logout } from '../util/firebaseFunctions';
 import { auth, firestore } from 'firebase';
-import { USER_LOGOUT } from '../features/docSRC/slices/authInfoSlice'; 
+import { USER_LOGOUT } from '../features/authInfoSlice/authInfoSlice'; 
 
 
 export const cloudLogout = (uid) => async (dispatch, getState) => {

@@ -14,11 +14,9 @@ export const authInfoSlice = createSlice({
         error: null
     }, 
     reducers: {
-        // action type doing what reducer does when applied
         USER_LOGIN: (state, action) => {
             return action.payload.user
         },
-        // action type doing what reducer does when applied
         USER_LOGOUT: (state, action) => {
             return state.initialState
         }

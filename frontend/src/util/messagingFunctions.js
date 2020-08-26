@@ -1,5 +1,5 @@
 import { firestore } from 'firebase';
-import { GET_REALTIME_USERS, GET_REALTIME_MESSAGES } from '../features/docSRC/slices/messagingInfoSlice';
+import { GET_REALTIME_USERS, GET_REALTIME_MESSAGES } from '../features/messagingInfoSlice/messagingInfoSlice';
 
 export const getRealtimeUsers = (uid) => async ( dispatch, getState ) => {
     

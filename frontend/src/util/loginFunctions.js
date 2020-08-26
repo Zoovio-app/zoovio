@@ -1,6 +1,6 @@
 import { login } from "../util/firebaseFunctions";
 import { auth, firestore } from 'firebase';
-import { USER_LOGIN } from '../features/docSRC/slices/authInfoSlice' 
+import { USER_LOGIN } from '../features/authInfoSlice/authInfoSlice' 
 
 export const demoLogin = async () => {
   try {
