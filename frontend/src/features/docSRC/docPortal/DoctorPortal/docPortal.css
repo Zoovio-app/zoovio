@@ -68,6 +68,10 @@
     text-decoration: none;
   }
 
+  .syleA:hover{
+    color: #225095;
+  }
+  
   .docPortalNavLiRight {
     /* display: inline; */
     color: rgb(255, 255, 255);
@@ -103,10 +107,6 @@
       /* width: 75rem */
   }
 
-  .sliderDesign img {
-    /* height: 80vh; */
-    /* width: 3070px; */
-  }
 
   .inquiryForm4DocPortal {
       float: right;
