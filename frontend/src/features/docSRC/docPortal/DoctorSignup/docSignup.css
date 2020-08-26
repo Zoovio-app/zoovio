@@ -1,9 +1,10 @@
- * {
-     padding: 0;
-     margin: 0;
- }
+* {
+    padding: 0;
+    margin: 0;
+}
 
- .loginContainer {
+
+.doctorRegistrationContainer {
     height: 100vh;
     width: 100vw;
     display: grid;
@@ -14,68 +15,62 @@
     background-position: center; /* Center the image */
     background-repeat: no-repeat;
     background-size: cover;
- }
+}
 
- .docLoginFormMain {
+.docInquireForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.docSignupFormMain {
     display: flex;
     flex-direction: column;
     margin-top: -30rem;
     margin-left: 30rem;
- }
+}
 
- .docLoginForm {
-     display: flex;
-     flex-direction: column;
-     /* margin-top: 12rem; */
- }
-
- 
- .zoovioMain4img {
+.zoovioMain4img2 {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    margin-right: 24rem;
+    margin-right: 30rem;
 }
 
-.zoovioImage {
-    width: 500px;
+.zoovioImage2 {
+    width: 700px;
+    height: 540px;
 }
 
-.welcomeLogin {
-    margin: 15px 0;
+.welcomeSignup {
+    /* margin: 5px 0; */
+    margin-top: -8rem;
     color: #225095;
-    /* color: linear-gradient(to right, #225095, #F18E7C, #F16643); */
 	text-transform: uppercase;
-    font-size: 2.9rem;
-    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
-.inputDiv {
+.inputDiv2 {
     position: relative;
     display: grid;
-    grid-template-columns: 7% 93%;
-    margin: 25px 0;
-    padding: 5px 0;
-    border-bottom: 2px solid #d9d9d9;
+    grid-template-columns: 7% 90%;
+    margin: 3rem -6rem;
+    padding: 5px;
+    border-bottom: 2px solid #F18E7C;
 }
 
-.i{
+.i2{
 	color: #d9d9d9;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-.i i{
+.i2 i2{
 	transition: .3s;
 }
 
-/* .inputDiv > div{
-    position: relative;
-	height: 20px;
-} */
-
-.inputDiv > div > h5{
+.inputDiv2 > div > h5{
 	position: absolute;
 	left: -100px;
 	top: 50%;
@@ -85,27 +80,18 @@
 	transition: .3s;
 }
 
-.inputDiv:before, .inputDiv:after{
+.inputDiv2:before, .inputDiv2:after{
 	content: '';
 	position: absolute;
 	bottom: -2px;
 	width: 0%;
 	height: 2px;
-	/* background-color: #a9b8b3; */
 	transition: .4s;
 }
 
-/* .inputDiv:before{
-	right: 50%;
-}
-
-.inputDiv:after{
-	left: 50%;
-} */
-
-.inputDiv > div > input{
+.inputDiv2 > div > input{
 	position: absolute;
-	left: 3rem;
+	left: 2rem;
 	top: -1rem;
 	width: 100%;
     height: 100%;
@@ -113,40 +99,43 @@
 	border: none;
 	outline: none;
 	background: none;
-	/* padding: 0rem 0.7rem; */
-	font-size: 1.2rem;
+	font-size: 1.1rem;
 	color: #555;
 	font-family: 'poppins', sans-serif;
 }
 
-.inputDiv.pass{
-	margin-bottom: 4px;
+.inputDiv2.pass2{
+    margin-bottom: 3.5rem;
+    
 }
 
-.syleA{
-	display: block;
+.syleA {
+    display: block;
 	text-align: right;
 	text-decoration: none;
 	color: #999;
+
 }
 
-.docLoginBtn{
-	display: block;
-	width: 90%;
-	height: 40px;
+.docSignupBtn {
+    display: block;
+	width: 100%;
+	height: 45px;
 	border-radius: 25px;
 	outline: none;
 	border: none;
-	background-image: linear-gradient(to right, #225095, #F18E7C, #F16643);
+	background-image: linear-gradient(to right, #F16643, #225095, #F18E7C);
 	background-size: 200%;
 	font-size: 1.2rem;
 	color: #fff;
 	font-family: 'Poppins', sans-serif;
 	text-transform: uppercase;
-	margin: 2rem 0;
+	margin-top: -1.5rem;
 	cursor: pointer;
-	transition: .5s;
+    transition: .5s;
+    margin-left: -2rem;
 }
-.docLoginBtn:hover{
+
+.docSignupBtn:hover{
 	background-position: right;
 }

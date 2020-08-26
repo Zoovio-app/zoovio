@@ -66,7 +66,8 @@ const DoctorLogin = (props) => {
       <div className="navBar4DocPortal">
                 <ul className="docPortalNavUl">
                     <li className="docPortalNavLiLeft"><a className="syleA" href="/doctor/portal">ZooVio</a></li>
-                    <li className="docPortalNavLiRight"><a className="syleA" href="/doctor/inquire">Inquiries</a></li>
+                    <li className="docPortalNavLiRight"><a className="syleA" href="/doctor/inquire">Inquire</a></li>
+                    <li className="docPortalNavLiRight"><a className="syleA" href="/doctor/signup">Signup</a></li>
                     <li className="docPortalNavLiRight"><a className="syleA" href="/doctor/login">Login</a></li>
                     <li className="docPortalNavLiRight"><a className="syleA" href="/about">About</a></li>
                 </ul>
@@ -78,8 +79,6 @@ const DoctorLogin = (props) => {
       
 
           <div className="docLoginFormMain">
-
-           
           <form className="docLoginForm" onSubmit={userLogin}>
 				    <h2 className="welcomeLogin"> Welcome </h2>
             

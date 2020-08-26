@@ -18,6 +18,7 @@ import DoctorMessaging from './features/docSRC/docPortal/DoctorMessaging/DoctorM
 import DoctorHome from './features/docSRC/docPortal/DoctorHome/DoctorHome';
 import DoctorLogin from './features/docSRC/docPortal/DoctorLogin/DoctorLogin';
 import DoctorSignup from './features/docSRC/docPortal/DoctorSignup/DoctorSignup';
+import DoctorInquire from './features/docSRC/docPortal/DoctorInquire/DoctorInquire';
 import DoctorPortal from "./features/docSRC/docPortal/DoctorPortal/DoctorPortal";
 // import 'bootstrap/dist/css/bootstrap.min.css'
 import { useDispatch, useSelector } from 'react-redux';
@@ -73,6 +74,9 @@ function App() {
             <DoctorSignup/>
           </DoctorAuthRoute>
 
+          <DoctorAuthRoute exact path="/doctor/inquire">
+            <DoctorInquire/>
+          </DoctorAuthRoute>
 
           <DoctorAuthRoute exact path="/doctor/login">
             <DoctorLogin/>
