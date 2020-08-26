@@ -1,6 +1,6 @@
 import React from 'react';
 import Slider from '../../carousel/caro/Slider';
-// import images from '../../carousel/caro';
+import images from '../../carousel/images';
 import { NavLink } from 'react-router-dom';
 import '../DoctorPortal/docPortal.css';
 

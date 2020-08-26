@@ -1,10 +1,4 @@
-import React from './node_modules/react';
-
-
-/**
-* @author
-* @function Layout
-**/
+import React from 'react';
 
 const Layout = (props) => {
   return(

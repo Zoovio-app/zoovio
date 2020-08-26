@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Layout from '../../messaging/layout/Layout';
+import Layout from '../../messaging/Layout/Layout';
 import { cloudSignin } from '../../../util/loginFunctions';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';

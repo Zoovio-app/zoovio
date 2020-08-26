@@ -10,11 +10,10 @@
     width: 100vw;
     display: grid;
     justify-items: center;
-    background-image: url(../../../../assets//img/docportalBGROUND4.png);
-    background-position: center; /* Center the image */
+    background-image: url(../../../assets/img/docportalBGROUND4.png);
+    background-position: center; 
     background-repeat: no-repeat;
     background-size: cover;
-    /* background-image: url(./../assets/img/docportalBGROUND.png); */
 }
 
   .navBar4DocPortal {
