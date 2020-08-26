@@ -4,11 +4,10 @@ import SingleResult from "./SingleResult"
 import './searchCss/SearchResults.css'
 
 
-const SearchResults = () => {
+const SearchResults = (props) => {
 
     return(
         <div className='search-results'>
-            <SingleResult />
             <SingleResult />
             
         </div>

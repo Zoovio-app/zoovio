@@ -14,7 +14,7 @@ const PawRating = () => {
         fullSymbol="fas fa-paw fa-1x"
         fractions={2}
         readonly
-        
+        initialRating={4.5}
       
       />
       <p> 37 Reviews </p>
