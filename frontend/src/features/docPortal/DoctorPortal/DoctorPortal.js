@@ -2,7 +2,7 @@ import React from 'react';
 import Slider from '../../../landingPage/carousel/Slider';
 import images from '../../../landingPage/images';
 import { NavLink } from 'react-router-dom';
-import './docPortal.css';
+import '../DoctorPortal/docPortal.css';
 
 const DoctorPortal = () => {
     return (
