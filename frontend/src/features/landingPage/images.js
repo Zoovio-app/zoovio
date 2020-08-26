@@ -20,6 +20,4 @@ import zooviodoctors from '../../assets/img/zooviodoctors.png'
 
 
 
-export default [
-    zooviodoctors, zooviocovoid, zooviosimplicity, inquirezoovio
-  ]
+export default [ zooviodoctors, zooviocovoid, zooviosimplicity, inquirezoovio]

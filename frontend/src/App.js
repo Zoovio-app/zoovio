@@ -18,6 +18,7 @@ import DoctorMessaging from './features/docSRC/docPortal/DoctorMessaging/DoctorM
 import DoctorHome from './features/docSRC/docPortal/DoctorHome/DoctorHome';
 import DoctorLogin from './features/docSRC/docPortal/DoctorLogin/DoctorLogin';
 import DoctorSignup from './features/docSRC/docPortal/DoctorSignup/DoctorSignup';
+import DoctorPortal from "./features/docSRC/docPortal/DoctorPortal/DoctorPortal";
 // import 'bootstrap/dist/css/bootstrap.min.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { isLoggedInUser } from './features/docSRC/actions';
@@ -57,6 +58,11 @@ function App() {
           <ProtectedRoute exact path="/home">
             <Home />
           </ProtectedRoute>
+
+          <DoctorAuthRoute exact path="/doctor/portal">
+            <DoctorPortal/>
+
+          </DoctorAuthRoute>
 
           <PrivateRoute exact path="/doctor/home">
             <DoctorHome/>
