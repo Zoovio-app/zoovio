@@ -18,6 +18,7 @@ function App() {
   const location = useLocation();
   return (
     <AuthProvider>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet"></link>
       <div className="App">
         <ProtectedRoute>
           <Nav />

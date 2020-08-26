@@ -1,5 +1,6 @@
 import React from "react";
 import "./css/display.css";
+import { ListGroup } from "react-bootstrap";
 
 const TasksDisplay = ({ tasks = [] }) => {
   if (tasks.length === 0)
@@ -11,17 +12,26 @@ const TasksDisplay = ({ tasks = [] }) => {
 
   const tasksMap = tasks.map((task) => {
     return (
-      <div className="allUsersTasks" key={task.task_id}>
-        <p className="petName">{task.pet_name}</p>
-        <p className="taskContent">{task.task}</p>
-      </div>
+      <ListGroup>
+        <ListGroup.Item variant="danger">
+          <div className="allUsersTasks" key={task.task_id}>
+            <p className="petName">{task.pet_name}</p>
+            <p className="taskContent">{task.task}</p>
+            <p className="taskContent">{task.due_time}</p>
+          </div>
+        </ListGroup.Item>
+      </ListGroup>
     );
   });
 
   return (
     <div>
       <h3>Todays tasks</h3>
-      <div className="showTasks">{tasksMap}</div>
+      <div className="showTasks">
+        <div className="tasksContainer">
+          {tasksMap}
+        </div>
+      </div>
     </div>
   );
 };

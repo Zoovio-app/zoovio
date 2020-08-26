@@ -6,6 +6,8 @@ import { pageVariants, pageTransition } from "../../util/framerStyles";
 import { motion } from "framer-motion";
 import { useHistory } from "react-router-dom";
 import "./css/taskForm.css";
+import { Button } from "react-bootstrap";
+import Moment from "react-moment";
 
 const date = new Date();
 
@@ -16,12 +18,15 @@ const TaskForm = () => {
   const [dueDate, setDueDate] = useState(
     date.toLocaleDateString("pt-br").split("/").reverse().join("-")
   );
+  const [dueTime, setDueTime] = useState(new Date("2020-08-19T22:17"))
   const [petID, setPetID] = useState("");
   const [newTask, setNewTask] = useState("");
   const history = useHistory();
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    debugger;
     try {
       await axios({
         method: "POST",
@@ -29,13 +34,13 @@ const TaskForm = () => {
         data: {
           pet_id: petID,
           task: newTask,
-          due_date: dueDate,
+          due_date: new Date(dueTime.slice(0,10)),
+          due_time: dueTime
         },
         headers: {
           authToken: token,
         },
       });
-
       history.push("/home");
     } catch (err) {
       alert(err.message);
@@ -88,6 +93,10 @@ const TaskForm = () => {
           {petNames}
         </select>
 
+        <Moment format="h:mm" utc>
+            {dueTime}
+        </Moment>
+
         <input
           className="tasks_input"
           type="text"
@@ -95,16 +104,15 @@ const TaskForm = () => {
           onChange={(e) => setNewTask(e.target.value)}
           value={newTask}
         />
-        <input
+        <input 
+          type="datetime-local" 
           className="tasks_input"
-          type="date"
-          placeholder="Pick a Date"
-          onChange={(e) => setDueDate(e.target.value)}
-          value={dueDate}
+          max="24:00" 
+          onChange={(e) => setDueTime(e.target.value)}
         />
-        <button className="tasks_input addTaskButton" type="submit">
+        <Button variant="primary" type="submit">
           Add
-        </button>
+        </Button>
       </form>
     </motion.div>
   );
