@@ -45,3 +45,17 @@ export const PrivateRoute = ({component: Component, ...rest}) => {
    )
 
  }
+
+
+ export const DoctorAuthRoute = ({ children, ...rest }) => {
+  const { currentUser } = useContext(AuthContext);
+
+  return (
+    <Route
+      {...rest}
+      render={({ location }) => {
+        return !currentUser ? children : <Redirect to="/doctor/home" />;
+      }}
+    />
+  );
+};
