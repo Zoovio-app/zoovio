@@ -42,7 +42,6 @@ const CalendarPage = () => {
             authToken: token,
           },
         });
-        debugger;
         setTasks(res.data.tasks);
       } catch (error) {
         console.log(error);

@@ -20,10 +20,13 @@ function App() {
   const location = useLocation();
   return (
     <AuthProvider>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet"></link>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"
+        rel="stylesheet"
+      ></link>
       <div className="App">
         <div className="appCont">
-          <Route path={["/home"]}>
+          <Route path={["/home", "/calendar", "/pets", "/tasks/create"]}>
             <SvgWave />
           </Route>
           <Switch>
