@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, useLocation } from "react-router-dom";
+import { Switch, useLocation, Route } from "react-router-dom";
 import "./App.css";
 import LandingPage from "./features/landingPage/LandingPage";
 import { AuthRoute, ProtectedRoute } from "./util/routeUtil";
@@ -13,6 +13,8 @@ import Tasks from "./features/calendar/tasks/Tasks";
 import TaskForm from "./features/taskForm/TaskForm";
 import Pets from "./features/pets/Pets";
 import PetForm from "./features/petForm/PetForm";
+import SvgWave from "./features/svgWaves/SvgWave";
+import SplashPage from "./features/splashpage/SplashPage";
 
 function App() {
   const location = useLocation();
@@ -20,53 +22,63 @@ function App() {
     <AuthProvider>
     <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet"></link>
       <div className="App">
-        <ProtectedRoute>
-          <Nav />
-        </ProtectedRoute>
-        <Switch>
-          <AuthRoute exact path="/login">
-            <LandingPage />
-          </AuthRoute>
-          <AuthRoute exact path="/signup">
-            <SignUp />
-          </AuthRoute>
-          <ProtectedRoute exact path="/pets/create">
-            <PetForm />
-          </ProtectedRoute>
+        <div className="appCont">
+          <Route path={["/home"]}>
+            <SvgWave />
+          </Route>
+          <Switch>
+            <AuthRoute exact path="/">
+              <SplashPage />
+            </AuthRoute>
 
-          <AnimatePresence exitBeforeEnter>
-            <Switch location={location} key={location.pathname}>
-              <ProtectedRoute exact path="/home">
-                <Home />
-              </ProtectedRoute>
+            <AuthRoute exact path="/signup">
+              <SignUp />
+            </AuthRoute>
 
-              <ProtectedRoute exact path="/pets">
-                <Pets />
-              </ProtectedRoute>
+            <AuthRoute exact path="/login">
+              <LandingPage />
+            </AuthRoute>
+            <ProtectedRoute exact path="/pets/create">
+              <PetForm />
+            </ProtectedRoute>
+            <div className="inAppContent">
+              <AnimatePresence exitBeforeEnter>
+                <Switch location={location} key={location.pathname}>
+                  <ProtectedRoute exact path="/home">
+                    <Home />
+                  </ProtectedRoute>
 
-              <ProtectedRoute exact path="/calendar/tasks/:day">
-                <Tasks />
-              </ProtectedRoute>
+                  <ProtectedRoute exact path="/pets">
+                    <Pets />
+                  </ProtectedRoute>
 
-              <ProtectedRoute exact path="/tasks/create">
-                <TaskForm />
-              </ProtectedRoute>
+                  <ProtectedRoute exact path="/calendar/tasks/:day">
+                    <Tasks />
+                  </ProtectedRoute>
 
-              <ProtectedRoute exact path="/calendar">
-                <CalendarPage />
-              </ProtectedRoute>
-            </Switch>
-          </AnimatePresence>
+                  <ProtectedRoute exact path="/tasks/create">
+                    <TaskForm />
+                  </ProtectedRoute>
 
-          <AuthRoute exact path="/">
-            <LandingPage />
-          </AuthRoute>
+                  <ProtectedRoute exact path="/calendar">
+                    <CalendarPage />
+                  </ProtectedRoute>
 
+                  <AuthRoute path="*">
+                    <LandingPage />
+                  </AuthRoute>
+                </Switch>
+              </AnimatePresence>
+            </div>
 
-          <AuthRoute path="*">
-            <LandingPage />
-          </AuthRoute>
-        </Switch>
+            <AuthRoute path="*">
+              <LandingPage />
+            </AuthRoute>
+          </Switch>
+          <Route path={["/home", "/pets", "/calendar"]}>
+            <Nav />
+          </Route>
+        </div>
       </div>
     </AuthProvider>
   );
