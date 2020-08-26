@@ -1,0 +1,19 @@
+.single-result{
+    display: flex;
+    max-width: 1000px;
+    width: 100%;
+}
+.image {
+    width: 175px;
+    height: 175px;
+    border-radius: 15px;
+    margin-right: 1rem;
+}
+
+.info{
+    min-width: 400px;
+}
+
+.contact p{
+    font-size: .90rem;
+}

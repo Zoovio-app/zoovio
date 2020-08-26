@@ -10,9 +10,13 @@ import CalendarPage from "./features/calendar/Calendar";
 import Nav from "./features/navBar/Nav";
 import { AnimatePresence } from "framer-motion";
 import Tasks from "./features/calendar/tasks/Tasks";
+import VetSearch from "./features/search/VetSearch"
 import TaskForm from "./features/taskForm/TaskForm";
+import Search from "./features/search/Search"
+import "bulma/css/bulma.css"
 import Pets from "./features/pets/Pets";
 import PetForm from "./features/petForm/PetForm";
+
 
 function App() {
   const location = useLocation();
@@ -51,6 +55,11 @@ function App() {
               <ProtectedRoute exact path="/calendar">
                 <CalendarPage />
               </ProtectedRoute>
+
+              <ProtectedRoute exact path="/search">
+                <Search />
+              </ProtectedRoute>
+
             </Switch>
           </AnimatePresence>
 
