@@ -1,21 +1,12 @@
 import React, { useEffect, useState, useContext } from 'react';
-import './docMessaging.css'
-import Layout from '../../components/Layout/Layout';
+import './messaging.css';
+import Layout from '../layout/Layout';
 import { useDispatch, useSelector } from 'react-redux';
-import { getRealtimeUsers, updateMessage, getRealtimeConversations } from '../../../../util/messagingFunctions';
-// import {
-//     updateUserInfo,
-//     userInfoState,
-//     clearUserInfo,
-// } from '../../../userInfo/userInfoSlice';
-import { Link } from 'react-router-dom';
-import DoctorNav from '../DoctorNav/DoctorNav'
-import { authInfoState } from '../../slices/authInfoSlice';
-import { messagingInfoState } from '../../slices/messagingInfoSlice';
-import { AuthContext } from '../../../../providers/AuthContext';
-import { current } from '@reduxjs/toolkit';
-
-
+import { getRealtimeUsers, updateMessage, getRealtimeConversations } from '../../../util/messagingFunctions';
+// import DoctorNav from '../DoctorNav/DoctorNav'
+import { authInfoState } from '../../authInfoSlice/authInfoSlice';
+import { messagingInfoState } from '../../messagingInfoSlice/messagingInfoSlice';
+import { AuthContext } from '../../../providers/AuthContext';
 
 const User = (props) => {
   const {user, onClick} = props;
