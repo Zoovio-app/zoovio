@@ -1,9 +1,11 @@
 import React from "react";
 
 export const taskDatesArr = (tasks) => {
-  let count = new Set(tasks.map((task) => {
-    return new Date(task.due_time).getDate()
-  }));
+  let count = new Set(
+    tasks.map((task) => {
+      return new Date(task.due_date).getDate();
+    })
+  );
   return [...count];
 };
 

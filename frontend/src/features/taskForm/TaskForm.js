@@ -18,11 +18,10 @@ const TaskForm = () => {
   const [dueDate, setDueDate] = useState(
     date.toLocaleDateString("pt-br").split("/").reverse().join("-")
   );
-  const [dueTime, setDueTime] = useState(new Date("2020-08-19T22:17"))
+  const [dueTime, setDueTime] = useState(new Date());
   const [petID, setPetID] = useState("");
   const [newTask, setNewTask] = useState("");
   const history = useHistory();
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,8 +33,8 @@ const TaskForm = () => {
         data: {
           pet_id: petID,
           task: newTask,
-          due_date: new Date(dueTime.slice(0,10)),
-          due_time: dueTime
+          due_date: new Date(dueTime.slice(0, 10)),
+          due_time: new Date(dueTime).toLocaleTimeString(),
         },
         headers: {
           authToken: token,
@@ -94,7 +93,7 @@ const TaskForm = () => {
         </select>
 
         <Moment format="h:mm" utc>
-            {dueTime}
+          {dueTime}
         </Moment>
 
         <input
@@ -104,12 +103,13 @@ const TaskForm = () => {
           onChange={(e) => setNewTask(e.target.value)}
           value={newTask}
         />
-        <input 
-          type="datetime-local" 
+        <input
+          type="datetime-local"
           className="tasks_input"
-          max="24:00" 
+          max="24:00"
           onChange={(e) => setDueTime(e.target.value)}
         />
+
         <Button variant="primary" type="submit">
           Add
         </Button>

@@ -20,13 +20,13 @@ function App() {
   const location = useLocation();
   return (
     <AuthProvider>
-      <link
+      {/* <link
         href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"
         rel="stylesheet"
-      ></link>
+      ></link> */}
       <div className="App">
         <div className="appCont">
-          <Route path={["/home", "/calendar", "/pets", "/tasks"]}>
+          <Route path={["/home", "/calendar", "/pets", "/tasks/create"]}>
             <SvgWave />
           </Route>
           <Switch>
@@ -44,35 +44,37 @@ function App() {
             <ProtectedRoute exact path="/pets/create">
               <PetForm />
             </ProtectedRoute>
-            <div className="inAppContent">
-              <AnimatePresence exitBeforeEnter>
-                <Switch location={location} key={location.pathname}>
-                  <ProtectedRoute exact path="/home">
-                    <Home />
-                  </ProtectedRoute>
+            <>
+              <div className="inAppContent">
+                <AnimatePresence exitBeforeEnter>
+                  <Switch location={location} key={location.pathname}>
+                    <ProtectedRoute exact path="/home">
+                      <Home />
+                    </ProtectedRoute>
 
-                  <ProtectedRoute exact path="/pets">
-                    <Pets />
-                  </ProtectedRoute>
+                    <ProtectedRoute exact path="/pets">
+                      <Pets />
+                    </ProtectedRoute>
 
-                  <ProtectedRoute exact path="/calendar/tasks/:day">
-                    <Tasks />
-                  </ProtectedRoute>
+                    <ProtectedRoute exact path="/calendar/tasks/:day">
+                      <Tasks />
+                    </ProtectedRoute>
 
-                  <ProtectedRoute exact path="/tasks/create">
-                    <TaskForm />
-                  </ProtectedRoute>
+                    <ProtectedRoute exact path="/tasks/create">
+                      <TaskForm />
+                    </ProtectedRoute>
 
-                  <ProtectedRoute exact path="/calendar">
-                    <CalendarPage />
-                  </ProtectedRoute>
+                    <ProtectedRoute exact path="/calendar">
+                      <CalendarPage />
+                    </ProtectedRoute>
 
-                  <AuthRoute path="*">
-                    <LandingPage />
-                  </AuthRoute>
-                </Switch>
-              </AnimatePresence>
-            </div>
+                    <AuthRoute path="*">
+                      <LandingPage />
+                    </AuthRoute>
+                  </Switch>
+                </AnimatePresence>
+              </div>
+            </>
 
             <AuthRoute path="*">
               <LandingPage />
