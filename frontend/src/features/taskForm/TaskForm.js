@@ -7,7 +7,6 @@ import { motion } from "framer-motion";
 import { useHistory } from "react-router-dom";
 import "./css/taskForm.css";
 import { Button } from "react-bootstrap";
-import Moment from "react-moment";
 
 const date = new Date();
 
@@ -23,6 +22,7 @@ const TaskForm = () => {
   const [newTask, setNewTask] = useState("");
   const history = useHistory();
 
+  console.log(dueTime);
   const handleSubmit = async (e) => {
     e.preventDefault();
     debugger;
@@ -35,6 +35,7 @@ const TaskForm = () => {
           task: newTask,
           due_date: new Date(dueTime.slice(0, 10)),
           due_time: new Date(dueTime).toLocaleTimeString(),
+          dueTime: new Date(dueTime).toLocaleTimeString(),
         },
         headers: {
           authToken: token,
@@ -91,10 +92,6 @@ const TaskForm = () => {
           <option>Choose Pet</option>
           {petNames}
         </select>
-
-        <Moment format="h:mm" utc>
-          {dueTime}
-        </Moment>
 
         <input
           className="tasks_input"

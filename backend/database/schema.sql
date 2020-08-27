@@ -31,7 +31,8 @@ CREATE TABLE tasks
     pet_id INT REFERENCES pets(id) ON DELETE CASCADE,
     task VARCHAR NOT NULL,
     due_date TIMESTAMP,
-    due_time TIME
+    due_time TIME,
+    dueTime VARCHAR
 );
 
 INSERT INTO users

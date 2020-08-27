@@ -26,12 +26,12 @@ const getAllTasksByPet = async (req, res, next) => {
 };
 
 const createNewTask = async (req, res, next) => {
-  const { pet_id, task, due_date, due_time } = req.body;
+  const { pet_id, task, due_date, due_time, dueTime } = req.body;
 
   try {
     let newTask = await db.none(
-      `INSERT INTO tasks(pet_id, task, due_date, due_time) VALUES($1, $2, $3, $4)`,
-      [pet_id, task, due_date, due_time]
+      `INSERT INTO tasks(pet_id, task, due_date, due_time,dueTime) VALUES($1, $2, $3, $4, $5)`,
+      [pet_id, task, due_date, due_time, dueTime]
     );
     res.status(200).json({
       status: "Success",

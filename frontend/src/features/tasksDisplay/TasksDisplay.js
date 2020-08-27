@@ -17,7 +17,7 @@ const TasksDisplay = ({ tasks = [] }) => {
           <div className="allUsersTasks" key={task.task_id}>
             <p className="petName">{task.pet_name}</p>
             <p className="taskContent">{task.task}</p>
-            <p className="taskContent">{task.due_time}</p>
+            <p>{task.duetime}</p>
           </div>
         </ListGroup.Item>
       </ListGroup>
@@ -28,9 +28,7 @@ const TasksDisplay = ({ tasks = [] }) => {
     <div>
       <h3>Todays tasks</h3>
       <div className="showTasks">
-        <div className="tasksContainer">
-          {tasksMap}
-        </div>
+        <div className="tasksContainer">{tasksMap}</div>
       </div>
     </div>
   );
