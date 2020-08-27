@@ -26,7 +26,7 @@ function App() {
       ></link>
       <div className="App">
         <div className="appCont">
-          <Route path={["/home", "/calendar", "/pets", "/tasks/create"]}>
+          <Route path={["/home", "/calendar", "/pets", "/tasks"]}>
             <SvgWave />
           </Route>
           <Switch>
@@ -78,7 +78,7 @@ function App() {
               <LandingPage />
             </AuthRoute>
           </Switch>
-          <Route path={["/home", "/pets", "/calendar"]}>
+          <Route path={["/home", "/pets", "/calendar", "/tasks"]}>
             <Nav />
           </Route>
         </div>
