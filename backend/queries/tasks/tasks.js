@@ -53,9 +53,14 @@ const getAllTasksByUser = async (req, res, next) => {
   try {
     const { id } = req.params;
     let tasks = await db.any(
-      `SELECT tasks.*, pets.*, users.* FROM users
-        RIGHT JOIN pets ON users.user_id = pets.owner
-        LEFT JOIN tasks ON pets.id = tasks.pet_id`,
+      `SELECT tasks.*, pets.pet_name, users.* 
+      FROM tasks
+      LEFT JOIN pets 
+      ON  pets.id = tasks.pet_id
+      LEFT JOIN users
+      ON users.user_id = owner
+      WHERE users.user_id =$1
+      ORDER BY due_time asc`,
       [id]
     );
     res.status(200).json({
@@ -80,9 +85,13 @@ const getAllTasksByMonth = async (req, res, next) => {
     const { user, year } = req.query;
 
     let tasks = await db.any(
-      `SELECT tasks.*, pets.* FROM users
-        RIGHT JOIN pets ON users.user_id = pets.owner
-        LEFT JOIN tasks ON pets.id = tasks.pet_id WHERE EXTRACT(MONTH FROM due_date) = $1 AND owner = $2 AND EXTRACT(YEAR FROM due_date) = $3`,
+      `SELECT tasks.*, pets.pet_name, users.* 
+      FROM tasks
+      LEFT JOIN pets 
+      ON  pets.id = tasks.pet_id
+      LEFT JOIN users
+      ON users.user_id = owner
+      WHERE EXTRACT(MONTH FROM due_date) = $1 AND owner = $2 AND EXTRACT(YEAR FROM due_date) = $3`,
       [month, user, year]
     );
     res.status(200).json({
@@ -103,10 +112,15 @@ const getAllTasksByDay = async (req, res, next) => {
   try {
     const { day } = req.params;
     const { user, month, year } = req.query;
+
     let tasks = await db.any(
-      `SELECT tasks.*, pets.* FROM users
-        RIGHT JOIN pets ON users.user_id = pets.owner
-        LEFT JOIN tasks ON pets.id = tasks.pet_id WHERE EXTRACT(DAY FROM due_date) = $1 AND owner = $2 AND EXTRACT(MONTH FROM due_date) = $3 AND EXTRACT(YEAR FROM due_date) = $4 `,
+      `SELECT tasks.*, pets.pet_name, users.* 
+      FROM tasks
+      LEFT JOIN pets 
+      ON  pets.id = tasks.pet_id
+      LEFT JOIN users
+      ON users.user_id = owner WHERE EXTRACT(DAY FROM due_date) = $1 AND owner = $2 AND EXTRACT(MONTH FROM due_date) = $3 AND EXTRACT(YEAR FROM due_date) = $4
+      ORDER BY due_time asc `,
       [day, user, month, year]
     );
     res.status(200).json({

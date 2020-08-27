@@ -25,7 +25,7 @@ const TaskForm = () => {
   console.log(dueTime);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    debugger;
+
     try {
       await axios({
         method: "POST",
@@ -66,7 +66,7 @@ const TaskForm = () => {
             AuthToken: token,
           },
         });
-        // debugger;
+
         setAllPetNames(res.data.payload.pets);
       } catch (error) {
         setAllPetNames([]);

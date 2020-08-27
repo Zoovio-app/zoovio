@@ -24,7 +24,6 @@ const Pets = () => {
           },
         });
         setPets(res.data.payload.pets);
-        // debugger;
       } catch (error) {
         alert(error);
       }
