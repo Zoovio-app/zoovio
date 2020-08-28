@@ -14,10 +14,7 @@ const TaskForm = () => {
   const API = apiUrl();
   const { token, currentUser } = useContext(AuthContext);
   const [allPetNames, setAllPetNames] = useState([]);
-  const [dueDate, setDueDate] = useState(
-    date.toLocaleDateString("pt-br").split("/").reverse().join("-")
-  );
-  const [dueTime, setDueTime] = useState(new Date());
+  const [dueTime, setDueTime] = useState(date);
   const [petID, setPetID] = useState("");
   const [newTask, setNewTask] = useState("");
   const history = useHistory();

@@ -4,11 +4,7 @@ import axios from "axios";
 import { apiUrl } from "../../util/apiUrl";
 import { AuthContext } from "../../providers/AuthContext";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  updateUserInfo,
-  userInfoState,
-  clearUserInfo,
-} from "../userInfo/userInfoSlice";
+import { updateUserInfo, userInfoState } from "../userInfo/userInfoSlice";
 import TasksDisplay from "../tasksDisplay/TasksDisplay";
 import { useHistory } from "react-router-dom";
 import { pageTransition, pageVariants } from "../../util/framerStyles";

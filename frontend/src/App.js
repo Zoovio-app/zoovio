@@ -15,15 +15,11 @@ import Pets from "./features/pets/Pets";
 import PetForm from "./features/petForm/PetForm";
 // import SvgWave from "./features/svgWaves/SvgWave";
 import SplashPage from "./features/splashpage/SplashPage";
-import { logOut } from "./util/firebaseFunctions";
-import proPic from "./images/accounts2.png";
+import UserMenue from "./features/userMenue/UserMenue";
 
 function App() {
   const location = useLocation();
-  const signOut = () => {
-    logOut();
-    // dispatch(clearUserInfo());
-  };
+
   return (
     <AuthProvider>
       <div className="App">
@@ -48,16 +44,12 @@ function App() {
             </ProtectedRoute>
             <>
               <div className="inAppContent">
-                <div className="outButtDiv">
-                  <img alt="" src={proPic} />
-                  <div onClick={signOut} className="outButtDiv-content">
-                    <p>Log Out</p>
-                  </div>
-                </div>
+                <UserMenue />
+
                 <AnimatePresence exitBeforeEnter>
                   <Switch location={location} key={location.pathname}>
                     <ProtectedRoute exact path="/home">
-                      <Home />
+                      {/* <Home /> */}
                     </ProtectedRoute>
 
                     <ProtectedRoute exact path="/pets">
