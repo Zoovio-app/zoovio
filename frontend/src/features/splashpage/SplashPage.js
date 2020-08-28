@@ -136,15 +136,13 @@ const SplashPage = () => {
               <Button onClick={() => history.push("/signup")}>Sign Up</Button>
             </div>
             <p style={{ padding: "1px" }}>Already a user?</p>{" "}
-            <Link exact to="/login">
-              Login
-            </Link>
+            <Link to="/login">Login</Link>
           </div>
 
           <div className="footerDiv">
-            <Link>About</Link>
-            <Link>Faq</Link>
-            <Link>Other</Link>
+            <Link to="/about">About</Link>
+            <Link to="/faq">Faq</Link>
+            <Link to="/other">Other</Link>
           </div>
         </div>
 

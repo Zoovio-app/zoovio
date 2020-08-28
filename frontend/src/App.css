@@ -60,8 +60,49 @@
 }
 
 .inAppContent {
-  margin-top: -275px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.outButtDiv {
+  align-self: flex-end;
+  display: inline-block;
+  margin-right: 10vw;
+  margin-top: 5vh;
+  padding: 2px;
+  position: fixed;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.outButtDiv img {
+  height: 7vh;
+}
+
+.outButtDiv-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  border-radius: 10px;
+}
+
+.outButtDiv:hover .outButtDiv-content {
   display: flex;
   justify-content: center;
-  height: 60vh;
+  flex-direction: column;
+}
+
+.outButtDiv-content:hover {
+  background-color: #fdfdfc;
+}
+
+.outButtDiv-content p {
+  margin: unset;
+  font-weight: bold;
+  color: #225095;
 }

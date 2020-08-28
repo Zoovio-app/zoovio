@@ -1,5 +1,5 @@
 import React, { useContext, useState, useLayoutEffect } from "react";
-import { logOut } from "../../util/firebaseFunctions";
+
 import axios from "axios";
 import { apiUrl } from "../../util/apiUrl";
 import { AuthContext } from "../../providers/AuthContext";
@@ -64,11 +64,6 @@ const Home = () => {
     return () => clearTimeout(timer);
   }, [API, currentUser.id, dispatch, token]);
 
-  const signOut = () => {
-    logOut();
-    dispatch(clearUserInfo());
-  };
-
   return isLoading ? (
     <div style={{ height: "40vh" }}>Loading.......</div>
   ) : (
@@ -79,7 +74,6 @@ const Home = () => {
       transition={pageTransition}
       variants={pageVariants}
     >
-      <button onClick={signOut}> Log Out</button>
       <h1>hi,{state.user ? state.user.name : null} </h1>
       <button onClick={() => history.push("/tasks/create")}>
         Create New Task

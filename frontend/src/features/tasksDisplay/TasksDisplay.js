@@ -12,9 +12,9 @@ const TasksDisplay = ({ tasks = [] }) => {
 
   const tasksMap = tasks.map((task) => {
     return (
-      <ListGroup>
+      <ListGroup key={task.task_id}>
         <ListGroup.Item variant="danger">
-          <div className="allUsersTasks" key={task.task_id}>
+          <div className="allUsersTasks">
             <p className="petName">{task.pet_name}</p>
             <p className="taskContent">{task.task}</p>
             <p>{task.duetime}</p>

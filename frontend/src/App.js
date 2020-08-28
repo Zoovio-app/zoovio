@@ -13,22 +13,24 @@ import Tasks from "./features/calendar/tasks/Tasks";
 import TaskForm from "./features/taskForm/TaskForm";
 import Pets from "./features/pets/Pets";
 import PetForm from "./features/petForm/PetForm";
-import SvgWave from "./features/svgWaves/SvgWave";
+// import SvgWave from "./features/svgWaves/SvgWave";
 import SplashPage from "./features/splashpage/SplashPage";
+import { logOut } from "./util/firebaseFunctions";
+import proPic from "./images/accounts2.png";
 
 function App() {
   const location = useLocation();
+  const signOut = () => {
+    logOut();
+    // dispatch(clearUserInfo());
+  };
   return (
     <AuthProvider>
-      {/* <link
-        href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"
-        rel="stylesheet"
-      ></link> */}
       <div className="App">
         <div className="appCont">
-          <Route path={["/home", "/calendar", "/pets", "/tasks/create"]}>
+          {/* <Route path={["/home", "/calendar", "/pets", "/tasks/create"]}>
             <SvgWave />
-          </Route>
+          </Route> */}
           <Switch>
             <AuthRoute exact path="/">
               <SplashPage />
@@ -46,6 +48,12 @@ function App() {
             </ProtectedRoute>
             <>
               <div className="inAppContent">
+                <div className="outButtDiv">
+                  <img alt="" src={proPic} />
+                  <div onClick={signOut} className="outButtDiv-content">
+                    <p>Log Out</p>
+                  </div>
+                </div>
                 <AnimatePresence exitBeforeEnter>
                   <Switch location={location} key={location.pathname}>
                     <ProtectedRoute exact path="/home">
@@ -73,6 +81,9 @@ function App() {
                     </AuthRoute>
                   </Switch>
                 </AnimatePresence>
+                <Route path={["/home", "/pets", "/calendar", "/tasks"]}>
+                  <Nav />
+                </Route>
               </div>
             </>
 
@@ -80,9 +91,6 @@ function App() {
               <LandingPage />
             </AuthRoute>
           </Switch>
-          <Route path={["/home", "/pets", "/calendar", "/tasks"]}>
-            <Nav />
-          </Route>
         </div>
       </div>
     </AuthProvider>

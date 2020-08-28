@@ -8,7 +8,7 @@ import vet from "../../images/vet.png";
 
 const Nav = () => {
   return (
-    <div>
+    <div className="navCont">
       <div className="nav">
         <div
           style={{ borderBottomLeftRadius: "20px" }}

@@ -51,27 +51,30 @@ const CalendarPage = () => {
   }, [API, currentDate.month, currentDate.year, currentUser.id, token]);
 
   return (
-    <motion.div
-      initial="initial"
-      animate="in"
-      exit="out"
-      variants={pageVariants}
-      transition={pageTransition}
-      className="calDiv"
-    >
-      <Calendar
-        className={"cally"}
-        showNavigation={true}
-        tileContent={({ activeStartDate, date, view }) =>
-          func(date, taskDatesArr(tasks), view)
-        }
-        onClickDay={dayClick}
-        onClickMonth={onClick}
-        value={new Date()}
-        onActiveStartDateChange={onClick}
-        showNeighboringMonth={false}
-      />
-    </motion.div>
+    <div>
+      <motion.div
+        initial="initial"
+        animate="in"
+        exit="out"
+        variants={pageVariants}
+        transition={pageTransition}
+        className="calDiv"
+      >
+        <h1>ZooVio</h1>
+        <Calendar
+          className={"cally"}
+          showNavigation={true}
+          tileContent={({ activeStartDate, date, view }) =>
+            func(date, taskDatesArr(tasks), view)
+          }
+          onClickDay={dayClick}
+          onClickMonth={onClick}
+          value={new Date()}
+          onActiveStartDateChange={onClick}
+          showNeighboringMonth={false}
+        />
+      </motion.div>
+    </div>
   );
 };
 
