@@ -35,7 +35,7 @@ const SearchBar = (props) => {
                <div class="control is-expanded">
                  <div class="select is-fullwidth">
                    <select onChange={(e) => setTerm(e.target.value)} value={term}>
-                 {/*  <option value ="" disabled selected>Choose a Service</option> */}
+                   <option value ="" disabled selected>Choose a Service</option> 
                      <option value="Veterinarian">Veterinarian</option>
                      <option value="Pet Shop">Pet Shop</option>
                      <option value="Pet Grooming">Pet Grooming</option>
@@ -53,9 +53,9 @@ const SearchBar = (props) => {
               <div class="button is-static">Near</div>
                </div>
             <p class="control">
-              <input class="input" type="text" onChange={(e) => setLocation(e.target.value)} value='Brooklyn, New york'/>
+              <input class="input" type="text" onChange={(e) => setLocation(e.target.value)} placeholder="City, Zipcode" />
             </p>
-            <button class="button" onClick = {handleSubmit} value={location}>
+            <button class="button" onClick = {handleSubmit} value={location} >
                 <span class="icon is-small">
                     <i class="fas fa-paw"></i>
                 </span>

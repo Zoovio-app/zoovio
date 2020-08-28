@@ -1,21 +1,37 @@
-import React, { useHistory, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import SearchResults  from "./SearchResults"
 import SearchBar   from "./SearchBar"
 import useReactRouter from 'use-react-router'
 import YelpBussiness from './api/YelpBusiness'
+import { useHistory } from "react-router-dom";
+import { pageVariants, pageTransition } from "../../util/framerStyles";
+import { motion } from "framer-motion";
  const { REACT_APP_API_YELP } = process.env;
+
 
 const Search = () => {
 
+    const history = useHistory()
 
-  
     return(
         <div>
             <SearchBar />
             <SearchResults  />
-        </div>
+            <motion.div
+      initial="initial"
+      animate="in"
+      exit="out"
+      variants={pageVariants}
+      transition={pageTransition}
+      className="calDiv"
+    >
+    </motion.div>
+    </div>
     )
 }
+  
+        
+    
 
 export default Search 
 

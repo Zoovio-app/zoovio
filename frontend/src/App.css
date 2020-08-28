@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: "Rubik", sans-serif !important;
 }
 
 .App-logo {
@@ -31,9 +32,36 @@
     transform: translateY(0);
   }
   50% {
-    transform: translateY(10px)
+    transform: translateY(10px);
   }
   100% {
-    transform: translateY(0px)
+    transform: translateY(0px);
   }
+}
+
+.btn-primary {
+  background-color: #225095;
+}
+
+.list-group-item-danger {
+  background-color: rgb(241, 142, 124, 0.3);
+  border-radius: 13px !important;
+}
+
+.list-group-item {
+  border: none;
+  color: black;
+}
+
+.appCont {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.inAppContent {
+  margin-top: -275px;
+  display: flex;
+  justify-content: center;
+  height: 60vh;
 }

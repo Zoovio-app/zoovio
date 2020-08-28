@@ -70,7 +70,7 @@ const Home = () => {
   };
 
   return isLoading ? (
-    <div>Loading.......</div>
+    <div style={{ height: "40vh" }}>Loading.......</div>
   ) : (
     <motion.div
       initial="initial"
