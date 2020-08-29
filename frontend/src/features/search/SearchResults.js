@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom'
 
 // https://www.yelp.com/search?find_desc=vet&find_loc=nyc
 const SearchResults = (props) => {
-
+console.log(props.bussinesses);
     const history = useHistory()
     const handleClick = (e) => {
         e.preventDefault()
@@ -17,11 +17,11 @@ const SearchResults = (props) => {
         return (<div></div>)
     }
 
-    const searchResults = props.bussinesses.map(b => <SearchResults key= {b.id} bussinesses={b} /> )
+    const searchResults = props.bussinesses.map(b => <SingleResult key= {b.id} bussinesses={b} /> )
 
     return(
         <div className='search-results'>
-            <SingleResult />
+            {SingleResult}
             
         </div>
     )

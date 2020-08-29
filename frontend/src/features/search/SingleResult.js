@@ -5,12 +5,15 @@ import doc from './images/doc.jpg'
 import styles from './searchCss/SearchResults.css'
 
 const SingleResult = (props) => {
+    if(!props.bussiness) {
+        return(<div></div>)
+    }
     
 
 return(
     <div className='single-result'>
     
-        <img className="image" src={doc} alt="image" />
+        <img className="image" src={props.bussiness.image_url} alt="image" />
         <div className="info">
             <h2 class="subtitle"><strong> Dr. Rachel Madacsi, </strong> Veterinary Medicine</h2>
             <p>Heart of Brooklyn</p>
