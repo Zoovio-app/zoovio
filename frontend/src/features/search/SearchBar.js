@@ -1,17 +1,46 @@
-import React, { useState, useHistory } from 'react'
+import React, { useState, useHistory, useEffect } from 'react'
 import useReactRouter from 'use-react-router'
 import Search from './Search'
+import YelpBusiness from './api/YelpBusiness'
+import axios from "axios";
+const { REACT_APP_YELP_API } = process.env;
 const SearchBar = (props) => {
 
 
 
   const [term, setTerm] = useState(props.term)
   const [location, setLocation] = useState(props.location)
-  const [results, setResults] = useState()
+  const [result, setResult] = useState()
   const {history} = useReactRouter()
 
+  const headers = axios.create({
+    Authorization: `Bearer ${REACT_APP_YELP_API }`,
+    Origin: 'localhost',
+    withCredintals: true
+})
+
  
- 
+  const fetchData = async() => {
+    const Authorization = `Bearer ${REACT_APP_YELP_API }`
+    const BASE_URL_SEARCH = 'https://api.yelp.com/v3/businesses/search'
+    const BASE_URL = 'https://api.yelp.com/v3/'
+    const HEROKU_SEARCH = `https://cors-anywhere.herokuapp.com/?${BASE_URL_SEARCH}`
+    const HEROKU = `https://cors-anywhere.herokuapp.com/?${BASE_URL}`
+     
+    // https://www.yelp.com/search?find_desc=vet&find_loc=nyc
+    try{
+        let res = await axios.get(HEROKU_SEARCH)
+        setResult(res.data)
+
+    }catch(error){
+        console.log(error);
+        setResult([])
+    }
+}
+  useEffect(() => {
+    fetchData()
+  }, [])
+
   const handleSubmit = (e) => {
     if(props.search && typeof props.search === 'const'){
       props.search(term,location)

@@ -4,9 +4,9 @@
     width: 100%;
 }
 .image {
-    width: 175px;
-    height: 175px;
-    border-radius: 15px;
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
     margin-right: 1rem;
 }
 

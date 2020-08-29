@@ -2,7 +2,7 @@ DROP DATABASE if EXISTS zoovio_db;
 
 CREATE DATABASE zoovio_db;
 
-\c zoovio_db;
+-- \c zoovio_db;
 
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS pets;

@@ -6,12 +6,31 @@ import YelpBussiness from './api/YelpBusiness'
 import { useHistory } from "react-router-dom";
 import { pageVariants, pageTransition } from "../../util/framerStyles";
 import { motion } from "framer-motion";
- const { REACT_APP_API_YELP } = process.env;
 
+import axios from "axios";
+const { REACT_APP_YELP_API } = process.env;
+const BASE_URL = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/`
 
-const Search = () => {
+let token = REACT_APP_YELP_API 
 
-    const history = useHistory()
+const Search = (term, location) => {
+   
+    const [result, setResult] = useState([])
+    const headers  = () => {
+        headers = {
+            Authorization: `Bearer ${REACT_APP_YELP_API }`,
+            Origin: 'localhost',
+            withCredintals: true
+        }
+    }
+    
+    
+
+    // const {location} = useReactRouter
+    // // const params = new URLSearchParams(location.Search)
+    // const term = params.get('get_desc')
+    // const locationParam = params.get('find_loc')
+    // const history = useHistory()
 
     return(
         <div>
