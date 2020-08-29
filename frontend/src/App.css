@@ -106,3 +106,17 @@
   font-weight: bold;
   color: #225095;
 }
+
+.inAppTop {
+  display: flex;
+  flex-direction: column;
+}
+
+.inAppMain {
+  /* margin-top: -30vh; */
+}
+
+.inAppBottom {
+  position: fixed;
+  bottom: 15%;
+}

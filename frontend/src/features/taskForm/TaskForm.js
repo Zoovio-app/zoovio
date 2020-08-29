@@ -80,34 +80,36 @@ const TaskForm = () => {
       transition={pageTransition}
       variants={pageVariants}
     >
-      <h2>Create new task</h2>
-      <form className="tasksForm" onSubmit={handleSubmit}>
-        <select
-          className="tasks_input"
-          onChange={(e) => setPetID(e.target.value)}
-        >
-          <option>Choose Pet</option>
-          {petNames}
-        </select>
+      <div className="taskFormMain">
+        <h2>Create new task</h2>
+        <form className="tasksForm" onSubmit={handleSubmit}>
+          <select
+            className="tasks_input"
+            onChange={(e) => setPetID(e.target.value)}
+          >
+            <option>Choose Pet</option>
+            {petNames}
+          </select>
 
-        <input
-          className="tasks_input"
-          type="text"
-          placeholder="New task"
-          onChange={(e) => setNewTask(e.target.value)}
-          value={newTask}
-        />
-        <input
-          type="datetime-local"
-          className="tasks_input"
-          max="24:00"
-          onChange={(e) => setDueTime(e.target.value)}
-        />
+          <input
+            className="tasks_input"
+            type="text"
+            placeholder="New task"
+            onChange={(e) => setNewTask(e.target.value)}
+            value={newTask}
+          />
+          <input
+            type="datetime-local"
+            className="tasks_input"
+            max="24:00"
+            onChange={(e) => setDueTime(e.target.value)}
+          />
 
-        <Button variant="primary" type="submit">
-          Add
-        </Button>
-      </form>
+          <Button variant="primary" type="submit">
+            Add
+          </Button>
+        </form>
+      </div>
     </motion.div>
   );
 };

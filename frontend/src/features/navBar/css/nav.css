@@ -9,10 +9,10 @@
 
   width: 100vw;
 }
-.navCont {
+/* .navCont {
   position: fixed;
   bottom: 15%;
-}
+} */
 
 .navLinksCont {
   display: flex;

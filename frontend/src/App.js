@@ -16,6 +16,7 @@ import PetForm from "./features/petForm/PetForm";
 // import SvgWave from "./features/svgWaves/SvgWave";
 import SplashPage from "./features/splashpage/SplashPage";
 import UserMenue from "./features/userMenue/UserMenue";
+import Blob from "./features/blob/Blob.js";
 
 function App() {
   const location = useLocation();
@@ -44,37 +45,79 @@ function App() {
             </ProtectedRoute>
             <>
               <div className="inAppContent">
-                <UserMenue />
+                <div className="inAppTop">
+                  <Blob
+                    size={"45vh"}
+                    style={{ position: "absolute", margin: "-20vh" }}
+                  />
+                  <Blob
+                    style={{ alignSelf: "flex-end", position: "absolute" }}
+                  />
+                  <UserMenue />
+                </div>
+                <div className="inAppMain">
+                  <Blob
+                    size={"30vh"}
+                    style={{
+                      position: "absolute",
+                      marginTop: "30vh",
+                      marginLeft: "-11vw",
+                    }}
+                  />
+                  <Blob
+                    size={"25vh"}
+                    style={{
+                      position: "absolute",
+                      marginLeft: "20vw",
+                    }}
+                  />
+                  <AnimatePresence exitBeforeEnter>
+                    <Switch location={location} key={location.pathname}>
+                      <ProtectedRoute exact path="/home">
+                        <Home />
+                      </ProtectedRoute>
 
-                <AnimatePresence exitBeforeEnter>
-                  <Switch location={location} key={location.pathname}>
-                    <ProtectedRoute exact path="/home">
-                      {/* <Home /> */}
-                    </ProtectedRoute>
+                      <ProtectedRoute exact path="/pets">
+                        <Pets />
+                      </ProtectedRoute>
 
-                    <ProtectedRoute exact path="/pets">
-                      <Pets />
-                    </ProtectedRoute>
+                      <ProtectedRoute exact path="/calendar/tasks/:day">
+                        <Tasks />
+                      </ProtectedRoute>
 
-                    <ProtectedRoute exact path="/calendar/tasks/:day">
-                      <Tasks />
-                    </ProtectedRoute>
+                      <ProtectedRoute exact path="/tasks/create">
+                        <TaskForm />
+                      </ProtectedRoute>
 
-                    <ProtectedRoute exact path="/tasks/create">
-                      <TaskForm />
-                    </ProtectedRoute>
+                      <ProtectedRoute exact path="/calendar">
+                        <CalendarPage />
+                      </ProtectedRoute>
 
-                    <ProtectedRoute exact path="/calendar">
-                      <CalendarPage />
-                    </ProtectedRoute>
-
-                    <AuthRoute path="*">
-                      <LandingPage />
-                    </AuthRoute>
-                  </Switch>
-                </AnimatePresence>
+                      <AuthRoute path="*">
+                        <LandingPage />
+                      </AuthRoute>
+                    </Switch>
+                  </AnimatePresence>
+                </div>
                 <Route path={["/home", "/pets", "/calendar", "/tasks"]}>
-                  <Nav />
+                  <div className="inAppBottom">
+                    <Blob
+                      size={"70vh"}
+                      style={{
+                        position: "absolute",
+                        marginLeft: "-20vw",
+                      }}
+                    />
+                    <Nav />
+
+                    <Blob
+                      size={"40vh"}
+                      style={{
+                        position: "absolute",
+                        marginLeft: "85vw",
+                      }}
+                    />
+                  </div>
                 </Route>
               </div>
             </>

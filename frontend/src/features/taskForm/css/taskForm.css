@@ -10,6 +10,12 @@
   flex-shrink: 0;
   padding: 0;
   position: relative;
+
+  align-self: center;
+  border-width: 1px;
+  border-color: lightgray;
+  border-radius: 20px;
+  height: 40vh;
 }
 .tasks_input {
   font: inherit;
@@ -37,4 +43,17 @@
 .addTaskButton:hover {
   background-color: #255f85;
   opacity: 0.7;
+}
+
+.taskFormMain {
+  display: flex;
+  height: 75vh;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.taskFormMain h2 {
+  align-self: center;
+  color: #225095;
+  margin-bottom: 5vh;
 }
