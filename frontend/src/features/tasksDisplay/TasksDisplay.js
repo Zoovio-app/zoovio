@@ -1,16 +1,47 @@
 import React from "react";
 import "./css/display.css";
 import { ListGroup } from "react-bootstrap";
+import meds from "../../images/meds.png";
+import food from "../../images/pet-food.png";
+import groom from "../../images/saloon.png";
 
 const TasksDisplay = ({ tasks = [] }) => {
   if (tasks.length === 0)
     return (
       <div>
-        <h3>You haven't created a Task yet.</h3>
-        <p>
-          Select an option below or create your own by clicking the button
-          above.
-        </p>
+        <div>
+          <h3>You haven't created a Task yet.</h3>
+          <p style={{ color: "#91a8ca", fontWeight: "500" }}>
+            Select an option below or create your own by clicking the button
+            above.
+          </p>
+        </div>
+        <div className="examplesCont">
+          <div className="examples">
+            <div className="exampleImgHolder">
+              <img alt="" src={meds} />
+            </div>
+            <div className="exampleP">
+              <p>Give your pet medication</p>
+            </div>
+          </div>
+          <div className="examples">
+            <div className="exampleImgHolder">
+              <img alt="" src={food} />
+            </div>
+            <div className="exampleP">
+              <p>Buy food/supplies</p>
+            </div>
+          </div>
+          <div className="examples">
+            <div className="exampleImgHolder">
+              <img alt="" src={groom} />
+            </div>
+            <div className="exampleP">
+              <p>Take your pet to the groomer</p>
+            </div>
+          </div>
+        </div>
       </div>
     );
 

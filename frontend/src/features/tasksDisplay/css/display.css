@@ -22,11 +22,46 @@
   /* border-radius: 7px; */
   height: 72px;
   width: 30vw;
-  line-height: .5;
+  line-height: 0.5;
 }
 
 .tasksContainer {
   overflow: scroll;
   overflow-y: scroll;
   height: 50vh;
+}
+
+.examplesCont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: unset;
+}
+
+.examples {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #e9eef4;
+  align-items: flex-start;
+  display: flex;
+  padding: 1vh;
+}
+
+.exampleImgHolder {
+  border-radius: 5px;
+  background-color: #fef4f2;
+  padding: 1.5vh;
+}
+
+.exampleP {
+  flex-grow: 1;
+  display: flex;
+  padding: 1vh;
+}
+
+.exampleP p {
+  margin: unset;
+  font-size: 2.5vh;
+  color: #141e27;
+  font-weight: 500;
 }
