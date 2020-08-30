@@ -5,16 +5,16 @@ import doc from "./images/doc.jpg";
 import styles from "./searchCss/SearchResults.css";
 
 const SingleResult = (props) => {
-  if (!props.result) {
-    return <div></div>;
-  }
+  // if (!props.result) {
+  //   return <div />;
+  // }
 
   return (
     <div className="single-result">
       <img className="image" src={props.result.image_url} alt="image" />
       <div className="info">
         <h2 class="subtitle">
-          <strong> Dr. Rachel Madacsi, </strong> Veterinary Medicine
+          <strong> {props.result.name} </strong> Veterinary Medicine
         </h2>
         <p>Heart of Brooklyn</p>
         <PawRating />

@@ -7,9 +7,16 @@ import YelpBusiness from "./api/YelpBusiness";
 
 // https://www.yelp.com/search?find_desc=vet&find_loc=nyc
 const SearchResults = (props) => {
-  props.businesses.map((b) => <SingleResult key={b.id} results={b} />);
+  // if (!props.result || !props.result.length) {
+  //   return <div> </div>;
+  // }
+  console.log(props.result);
 
-  return <div className="search-results">{SearchResults}</div>;
+  const results = props.result.map((item) => (
+    <SingleResult key={item.id} result={item} />
+  ));
+
+  return <div className="search-results">{results}</div>;
 };
 
 export default SearchResults;

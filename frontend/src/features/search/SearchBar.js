@@ -25,7 +25,7 @@ const SearchBar = (props) => {
     // https://www.yelp.com/search?find_desc=vet&find_loc=nyc
     try {
       let res = await axios.get(HEROKU_SEARCH, { headers });
-      props.setResult(res.data);
+      props.setResult(res.data.businesses);
     } catch (error) {
       console.log(error);
       props.setResult([]);

@@ -10,11 +10,11 @@ import axios from "axios";
 
 const Search = () => {
   const [result, setResult] = useState([]);
-
+  // console.log(result);
   return (
     <div>
       <SearchBar setResult={setResult} />
-      <SearchResults />
+      <SearchResults result={result} />
       <motion.div
         initial="initial"
         animate="in"
