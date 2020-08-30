@@ -45,12 +45,22 @@
   align-items: flex-start;
   display: flex;
   padding: 1vh;
+  cursor: pointer;
+  border-radius: 2px;
+  height: 12vh;
+}
+
+.examples:hover {
+  background-color: #e9eef4;
 }
 
 .exampleImgHolder {
   border-radius: 5px;
-  background-color: #fef4f2;
+  background-color: #d3dcea;
   padding: 1.5vh;
+}
+.exampleImgHolder img {
+  height: 7vh;
 }
 
 .exampleP {

@@ -1,9 +1,9 @@
 import React from "react";
 import "./css/display.css";
 import { ListGroup } from "react-bootstrap";
-import meds from "../../images/meds.png";
-import food from "../../images/pet-food.png";
-import groom from "../../images/saloon.png";
+import meds from "../../images/meds2.png";
+import food from "../../images/pet-food2.png";
+import groom from "../../images/saloon2.png";
 
 const TasksDisplay = ({ tasks = [] }) => {
   if (tasks.length === 0)
