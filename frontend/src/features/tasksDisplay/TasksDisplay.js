@@ -6,7 +6,11 @@ const TasksDisplay = ({ tasks = [] }) => {
   if (tasks.length === 0)
     return (
       <div>
-        <h1>NO TASKS FOR THIS DATE</h1>
+        <h3>You haven't created a Task yet.</h3>
+        <p>
+          Select an option below or create your own by clicking the button
+          above.
+        </p>
       </div>
     );
 

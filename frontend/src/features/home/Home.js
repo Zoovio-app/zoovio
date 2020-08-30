@@ -1,14 +1,15 @@
 import React, { useContext, useState, useLayoutEffect } from "react";
-
+import "./css/home.css";
 import axios from "axios";
 import { apiUrl } from "../../util/apiUrl";
 import { AuthContext } from "../../providers/AuthContext";
 import { useDispatch, useSelector } from "react-redux";
 import { updateUserInfo, userInfoState } from "../userInfo/userInfoSlice";
 import TasksDisplay from "../tasksDisplay/TasksDisplay";
-import { useHistory } from "react-router-dom";
 import { pageTransition, pageVariants } from "../../util/framerStyles";
 import { motion } from "framer-motion";
+import AddButton from "../addButton/AddButton";
+
 const date = new Date();
 let apiCalls = 0;
 
@@ -18,7 +19,6 @@ const Home = () => {
   const dispatch = useDispatch();
   const API = apiUrl();
   const state = useSelector(userInfoState);
-  const history = useHistory();
 
   const [tasks, setTasks] = useState([]);
 
@@ -70,10 +70,10 @@ const Home = () => {
       transition={pageTransition}
       variants={pageVariants}
     >
-      <h1>hi,{state.user ? state.user.name : null} </h1>
-      <button onClick={() => history.push("/tasks/create")}>
-        Create New Task
-      </button>
+      <div className="homeCont">
+        <h1>hi,{state.user ? state.user.name : null} </h1>
+        <AddButton />
+      </div>
       <TasksDisplay tasks={tasks} />
     </motion.div>
   );
