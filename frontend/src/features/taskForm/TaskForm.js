@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { useHistory } from "react-router-dom";
 import "./css/taskForm.css";
 import { Button } from "react-bootstrap";
+import back from "../../images/back.png";
 
 const date = new Date();
 
@@ -81,7 +82,14 @@ const TaskForm = () => {
       variants={pageVariants}
     >
       <div className="taskFormMain">
-        <h2>Create new task</h2>
+        <div className="taskFormHead">
+          <div onClick={() => history.goBack()} className="taskFormBack">
+            <img alt="" src={back} />
+          </div>
+          <div className="taskFormH2">
+            <h2>Create new task</h2>
+          </div>
+        </div>
         <form className="tasksForm" onSubmit={handleSubmit}>
           <select
             className="tasks_input"
