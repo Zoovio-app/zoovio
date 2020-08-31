@@ -36,6 +36,8 @@
   flex-direction: column;
   justify-content: center;
   margin: unset;
+  overflow-y: scroll;
+  height: 35vh;
 }
 
 .examples {

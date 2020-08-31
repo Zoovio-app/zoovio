@@ -33,7 +33,10 @@ const TasksDisplay = ({ tasks = [] }) => {
               <p>Buy food/supplies</p>
             </div>
           </div>
-          <div className="examples">
+          <div
+            style={{ borderBottomColor: "transparent" }}
+            className="examples"
+          >
             <div className="exampleImgHolder">
               <img alt="" src={groom} />
             </div>

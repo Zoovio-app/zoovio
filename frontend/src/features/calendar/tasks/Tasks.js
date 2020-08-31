@@ -5,12 +5,14 @@ import {
   pageVariants,
   pageTransition,
 } from "../../../util/framerStyles";
+import "../css/styles.css";
 import TasksDisplay from "../../tasksDisplay/TasksDisplay";
 import axios from "axios";
 import { apiUrl } from "../../../util/apiUrl";
 import { AuthContext } from "../../../providers/AuthContext";
 import { useParams } from "react-router-dom";
 import AddButton from "../../addButton/AddButton";
+import BackButton from "../../backButton/BackButton";
 
 const Tasks = () => {
   const API = apiUrl();
@@ -49,8 +51,16 @@ const Tasks = () => {
       transition={pageTransition}
     >
       <div className="dayTasksCont">
-        TASKS
-        <AddButton page={"calendar"} />
+        <div>
+          <h2>Showing tasks for</h2>
+          <h3 style={{ color: "#225095" }}>
+            {new Date(day).toLocaleDateString()}
+          </h3>
+        </div>
+        <div className="calTasksTop">
+          <BackButton location={"calendar"} />
+          <AddButton page={"calendar"} />
+        </div>
         <TasksDisplay tasks={tasks} />
       </div>
     </motion.div>

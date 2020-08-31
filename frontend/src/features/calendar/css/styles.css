@@ -52,5 +52,10 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 65vh;
+  height: 75vh;
+}
+.calTasksTop {
+  display: flex;
+  align-items: center;
+  margin-top: -2vh;
 }
