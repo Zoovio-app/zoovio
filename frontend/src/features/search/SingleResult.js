@@ -11,6 +11,7 @@ const SingleResult = (props) => {
 
   return (
     <div className="single-result">
+    <div className='card'>
       <img className="image" src={props.result.image_url} alt="image" />
       <div className="info">
         <h2 class="subtitle">
@@ -29,6 +30,7 @@ const SingleResult = (props) => {
         <p>718-855-7387</p>
         <p>775 Fulton St. Brooklyn, NY 11217</p>
       </div>
+    </div>
     </div>
   );
 };
