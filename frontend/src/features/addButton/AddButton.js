@@ -2,10 +2,13 @@ import React from "react";
 import "./css/addButton.css";
 import { useHistory } from "react-router-dom";
 import plus from "../../images/plus.png";
-const AddButton = () => {
+const AddButton = ({ page }) => {
   const history = useHistory();
   return (
-    <div onClick={() => history.push("/tasks/create")} className="addButton">
+    <div
+      onClick={() => history.push(`/tasks/create/${page}`)}
+      className="addButton"
+    >
       <img alt="" src={plus} />
       <svg
         style={{ height: "25vh" }}

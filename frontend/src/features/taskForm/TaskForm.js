@@ -4,10 +4,10 @@ import axios from "axios";
 import { AuthContext } from "../../providers/AuthContext";
 import { pageVariants, pageTransition } from "../../util/framerStyles";
 import { motion } from "framer-motion";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import "./css/taskForm.css";
 import { Button } from "react-bootstrap";
-import back from "../../images/back.png";
+import BackButton from "../backButton/BackButton";
 
 const date = new Date();
 
@@ -19,8 +19,9 @@ const TaskForm = () => {
   const [petID, setPetID] = useState("");
   const [newTask, setNewTask] = useState("");
   const history = useHistory();
+  const { page } = useParams();
 
-  console.log(dueTime);
+  console.log(history);
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -83,9 +84,7 @@ const TaskForm = () => {
     >
       <div className="taskFormMain">
         <div className="taskFormHead">
-          <div onClick={() => history.goBack()} className="taskFormBack">
-            <img alt="" src={back} />
-          </div>
+          <BackButton location={page} />
           <div className="taskFormH2">
             <h2>Create new task</h2>
           </div>

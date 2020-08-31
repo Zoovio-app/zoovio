@@ -46,3 +46,11 @@
 .react-calendar__tile--active :hover {
   background: #e9eef4;
 }
+
+.dayTasksCont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 65vh;
+}

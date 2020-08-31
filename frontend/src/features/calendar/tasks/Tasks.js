@@ -10,6 +10,7 @@ import axios from "axios";
 import { apiUrl } from "../../../util/apiUrl";
 import { AuthContext } from "../../../providers/AuthContext";
 import { useParams } from "react-router-dom";
+import AddButton from "../../addButton/AddButton";
 
 const Tasks = () => {
   const API = apiUrl();
@@ -47,8 +48,11 @@ const Tasks = () => {
       variants={pageVariants}
       transition={pageTransition}
     >
-      TASKS
-      <TasksDisplay tasks={tasks} />
+      <div className="dayTasksCont">
+        TASKS
+        <AddButton page={"calendar"} />
+        <TasksDisplay tasks={tasks} />
+      </div>
     </motion.div>
   );
 };

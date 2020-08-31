@@ -85,7 +85,7 @@ function App() {
                         <Tasks />
                       </ProtectedRoute>
 
-                      <ProtectedRoute exact path="/tasks/create">
+                      <ProtectedRoute exact path="/tasks/create/:page">
                         <TaskForm />
                       </ProtectedRoute>
 

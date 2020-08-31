@@ -72,7 +72,7 @@ const Home = () => {
     >
       <div className="homeCont">
         <h1>hi,{state.user ? state.user.name : null} </h1>
-        <AddButton />
+        <AddButton page={"home"} />
         <TasksDisplay tasks={tasks} />
       </div>
     </motion.div>
