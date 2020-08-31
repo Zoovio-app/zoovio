@@ -17,10 +17,10 @@ const SingleResult = (props) => {
         <h2 class="subtitle">
           <strong> {props.result.name} </strong>
         </h2>
-        <p>{props.result.display_phone}</p>
-        <p>{props.result.location['address1']}</p>
-        <p>{props.result.location.city}</p>
-        <p>{props.result.location.zip_code}</p>
+        <p className='phone'>{props.result.display_phone}</p>
+        <p className="address">{props.result.location['address1']}</p>
+        <p className="address">{props.result.location.city}</p>
+        <p className="address">{props.result.location.zip_code}</p>
         <PawRating reviewCount={props.result.review_count} rating={props.result.rating}/>
         <p>
           <span class="tag"></span>

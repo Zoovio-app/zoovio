@@ -1,12 +1,12 @@
 .single-result{
-    display: flex;
+
     max-width: 1000px;
     width: 100%;
 }
 .image {
     width: 150px;
     height: 150px;
-    border-radius: 10px;
+    border-radius: 5px;
     margin-right: 1rem;
 }
 
