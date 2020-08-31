@@ -15,20 +15,19 @@ const SingleResult = (props) => {
       <img className="image" src={props.result.image_url} alt="image" />
       <div className="info">
         <h2 class="subtitle">
-          <strong> {props.result.name} </strong> Veterinary Medicine
+          <strong> {props.result.name} </strong>
         </h2>
-        <p>Heart of Brooklyn</p>
-        <PawRating />
-
-        <p>Accepts most insurance</p>
-        <p>Expert on Dogs</p>
+        <p>{props.result.display_phone}</p>
+        <p>{props.result.location['address1']}</p>
+        <p>{props.result.location.city}</p>
+        <p>{props.result.location.zip_code}</p>
+        <PawRating reviewCount={props.result.review_count} rating={props.result.rating}/>
         <p>
-          $$<span class="tag"> Test Tag</span>
+          <span class="tag"></span>
         </p>
       </div>
       <div className="contact">
-        <p>718-855-7387</p>
-        <p>775 Fulton St. Brooklyn, NY 11217</p>
+        
       </div>
     </div>
     </div>
