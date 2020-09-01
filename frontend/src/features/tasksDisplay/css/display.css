@@ -30,7 +30,7 @@
   height: 42vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
 }
 
 .examplesCont {
@@ -78,4 +78,8 @@
   font-size: 2.5vh;
   color: #141e27;
   font-weight: 500;
+}
+
+.list-group {
+  margin-bottom: 1vh;
 }

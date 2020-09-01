@@ -4,11 +4,13 @@ import axios from "axios";
 import { AuthContext } from "../../providers/AuthContext";
 import { pageVariants, pageTransition } from "../../util/framerStyles";
 import { motion } from "framer-motion";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "./css/taskForm.css";
 import { Button } from "react-bootstrap";
 import BackButton from "../backButton/BackButton";
 import Toast from "../toast/Toast";
+import { useDispatch } from "react-redux";
+import { setToast } from "../toastSlice/toastSlice";
 
 const date = new Date();
 
@@ -19,7 +21,7 @@ const TaskForm = () => {
   const [dueTime, setDueTime] = useState(date);
   const [petID, setPetID] = useState("");
   const [newTask, setNewTask] = useState("");
-  const history = useHistory();
+  const dispatch = useDispatch();
   const { page } = useParams();
 
   const handleSubmit = async (e) => {
@@ -40,7 +42,7 @@ const TaskForm = () => {
           authToken: token,
         },
       });
-      history.push("/home");
+      dispatch(setToast(true));
     } catch (err) {
       alert(err.message);
     }
@@ -95,14 +97,18 @@ const TaskForm = () => {
         <div className="tasksForm">
           <form onSubmit={handleSubmit}>
             <select
+              required
               className="tasks_input"
               onChange={(e) => setPetID(e.target.value)}
             >
-              <option>Choose Pet</option>
+              <option selected disabled>
+                Choose Pet
+              </option>
               {petNames}
             </select>
 
             <input
+              required
               className="tasks_input"
               type="text"
               placeholder="New task"
@@ -110,6 +116,7 @@ const TaskForm = () => {
               value={newTask}
             />
             <input
+              required
               type="datetime-local"
               className="tasks_input"
               max="24:00"
