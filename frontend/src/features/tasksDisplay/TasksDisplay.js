@@ -51,10 +51,16 @@ const TasksDisplay = ({ tasks = [] }) => {
     );
 
   const tasksMap = tasks.map((task) => {
-    console.log(typeof task.duetime);
     return (
       <ListGroup style={{ marginBottom: "1vh" }} key={task.task_id}>
-        <ListGroup.Item style={{ borderColor: "#e9eef4" }}>
+        <ListGroup.Item
+          style={{
+            borderColor: "#e9eef4",
+            borderLeftColor: "transparent",
+            borderRightColor: "transparent",
+            borderTopColor: "transparent",
+          }}
+        >
           <div className="allUsersTasks">
             <div className="taskIcon">
               <img src={taskPic} alt="" />
