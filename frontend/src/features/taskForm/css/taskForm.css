@@ -47,7 +47,7 @@
 
 .taskFormMain {
   display: flex;
-  height: 75vh;
+  height: 70vh;
   flex-direction: column;
   justify-content: center;
 }
@@ -82,4 +82,9 @@
   display: flex;
   flex-grow: 0.8;
   justify-content: center;
+}
+
+.toastDiv {
+  align-self: center;
+  height: 11vh;
 }

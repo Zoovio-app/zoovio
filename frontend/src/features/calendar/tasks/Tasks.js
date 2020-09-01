@@ -61,7 +61,9 @@ const Tasks = () => {
           <BackButton location={"calendar"} />
           <AddButton page={"calendar"} />
         </div>
-        <TasksDisplay tasks={tasks} />
+        <div className="calTasksBody">
+          <TasksDisplay tasks={tasks} />
+        </div>
       </div>
     </motion.div>
   );

@@ -59,3 +59,9 @@
   align-items: center;
   margin-top: -2vh;
 }
+.calTasksBody {
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+  overflow-y: scroll;
+}

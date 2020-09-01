@@ -8,6 +8,7 @@ import { useHistory, useParams } from "react-router-dom";
 import "./css/taskForm.css";
 import { Button } from "react-bootstrap";
 import BackButton from "../backButton/BackButton";
+import Toast from "../toast/Toast";
 
 const date = new Date();
 
@@ -21,7 +22,6 @@ const TaskForm = () => {
   const history = useHistory();
   const { page } = useParams();
 
-  console.log(history);
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -83,39 +83,44 @@ const TaskForm = () => {
       variants={pageVariants}
     >
       <div className="taskFormMain">
+        <div className="toastDiv">
+          <Toast />
+        </div>
         <div className="taskFormHead">
           <BackButton location={page} />
           <div className="taskFormH2">
             <h2>Create new task</h2>
           </div>
         </div>
-        <form className="tasksForm" onSubmit={handleSubmit}>
-          <select
-            className="tasks_input"
-            onChange={(e) => setPetID(e.target.value)}
-          >
-            <option>Choose Pet</option>
-            {petNames}
-          </select>
+        <div className="tasksForm">
+          <form onSubmit={handleSubmit}>
+            <select
+              className="tasks_input"
+              onChange={(e) => setPetID(e.target.value)}
+            >
+              <option>Choose Pet</option>
+              {petNames}
+            </select>
 
-          <input
-            className="tasks_input"
-            type="text"
-            placeholder="New task"
-            onChange={(e) => setNewTask(e.target.value)}
-            value={newTask}
-          />
-          <input
-            type="datetime-local"
-            className="tasks_input"
-            max="24:00"
-            onChange={(e) => setDueTime(e.target.value)}
-          />
+            <input
+              className="tasks_input"
+              type="text"
+              placeholder="New task"
+              onChange={(e) => setNewTask(e.target.value)}
+              value={newTask}
+            />
+            <input
+              type="datetime-local"
+              className="tasks_input"
+              max="24:00"
+              onChange={(e) => setDueTime(e.target.value)}
+            />
 
-          <Button variant="primary" type="submit">
-            Add
-          </Button>
-        </form>
+            <Button variant="primary" type="submit">
+              Add
+            </Button>
+          </form>
+        </div>
       </div>
     </motion.div>
   );
