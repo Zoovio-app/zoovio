@@ -112,10 +112,6 @@
   flex-direction: column;
 }
 
-.inAppMain {
-  /* margin-top: -30vh; */
-}
-
 .inAppBottom {
   position: fixed;
   bottom: 15%;

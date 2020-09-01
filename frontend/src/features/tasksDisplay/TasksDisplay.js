@@ -4,6 +4,8 @@ import { ListGroup } from "react-bootstrap";
 import meds from "../../images/meds2.png";
 import food from "../../images/pet-food2.png";
 import groom from "../../images/saloon2.png";
+import taskPic from "../../images/taskpic2.png";
+import { strFormat } from "./helper/helper";
 
 const TasksDisplay = ({ tasks = [] }) => {
   if (tasks.length === 0)
@@ -49,13 +51,25 @@ const TasksDisplay = ({ tasks = [] }) => {
     );
 
   const tasksMap = tasks.map((task) => {
+    console.log(typeof task.duetime);
     return (
       <ListGroup style={{ marginBottom: "1vh" }} key={task.task_id}>
-        <ListGroup.Item variant="danger">
+        <ListGroup.Item style={{ borderColor: "#e9eef4" }}>
           <div className="allUsersTasks">
-            <p className="petName">{task.pet_name}</p>
-            <p className="taskContent">{task.task}</p>
-            <p>{task.duetime}</p>
+            <div className="taskIcon">
+              <img src={taskPic} alt="" />
+            </div>
+            <div className="taskInfo">
+              <div>
+                <p className="petName">{task.pet_name}</p>
+              </div>
+              <div>
+                <p className="taskContent">{task.task}</p>
+              </div>
+              <div>
+                <p>{strFormat(task.duetime)}</p>
+              </div>
+            </div>
           </div>
         </ListGroup.Item>
       </ListGroup>
