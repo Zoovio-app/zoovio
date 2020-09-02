@@ -1,0 +1,39 @@
+.petFormMain {
+  display: flex;
+  flex-direction: column;
+}
+
+.petFormTitle {
+  align-self: center;
+}
+.petFormHead {
+  display: flex;
+  align-self: center;
+  width: 30vw;
+  padding: 1vw;
+}
+
+#petFormBack {
+  flex-grow: 0.7;
+}
+
+.petformH1 {
+  display: flex;
+  flex-grow: 1;
+  padding-left: 3vw;
+  padding-right: 3vw;
+}
+.petformH1 h1 {
+  color: #225095;
+}
+
+.petForm {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  flex-direction: column;
+}
+
+.petFormAdd {
+  align-self: center;
+}

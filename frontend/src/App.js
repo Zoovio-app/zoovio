@@ -40,9 +40,7 @@ function App() {
             <AuthRoute exact path="/login">
               <LandingPage />
             </AuthRoute>
-            <ProtectedRoute exact path="/pets/create">
-              <PetForm />
-            </ProtectedRoute>
+
             <>
               <div className="inAppContent">
                 <div className="inAppTop">
@@ -79,6 +77,10 @@ function App() {
 
                       <ProtectedRoute exact path="/pets">
                         <Pets />
+                      </ProtectedRoute>
+
+                      <ProtectedRoute exact path="/pets/create">
+                        <PetForm />
                       </ProtectedRoute>
 
                       <ProtectedRoute exact path="/calendar/tasks/:day">
