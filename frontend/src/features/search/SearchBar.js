@@ -17,7 +17,7 @@ const SearchBar = (props) => {
 
   const fetchData = async () => {
     const Authorization = `Bearer ${REACT_APP_YELP_API}`;
-    const BASE_URL_SEARCH = `https://api.yelp.com/v3/businesses/search?term=${term}&location=${location}`;
+    const BASE_URL_SEARCH = `https://api.yelp.com/v3/businesses/search?term=${term}&location=${location}&limit=${10}`;
     const BASE_URL = "https://api.yelp.com/v3/";
     const HEROKU_SEARCH = `https://cors-anywhere.herokuapp.com/${BASE_URL_SEARCH}`;
     const HEROKU = `https://cors-anywhere.herokuapp.com/?${BASE_URL}`;
