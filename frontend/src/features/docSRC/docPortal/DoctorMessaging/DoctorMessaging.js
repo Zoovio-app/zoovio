@@ -13,7 +13,6 @@ import DoctorNav from '../DoctorNav/DoctorNav'
 import { authInfoState } from '../../slices/authInfoSlice';
 import { messagingInfoState } from '../../slices/messagingInfoSlice';
 import { AuthContext } from '../../../../providers/AuthContext';
-import { current } from '@reduxjs/toolkit';
 
 
 
@@ -94,13 +93,14 @@ const HomePage = (props) => {
 
   return (
       <div> 
-        <div> 
-          <DoctorNav/>
-        </div>
 
 
     <Layout>
-      <section className="container">
+
+    <div className="nav4docPort"> 
+        <DoctorNav/>
+      </div>
+      <section className="messageContainer">
         <div className="listOfUsers">
           {
             user.users.length > 0 ?
