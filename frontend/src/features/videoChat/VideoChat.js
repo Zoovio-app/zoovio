@@ -3,6 +3,7 @@ import io from "socket.io-client";
 import Peer from "simple-peer";
 import styled from "styled-components";
 import { AuthContext } from '../../providers/AuthContext';
+import DoctorNav from '../docSRC/docPortal/DoctorNav/DoctorNav';
 
 
 
@@ -19,9 +20,10 @@ const Row = styled.div`
 `;
 
 const Video = styled.video`
-  border: 1px solid blue;
+  border: 1px solid orange;
+  margin-top: 4.8rem;
   width: 50%;
-  height: 50%;
+  height: 45%;
 `;
 
 
@@ -76,7 +78,7 @@ const VideoChat = () => {
             trickle: false,
             config: {
                 iceServers: [
-                    
+
                 ]
             },
             stream: stream
@@ -146,23 +148,35 @@ const VideoChat = () => {
         return (
             
             <Container>
-            <Row>
-              {UserVideo}
-              {PartnerVideo}
-            </Row>
-            <Row>
-              {Object.keys(users).map(key => {
-                if (key === yourID) {
-                  return <button onClick={() => callPeer(key)}>Call {key} </button>
-                }
-                return (
-                    <div> hello</div>
-                );
-              })}
-            </Row>
-            <Row>
-              {incomingCall}
-            </Row>
+                <div> 
+                    <DoctorNav/>
+                </div>
+
+                <div>
+                    <Row>
+                        {UserVideo}
+                        {PartnerVideo}
+                    </Row>
+                </div>
+
+                <div>
+                    <Row>
+                        {Object.keys(users).map(key => {
+                            if (key === yourID) {
+                            return <button onClick={() => callPeer(key)}>Call {key} </button>
+                        }
+                            return (
+                                <div> hello</div>
+                            );
+                        })}
+                    </Row>
+                </div>
+
+                <div>
+                    <Row>
+                        {incomingCall}
+                    </Row>
+                </div>
           </Container>
           
         )
