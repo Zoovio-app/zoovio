@@ -20,6 +20,7 @@ import DoctorLogin from './features/docSRC/docPortal/DoctorLogin/DoctorLogin';
 import DoctorSignup from './features/docSRC/docPortal/DoctorSignup/DoctorSignup';
 import DoctorInquire from './features/docSRC/docPortal/DoctorInquire/DoctorInquire';
 import DoctorPortal from "./features/docSRC/docPortal/DoctorPortal/DoctorPortal";
+import VideoChat from './features/videoChat/VideoChat'
 // import 'bootstrap/dist/css/bootstrap.min.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { isLoggedInUser } from './features/docSRC/actions';
@@ -84,6 +85,10 @@ function App() {
           {/* ------------------- */}
           <PrivateRoute exact path="/messaging">
             <DoctorMessaging/>
+          </PrivateRoute>
+
+          <PrivateRoute exact path="/doctor/virtual-appointment">
+            <VideoChat/>
           </PrivateRoute>
 
           <AnimatePresence exitBeforeEnter>
