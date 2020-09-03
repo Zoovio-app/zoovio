@@ -3,22 +3,48 @@
     background-color: rgba(0,0,0,1);
     font-weight:600;
     text-align:center !important;
-    
-
-
-    
 }
 
-.style-navigation {
+.docPortalNavUl {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 12%;
+  overflow: hidden;
+  color: rgb(255, 255, 255);
+  background-color: #F16643;
+}
+
+/* .style-navigation {
     justify-content: space-around;
-    /* display: inline; */
     text-align: center;
     display: inline;
-    /* flex: row; */
     float: none;
     display: inline-block;
-    
     color: #0f0f0f;
+} */
+
+.style-navigation-left {
+  color: rgb(255, 255, 255) !important;
+  /* background-color: rgb(255, 255, 255)  ; */
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  float: left;
+  padding-left: 2rem;
+  padding-top: 1.5rem;
+}
+
+.style-navigation-right {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+  font-weight: 700;
+  float: right;
+  padding-right: 1rem;
+  padding-top: 1.5rem;
 }
 
 .hoverable {
@@ -26,11 +52,19 @@
     backface-visibility: hidden;
     vertical-align: middle;
     position:relative;
-    box-shadow: 0 0 1px rgba(0,0,0,0);
+    /* box-shadow: 0 0 1px rgba(0,0,0,0); */
     tranform: translateZ(0);
     transition-duration: .3s;
     transition-property:transform;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
   }
+
+  .syleA2 {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+  }
+
 
   .hoverable:before{
     position:absolute;
@@ -58,10 +92,10 @@
   }
 
   .style-navigation:after {
-    color: pink;
+    color: rgb(255, 255, 255);
   }
   
-  
+
   
   @keyframes bounce-animation {
     16.65% {
