@@ -3,13 +3,14 @@ import { handleUpload } from "./helpers/photoUpload";
 import { AuthContext } from "../../providers/AuthContext";
 import Axios from "axios";
 import { apiUrl } from "../../util/apiUrl";
-import { useHistory } from "react-router-dom";
 import { motion } from "framer-motion";
 import { pageTransition, pageVariants } from "../../util/framerStyles";
 import Toast from "../toast/Toast";
 import BackButton from "../backButton/BackButton";
 import { Button } from "react-bootstrap";
 import "./css/petForm.css";
+import { useDispatch } from "react-redux";
+import { setToast } from "../toastSlice/toastSlice";
 
 const PetForm = () => {
   const [image, setImage] = useState(null);
@@ -21,7 +22,7 @@ const PetForm = () => {
   const [dob, setDob] = useState("");
   const API = apiUrl();
   const input = useRef();
-  const history = useHistory();
+  const dispatch = useDispatch();
 
   const handleChange = async (e) => {
     setImage(e.target.files[0]);
@@ -52,7 +53,7 @@ const PetForm = () => {
           authToken: token,
         },
       });
-      history.push("/pets");
+      dispatch(setToast(true));
     } catch (error) {
       alert(error);
     }
@@ -71,13 +72,13 @@ const PetForm = () => {
           <h1>ZooVio</h1>
         </div>
         <div className="toastDiv">
-          <Toast />
+          <Toast text={"Your pet was succesfully added."} />
         </div>
 
         <div className="petFormHead">
-          <BackButton id="petFormBack" />
+          <BackButton location={"pets"} id="petFormBack" />
           <div className="petformH1">
-            <h1>Create a pet </h1>
+            <h1>Add new pet </h1>
           </div>
         </div>
         <div className="petFormAdd">

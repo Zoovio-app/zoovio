@@ -4,7 +4,7 @@ import { Toast } from "react-bootstrap";
 import "./css/toast.css";
 import { toastState, setToast } from "../toastSlice/toastSlice";
 
-const Toastt = () => {
+const Toastt = ({ text }) => {
   const show = useSelector(toastState);
   const dispatch = useDispatch();
   return (
@@ -29,7 +29,7 @@ const Toastt = () => {
           <img src="holder.js/20x20?text=%20" className="rounded mr-2" alt="" />
           <strong className="mr-auto">Success!</strong>
         </Toast.Header>
-        <Toast.Body>Your task was successfully added. </Toast.Body>
+        <Toast.Body>{text} </Toast.Body>
       </Toast>
     </>
   );

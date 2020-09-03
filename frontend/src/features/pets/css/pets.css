@@ -1,0 +1,18 @@
+.petsMain {
+  display: flex;
+  flex-direction: column;
+}
+
+.petsMainTitle {
+  align-self: center;
+}
+
+.petsAdd {
+  align-self: center;
+}
+
+.PetCardsDiv {
+  align-self: center;
+  overflow-y: scroll;
+  width: 35vw;
+}

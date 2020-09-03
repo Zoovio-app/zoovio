@@ -2,11 +2,13 @@ import React from "react";
 import "./css/addButton.css";
 import { useHistory } from "react-router-dom";
 import plus from "../../images/plus.png";
-const AddButton = ({ page }) => {
+const AddButton = ({ page, pets = false }) => {
   const history = useHistory();
   return (
     <div
-      onClick={() => history.push(`/tasks/create/${page}`)}
+      onClick={() =>
+        history.push(pets ? "/pets/create" : `/tasks/create/${page}`)
+      }
       className="addButton"
     >
       <img alt="" src={plus} />

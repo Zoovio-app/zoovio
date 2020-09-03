@@ -86,7 +86,7 @@ const TaskForm = () => {
     >
       <div className="taskFormMain">
         <div className="toastDiv">
-          <Toast />
+          <Toast text={"Your task was successfully added."} />
         </div>
         <div className="taskFormHead">
           <BackButton location={page} />

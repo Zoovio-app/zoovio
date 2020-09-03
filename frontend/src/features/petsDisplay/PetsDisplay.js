@@ -4,8 +4,8 @@ const PetsDisplay = ({ pets }) => {
   const petss = pets.map((pet) => {
     return (
       <div className="petCard" key={pet.id}>
-        <div>
-          <img alt="" style={{ height: "100px" }} src={pet.img} />
+        <div className="petCardImg">
+          <img alt="" src={pet.img} />
         </div>
         <div style={{ display: "flex", alignItems: "center" }}>
           <span style={{ fontWeight: "bold" }}>{pet.pet_name}</span>
