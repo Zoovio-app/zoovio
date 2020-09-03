@@ -6,6 +6,23 @@ import { AuthContext } from '../../providers/AuthContext';
 
 
 
+const Container = styled.div`
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+`;
+
+const Row = styled.div`
+  display: flex;
+  width: 100%;
+`;
+
+const Video = styled.video`
+  border: 1px solid blue;
+  width: 50%;
+  height: 50%;
+`;
 
 
 const VideoChat = () => {
@@ -59,7 +76,7 @@ const VideoChat = () => {
             trickle: false,
             config: {
                 iceServers: [
-                   
+                    
                 ]
             },
             stream: stream
@@ -83,6 +100,7 @@ const VideoChat = () => {
 
         const acceptCall = () => {
             setCallAccepted(true);
+
             const peer = new Peer({
                 initiator: false,
                 trickle: false,
