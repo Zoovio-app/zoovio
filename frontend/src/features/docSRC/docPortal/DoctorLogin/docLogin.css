@@ -70,10 +70,6 @@
 	transition: .3s;
 }
 
-/* .inputDiv > div{
-    position: relative;
-	height: 20px;
-} */
 
 .inputDiv > div > h5{
 	position: absolute;
