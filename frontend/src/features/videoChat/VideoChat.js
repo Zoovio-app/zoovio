@@ -6,6 +6,8 @@ import { AuthContext } from '../../providers/AuthContext';
 
 
 
+
+
 const VideoChat = () => {
     const [yourID, setYourID] = useState("");
     const [users, setUsers] = useState({1: "dee"});
@@ -73,9 +75,30 @@ const VideoChat = () => {
             }
           });
       
-        
+          socket.current.on("callAccepted", signal => {
+            setCallAccepted(true);
+            peer.signal(signal);
+        }) 
     };
 
+        const acceptCall = () => {
+            setCallAccepted(true);
+            const peer = new Peer({
+                initiator: false,
+                trickle: false,
+                stream: stream,
+              });
+
+              peer.on("signal", data => {
+                socket.current.emit("acceptCall", { signal: data, to: caller })
+              })
+
+              peer.on("stream", stream => {
+                partnerVideo.current.srcObject = stream;
+              });
+
+              peer.signal(callerSignal);
+        }
 
         let UserVideo;
         if (stream) {
@@ -85,17 +108,43 @@ const VideoChat = () => {
         }
 
 
+        let PartnerVideo;
+        if (callAccepted) {
+            PartnerVideo = (
+                <Video playsInline ref={partnerVideo} autoPlay />
+            );
+        }
 
-       
+        let incomingCall;
+        if (receivingCall) {
+            incomingCall = (
+                <div>
+                    <h1>{caller} is calling you</h1>
+                    <button onClick={acceptCall}>Accept</button>
+                </div>
+            )
+        };
 
         return (
             
             <Container>
             <Row>
               {UserVideo}
+              {PartnerVideo}
             </Row>
-            
-           
+            <Row>
+              {Object.keys(users).map(key => {
+                if (key === yourID) {
+                  return <button onClick={() => callPeer(key)}>Call {key} </button>
+                }
+                return (
+                    <div> hello</div>
+                );
+              })}
+            </Row>
+            <Row>
+              {incomingCall}
+            </Row>
           </Container>
           
         )
