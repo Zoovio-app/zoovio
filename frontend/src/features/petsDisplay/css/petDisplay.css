@@ -31,3 +31,10 @@
   width: inherit;
   height: inherit;
 }
+
+.ageSpan span {
+  color: #91a8ca;
+}
+.ageSpan {
+  display: flex;
+}

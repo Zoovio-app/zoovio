@@ -97,11 +97,12 @@ const TaskForm = () => {
         <div className="tasksForm">
           <form onSubmit={handleSubmit}>
             <select
+              defaultValue={"a"}
               required
               className="tasks_input"
               onChange={(e) => setPetID(e.target.value)}
             >
-              <option selected disabled>
+              <option value={"a"} disabled>
                 Choose Pet
               </option>
               {petNames}
