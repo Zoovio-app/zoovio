@@ -1,7 +1,7 @@
 import React, { useEffect, useContext, useState } from "react";
 import { Calendar } from "react-calendar";
-import "./css/styles.css";
 import "react-calendar/dist/Calendar.css";
+import "./css/styles.css";
 import { motion } from "framer-motion";
 import { useHistory } from "react-router-dom";
 import { pageVariants, pageTransition } from "../../util/framerStyles";
@@ -62,6 +62,7 @@ const CalendarPage = () => {
       >
         <h1>ZooVio</h1>
         <Calendar
+          tileClassName={"tileClass"}
           className={"cally"}
           showNavigation={true}
           tileContent={({ activeStartDate, date, view }) =>

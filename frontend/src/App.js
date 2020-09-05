@@ -15,15 +15,12 @@ import Pets from "./features/pets/Pets";
 import PetForm from "./features/petForm/PetForm";
 // import SvgWave from "./features/svgWaves/SvgWave";
 import SplashPage from "./features/splashpage/SplashPage";
-import { logOut } from "./util/firebaseFunctions";
-import proPic from "./images/accounts2.png";
+import UserMenue from "./features/userMenue/UserMenue";
+import Blob from "./features/blob/Blob.js";
 
 function App() {
   const location = useLocation();
-  const signOut = () => {
-    logOut();
-    // dispatch(clearUserInfo());
-  };
+
   return (
     <AuthProvider>
       <div className="App">
@@ -43,46 +40,86 @@ function App() {
             <AuthRoute exact path="/login">
               <LandingPage />
             </AuthRoute>
-            <ProtectedRoute exact path="/pets/create">
-              <PetForm />
-            </ProtectedRoute>
+
             <>
               <div className="inAppContent">
-                <div className="outButtDiv">
-                  <img alt="" src={proPic} />
-                  <div onClick={signOut} className="outButtDiv-content">
-                    <p>Log Out</p>
-                  </div>
+                <div className="inAppTop">
+                  <Blob
+                    size={"45vh"}
+                    style={{ position: "absolute", margin: "-20vh" }}
+                  />
+                  <Blob
+                    style={{ alignSelf: "flex-end", position: "absolute" }}
+                  />
+                  <UserMenue />
                 </div>
-                <AnimatePresence exitBeforeEnter>
-                  <Switch location={location} key={location.pathname}>
-                    <ProtectedRoute exact path="/home">
-                      <Home />
-                    </ProtectedRoute>
+                <div className="inAppMain">
+                  <Blob
+                    size={"30vh"}
+                    style={{
+                      position: "absolute",
+                      marginTop: "30vh",
+                      marginLeft: "-11vw",
+                    }}
+                  />
+                  <Blob
+                    size={"25vh"}
+                    style={{
+                      position: "absolute",
+                      marginLeft: "20vw",
+                    }}
+                  />
+                  <AnimatePresence exitBeforeEnter>
+                    <Switch location={location} key={location.pathname}>
+                      <ProtectedRoute exact path="/home">
+                        <Home />
+                      </ProtectedRoute>
 
-                    <ProtectedRoute exact path="/pets">
-                      <Pets />
-                    </ProtectedRoute>
+                      <ProtectedRoute exact path="/pets">
+                        <Pets />
+                      </ProtectedRoute>
 
-                    <ProtectedRoute exact path="/calendar/tasks/:day">
-                      <Tasks />
-                    </ProtectedRoute>
+                      <ProtectedRoute exact path="/pets/create">
+                        <PetForm />
+                      </ProtectedRoute>
 
-                    <ProtectedRoute exact path="/tasks/create">
-                      <TaskForm />
-                    </ProtectedRoute>
+                      <ProtectedRoute exact path="/calendar/tasks/:day">
+                        <Tasks />
+                      </ProtectedRoute>
 
-                    <ProtectedRoute exact path="/calendar">
-                      <CalendarPage />
-                    </ProtectedRoute>
+                      <ProtectedRoute exact path="/tasks/create/:page">
+                        <TaskForm />
+                      </ProtectedRoute>
 
-                    <AuthRoute path="*">
-                      <LandingPage />
-                    </AuthRoute>
-                  </Switch>
-                </AnimatePresence>
+                      <ProtectedRoute exact path="/calendar">
+                        <CalendarPage />
+                      </ProtectedRoute>
+
+                      <AuthRoute path="*">
+                        <LandingPage />
+                      </AuthRoute>
+                    </Switch>
+                  </AnimatePresence>
+                </div>
                 <Route path={["/home", "/pets", "/calendar", "/tasks"]}>
-                  <Nav />
+                  <div className="inAppBottom">
+                    <Blob
+                      size={"70vh"}
+                      style={{
+                        position: "absolute",
+                        marginLeft: "-20vw",
+                      }}
+                    />
+                    <Nav />
+
+                    <Blob
+                      size={"40vh"}
+                      style={{
+                        position: "absolute",
+                        marginLeft: "85vw",
+                      }}
+                    />
+                  </div>
                 </Route>
               </div>
             </>
