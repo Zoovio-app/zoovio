@@ -1,17 +1,37 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
 import { Carousel } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import vet from "../../images/vetpic.png";
 import relax from "../../images/relax.png";
 import hangout from "../../images/hangout.png";
-// import delivery from "../../images/delivery.png";
 import "./css/splash.css";
 import { Button } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
-
+import { apiUrl } from "../../util/apiUrl";
+import axios from "axios";
+import { AuthContext } from "../../providers/AuthContext";
 const SplashPage = () => {
   const history = useHistory();
+  const API = apiUrl();
+  const { currentUser, token } = useContext(AuthContext);
+  useEffect(() => {
+    const wakeUp = async () => {
+      try {
+        await axios({
+          method: "get",
+          url: `${API}/api/users/${1}`,
+          headers: {
+            authToken: token,
+          },
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    wakeUp();
+  }, [API, currentUser, token]);
+
   return (
     <div className="splashMain">
       <div className="topCont">
