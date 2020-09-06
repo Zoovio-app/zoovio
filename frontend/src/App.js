@@ -2,7 +2,12 @@ import React from "react";
 import { Switch, useLocation, Route } from "react-router-dom";
 import "./App.css";
 import LandingPage from "./features/landingPage/LandingPage";
-import { AuthRoute, ProtectedRoute } from "./util/routeUtil";
+import {
+  AuthRoute,
+  ProtectedRoute,
+  DoctorAuthRoute,
+  PrivateRoute,
+} from "./util/routeUtil";
 import AuthProvider from "./providers/AuthContext";
 import Home from "./features/home/Home";
 import SignUp from "./features/signUp/SignUp";
@@ -16,6 +21,12 @@ import PetForm from "./features/petForm/PetForm";
 import SplashPage from "./features/splashpage/SplashPage";
 import UserMenue from "./features/userMenue/UserMenue";
 import Blob from "./features/blob/Blob.js";
+
+import DoctorHome from "./features/docPortal/DoctorHome/DoctorHome";
+import DoctorLogin from "./features/docPortal/DoctorLogin/DoctorLogin";
+import DoctorSignup from "./features/docPortal/DoctorSignup/DoctorSignup";
+import DoctorPortal from "./features/docPortal/DoctorPortal/DoctorPortal";
+// import { useDispatch, useSelector } from "react-redux";
 
 function App() {
   const location = useLocation();
@@ -90,6 +101,27 @@ function App() {
                       <ProtectedRoute exact path="/calendar">
                         <CalendarPage />
                       </ProtectedRoute>
+
+                      {/* ----------doc portal-------------------- */}
+                      <DoctorAuthRoute exact path="/doctor/portal">
+                        <DoctorPortal />
+                      </DoctorAuthRoute>
+
+                      <PrivateRoute exact path="/doctor/home">
+                        <DoctorHome />
+                      </PrivateRoute>
+
+                      <DoctorAuthRoute exact path="/doctor/signup">
+                        <DoctorSignup />
+                      </DoctorAuthRoute>
+
+                      <DoctorAuthRoute exact path="/doctor/login">
+                        <DoctorLogin />
+                      </DoctorAuthRoute>
+                      {/* ------------------- */}
+                      {/* <PrivateRoute exact path="/messaging">
+            <Messaging/>
+          </PrivateRoute> */}
 
                       <AuthRoute path="*">
                         <LandingPage />

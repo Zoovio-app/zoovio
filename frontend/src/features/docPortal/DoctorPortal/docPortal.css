@@ -1,0 +1,159 @@
+/* 
+* {
+    margin: 0;
+    padding: 0;
+  } */
+  
+  .mainContainer4DocPortal {
+    /* background-color: red; */
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    justify-items: center;
+    background-image: url(../../../assets/img/docportalBGROUND4.png);
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+  .navBar4DocPortal {
+      display: flex;
+      justify-items: center;
+      justify-content: space-evenly;
+      align-items: stretch;
+      margin-bottom: 1rem;
+  }
+
+  .docPortalNavUl {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 12%;
+    overflow: hidden;
+  
+    /* black */
+    /* background-color:  rgb(0, 0, 0); */
+
+
+    /* orange */
+    background-color: #F16643;
+
+    /* salmon  */
+    /* background-color: #F18E7C; */
+
+    /* blue  */
+    /* background-color: #225095; */
+
+    /* DUST PINK */
+    /* background-color: #F3BFD0; */
+  }
+
+  .docPortalNavLiLeft {
+    /* display: inline; */
+    color: rgb(255, 255, 255);
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    float: left;
+    padding-left: 1.5rem;
+    padding-top: 1.5rem;
+  }
+
+  .syleA {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+  }
+
+  .docPortalNavLiRight {
+    /* display: inline; */
+    color: rgb(255, 255, 255);
+    font-size: 1.5rem;
+    font-weight: 700;
+    float: right;
+    padding-top: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .docPortalBox {
+      display: flex;
+      margin-top: 5rem;
+      margin-left: -28rem;
+  }
+
+  .carousel4DocPortal {
+      float: left;
+      margin-left: 22rem;
+      border-radius: 1.5rem;
+      /* background-color: brown; */
+      /* background-color: #F18E7C; */
+      box-shadow: 5px 10px 5px 10px #F16643;
+      /* background-color:  #225095; */
+      /* background-color:  rgb(0, 0, 0); */
+      /* width: 52rem; */
+      /* height: 27.35rem; */
+      height: 30rem;
+      /* padding-top: 5rem; */
+      justify-content: center;
+      align-items: center;
+      margin-top: 0.5rem;
+      /* width: 75rem */
+  }
+
+  .inquiryForm4DocPortal {
+      float: right;
+      margin-left: 8rem;
+      margin-top: 25rem;
+      padding-right: -5rem;
+      padding-left: -5rem;
+      width: 12rem;
+      box-sizing: border-box;
+      box-shadow: 5px 10px #F3BFD0;
+      border: 3px solid #F18E7C;
+      height: 10rem;
+      border-radius: 1rem;
+  }
+
+  .zoovioHeading {
+      color:rgb(0, 0, 0);
+      font-weight: 700;
+      /* font-style: italic; */
+      font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+      display: inline;
+  }
+
+  .zoovioInquiryLink {
+    color:rgb(255, 255, 255);
+    font-weight: 700;
+    font-variant-caps: all-petite-caps;
+    /* font-style: italic; */
+    font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+    display: inline;
+    text-decoration: none;
+    font-style: oblique;
+    /* margin-bottom: 3rem; */
+  }
+
+  .zoovioInquiryLink:hover {
+    text-decoration: underline;
+    font-style: oblique;
+    /* color: cadetblue; */
+    color: #F16643;
+
+  }
+
+  .zoovioInfo {
+    display: inline;
+    /* color:  #225095; */
+    color:rgb(0, 0, 0);
+    font-weight: 700;
+    font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+    line-height: 0.5;
+  }
+
+
+
+
+ 

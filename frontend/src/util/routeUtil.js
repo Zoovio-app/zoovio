@@ -4,7 +4,6 @@ import { AuthContext } from "../providers/AuthContext";
 
 export const AuthRoute = ({ children, ...rest }) => {
   const { currentUser } = useContext(AuthContext);
-
   return (
     <Route
       {...rest}
@@ -23,6 +22,38 @@ export const ProtectedRoute = ({ children, ...rest }) => {
       {...rest}
       render={({ location }) => {
         return currentUser ? children : <Redirect to="/login" />;
+      }}
+    />
+  );
+};
+
+
+
+export const PrivateRoute = ({component: Component, ...rest}) => {
+  return(
+    <Route {...rest} component={(props) => {
+        const user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null;
+
+        if(user){
+            return <Component {...props} />
+        }else{
+            return <Redirect to={`/doctor/login`} />
+        }
+
+    }} />
+   )
+
+ }
+
+
+ export const DoctorAuthRoute = ({ children, ...rest }) => {
+  const { currentUser } = useContext(AuthContext);
+
+  return (
+    <Route
+      {...rest}
+      render={({ location }) => {
+        return !currentUser ? children : <Redirect to="/doctor/portal" />;
       }}
     />
   );
