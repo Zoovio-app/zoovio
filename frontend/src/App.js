@@ -83,6 +83,14 @@ function App() {
           </PrivateRoute> */}
 
 
+          <DoctorAuthRoute exact path="/doctor/inquire">
+            <DoctorInquire/>
+          </DoctorAuthRoute>
+        
+          <PrivateRoute exact path="/doctor/virtual-appointment">
+            <VideoChat/>
+          </PrivateRoute>
+
             </Switch>
           </AnimatePresence>
 
