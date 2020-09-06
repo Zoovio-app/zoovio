@@ -1,5 +1,5 @@
 import React from "react";
-import "./searchCss/Rating.css";
+import "./CSS/Rating.css";
 import Rating from "react-rating";
 
 
