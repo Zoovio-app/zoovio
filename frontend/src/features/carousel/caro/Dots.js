@@ -1,6 +1,7 @@
 // /** @jsx jsx */
 import React from "react";
-import { css } from "@emotion/core";
+// eslint-disable-next-line
+import { css, jsx } from "@emotion/core";
 
 const Dot = ({ active }) => (
   <span
