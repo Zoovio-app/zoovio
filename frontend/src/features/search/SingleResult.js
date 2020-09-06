@@ -1,7 +1,7 @@
 import React from "react";
 import "./searchCss/SingleResult.css";
 import PawRating from "./PawRating";
-import styles from "./searchCss/SearchResults.css";
+import "./CSS/SearchResults.css";
 
 const SingleResult = (props) => {
  
