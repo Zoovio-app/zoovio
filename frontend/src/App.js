@@ -24,7 +24,7 @@ import Blob from "./features/blob/Blob.js";
 
 import DoctorHome from "./features/docPortal/DoctorHome/DoctorHome";
 import DoctorLogin from "./features/docPortal/DoctorLogin/DoctorLogin";
-import DoctorSignup from "./features/docPortal/DoctorSignup/DoctorSignup";
+// import DoctorSignup from "./features/docPortal/DoctorSignup/DoctorSignup";
 import DoctorPortal from "./features/docPortal/DoctorPortal/DoctorPortal";
 // import { useDispatch, useSelector } from "react-redux";
 
@@ -111,9 +111,9 @@ function App() {
                         <DoctorHome />
                       </PrivateRoute>
 
-                      <DoctorAuthRoute exact path="/doctor/signup">
+                      {/* <DoctorAuthRoute exact path="/doctor/signup">
                         <DoctorSignup />
-                      </DoctorAuthRoute>
+                      </DoctorAuthRoute> */}
 
                       <DoctorAuthRoute exact path="/doctor/login">
                         <DoctorLogin />
