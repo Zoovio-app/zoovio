@@ -13,7 +13,6 @@ import Tasks from "./features/calendar/tasks/Tasks";
 import TaskForm from "./features/taskForm/TaskForm";
 import Pets from "./features/pets/Pets";
 import PetForm from "./features/petForm/PetForm";
-// import SvgWave from "./features/svgWaves/SvgWave";
 import SplashPage from "./features/splashpage/SplashPage";
 import UserMenue from "./features/userMenue/UserMenue";
 import Blob from "./features/blob/Blob.js";
@@ -25,9 +24,6 @@ function App() {
     <AuthProvider>
       <div className="App">
         <div className="appCont">
-          {/* <Route path={["/home", "/calendar", "/pets", "/tasks/create"]}>
-            <SvgWave />
-          </Route> */}
           <Switch>
             <AuthRoute exact path="/">
               <SplashPage />
