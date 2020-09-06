@@ -16,6 +16,7 @@ import PetForm from "./features/petForm/PetForm";
 // import SvgWave from "./features/svgWaves/SvgWave";
 import SplashPage from "./features/splashpage/SplashPage";
 import UserMenue from "./features/userMenue/UserMenue";
+import Search from "./features/search/Search"
 import Blob from "./features/blob/Blob.js";
 
 function App() {
@@ -91,6 +92,10 @@ function App() {
                         <TaskForm />
                       </ProtectedRoute>
 
+                      <ProtectedRoute exact path="/search">
+                        <Search />
+                      </ProtectedRoute>
+
                       <ProtectedRoute exact path="/calendar">
                         <CalendarPage />
                       </ProtectedRoute>
@@ -101,7 +106,7 @@ function App() {
                     </Switch>
                   </AnimatePresence>
                 </div>
-                <Route path={["/home", "/pets", "/calendar", "/tasks"]}>
+                <Route path={["/home", "/pets", "/calendar", "/tasks" , "search"]}>
                   <div className="inAppBottom">
                     <Blob
                       size={"70vh"}

@@ -1,5 +1,5 @@
 import React from "react";
-import "./searchCss/SingleResult.css";
+import "./CSS/SingleResult.css";
 import PawRating from "./PawRating";
 import "./CSS/SearchResults.css";
 

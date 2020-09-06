@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import SearchResults from "./SearchResults";
 import SearchBar from "./SearchBar";
 import { pageVariants, pageTransition } from "../../util/framerStyles";
