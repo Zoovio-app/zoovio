@@ -107,3 +107,9 @@
   flex-grow: 1;
   margin-left: 1vw;
 }
+
+#listG {
+  border-color: #e9eef4;
+  border-style: solid;
+  border-width: 2px;
+}

@@ -1,6 +1,6 @@
 import React from "react";
-import "./css/display.css";
 import { ListGroup } from "react-bootstrap";
+import "./css/display.css";
 import meds from "../../images/meds2.png";
 import food from "../../images/pet-food2.png";
 import groom from "../../images/saloon2.png";
@@ -53,14 +53,7 @@ const TasksDisplay = ({ tasks = [] }) => {
   const tasksMap = tasks.map((task) => {
     return (
       <ListGroup style={{ marginBottom: "1vh" }} key={task.task_id}>
-        <ListGroup.Item
-          style={{
-            borderColor: "#e9eef4",
-            borderLeftColor: "transparent",
-            borderRightColor: "transparent",
-            borderTopColor: "transparent",
-          }}
-        >
+        <ListGroup.Item id="listG">
           <div className="allUsersTasks">
             <div className="taskIcon">
               <img src={taskPic} alt="" />

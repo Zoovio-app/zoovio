@@ -35,6 +35,7 @@ const Home = () => {
             authToken: token,
           },
         });
+
         setTasks(rez.data.tasks);
         let res = await axios({
           method: "get",
