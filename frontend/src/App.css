@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: "Rubik", sans-serif !important;
 }
 
 .App-logo {
@@ -31,9 +32,87 @@
     transform: translateY(0);
   }
   50% {
-    transform: translateY(10px)
+    transform: translateY(10px);
   }
   100% {
-    transform: translateY(0px)
+    transform: translateY(0px);
   }
+}
+
+.btn-primary {
+  background-color: #225095;
+}
+
+.list-group-item-danger {
+  background-color: rgb(241, 142, 124, 0.3);
+  border-radius: 13px !important;
+}
+
+.list-group-item {
+  border: none;
+  color: black;
+}
+
+.appCont {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.inAppContent {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.outButtDiv {
+  align-self: flex-end;
+  display: inline-block;
+  margin-right: 10vw;
+  margin-top: 5vh;
+  padding: 2px;
+  position: fixed;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.outButtDiv img {
+  height: 7vh;
+}
+
+.outButtDiv-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  border-radius: 10px;
+}
+
+.outButtDiv:hover .outButtDiv-content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.outButtDiv-content:hover {
+  background-color: #fdfdfc;
+}
+
+.outButtDiv-content p {
+  margin: unset;
+  font-weight: bold;
+  color: #225095;
+}
+
+.inAppTop {
+  display: flex;
+  flex-direction: column;
+}
+
+.inAppBottom {
+  position: fixed;
+  bottom: 15%;
 }

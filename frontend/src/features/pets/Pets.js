@@ -4,14 +4,14 @@ import { motion } from "framer-motion";
 import { AuthContext } from "../../providers/AuthContext";
 import axios from "axios";
 import { apiUrl } from "../../util/apiUrl";
-import { useHistory } from "react-router-dom";
 import PetsDisplay from "../petsDisplay/PetsDisplay";
+import AddButton from "../addButton/AddButton";
+import "./css/pets.css";
 
 const Pets = () => {
   const { currentUser, token } = useContext(AuthContext);
   const [pets, setPets] = useState([]);
   const API = apiUrl();
-  const history = useHistory();
 
   useEffect(() => {
     const getAllPets = async () => {
@@ -24,7 +24,6 @@ const Pets = () => {
           },
         });
         setPets(res.data.payload.pets);
-        // debugger;
       } catch (error) {
         alert(error);
       }
@@ -40,9 +39,17 @@ const Pets = () => {
       variants={pageVariants}
       transition={pageTransition}
     >
-      <h1>Pets</h1>
-      <button onClick={() => history.push("/pets/create")}>Add new pet</button>
-      <PetsDisplay pets={pets} />
+      <div className="petsMain">
+        <div className="petsMainTitle">
+          <h1>ZooVio</h1>
+        </div>
+        <div className="petsAdd">
+          <AddButton pets={true}>Add new pet</AddButton>
+        </div>
+        <div className="PetCardsDiv">
+          <PetsDisplay pets={pets} />
+        </div>
+      </div>
     </motion.div>
   );
 };

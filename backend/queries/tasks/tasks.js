@@ -26,12 +26,12 @@ const getAllTasksByPet = async (req, res, next) => {
 };
 
 const createNewTask = async (req, res, next) => {
-  const { pet_id, task, due_date } = req.body;
+  const { pet_id, task, due_date, due_time, dueTime } = req.body;
 
   try {
     let newTask = await db.none(
-      `INSERT INTO tasks(pet_id, task, due_date) VALUES($1, $2, $3)`,
-      [pet_id, task, due_date]
+      `INSERT INTO tasks(pet_id, task, due_date, due_time,dueTime) VALUES($1, $2, $3, $4, $5)`,
+      [pet_id, task, due_date, due_time, dueTime]
     );
     res.status(200).json({
       status: "Success",
@@ -53,9 +53,14 @@ const getAllTasksByUser = async (req, res, next) => {
   try {
     const { id } = req.params;
     let tasks = await db.any(
-      `SELECT tasks.*, pets.*, users.* FROM users
-        RIGHT JOIN pets ON users.user_id = pets.owner
-        LEFT JOIN tasks ON pets.id = tasks.pet_id`,
+      `SELECT tasks.*, pets.pet_name, users.* 
+      FROM tasks
+      LEFT JOIN pets 
+      ON  pets.id = tasks.pet_id
+      LEFT JOIN users
+      ON users.user_id = owner
+      WHERE users.user_id =$1
+      ORDER BY due_time asc`,
       [id]
     );
     res.status(200).json({
@@ -80,9 +85,13 @@ const getAllTasksByMonth = async (req, res, next) => {
     const { user, year } = req.query;
 
     let tasks = await db.any(
-      `SELECT tasks.*, pets.* FROM users
-        RIGHT JOIN pets ON users.user_id = pets.owner
-        LEFT JOIN tasks ON pets.id = tasks.pet_id WHERE EXTRACT(MONTH FROM due_date) = $1 AND owner = $2 AND EXTRACT(YEAR FROM due_date) = $3`,
+      `SELECT tasks.*, pets.pet_name, users.* 
+      FROM tasks
+      LEFT JOIN pets 
+      ON  pets.id = tasks.pet_id
+      LEFT JOIN users
+      ON users.user_id = owner
+      WHERE EXTRACT(MONTH FROM due_date) = $1 AND owner = $2 AND EXTRACT(YEAR FROM due_date) = $3`,
       [month, user, year]
     );
     res.status(200).json({
@@ -103,10 +112,15 @@ const getAllTasksByDay = async (req, res, next) => {
   try {
     const { day } = req.params;
     const { user, month, year } = req.query;
+
     let tasks = await db.any(
-      `SELECT tasks.*, pets.* FROM users
-        RIGHT JOIN pets ON users.user_id = pets.owner
-        LEFT JOIN tasks ON pets.id = tasks.pet_id WHERE EXTRACT(DAY FROM due_date) = $1 AND owner = $2 AND EXTRACT(MONTH FROM due_date) = $3 AND EXTRACT(YEAR FROM due_date) = $4 `,
+      `SELECT tasks.*, pets.pet_name, users.* 
+      FROM tasks
+      LEFT JOIN pets 
+      ON  pets.id = tasks.pet_id
+      LEFT JOIN users
+      ON users.user_id = owner WHERE EXTRACT(DAY FROM due_date) = $1 AND owner = $2 AND EXTRACT(MONTH FROM due_date) = $3 AND EXTRACT(YEAR FROM due_date) = $4
+      ORDER BY due_time asc `,
       [day, user, month, year]
     );
     res.status(200).json({

@@ -1,9 +1,13 @@
 .react-calendar__tile {
-  height: 15vh;
+  height: 8vh;
+}
+
+.react-calendar__month-view__days__day--weekend {
+  color: #225095;
 }
 
 .dotDiv {
-  background-color: red;
+  background-color: #f16643;
   border-radius: 50%;
   width: 15px;
   margin-bottom: -21px;
@@ -25,4 +29,39 @@
 
 .calDiv .react-calendar {
   width: unset;
+  border-radius: 2vh;
+  border-color: #e9eef4;
+  padding: 5px;
+  box-shadow: 3px 0px 14px 5px #e9eef4;
+}
+
+.react-calendar__month-view__days__day--weekend {
+  color: #f16643;
+}
+.react-calendar__tile--active {
+  background: #225095;
+  color: #e9eef4;
+}
+
+.react-calendar__tile--active :hover {
+  background: #e9eef4;
+}
+
+.dayTasksCont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 75vh;
+}
+.calTasksTop {
+  display: flex;
+  align-items: center;
+  margin-top: -2vh;
+}
+.calTasksBody {
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+  overflow-y: scroll;
 }

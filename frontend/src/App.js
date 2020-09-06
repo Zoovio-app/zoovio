@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, useLocation } from "react-router-dom";
+import { Switch, useLocation, Route } from "react-router-dom";
 import "./App.css";
 import LandingPage from "./features/landingPage/LandingPage";
 import { AuthRoute, ProtectedRoute, DoctorAuthRoute, PrivateRoute } from "./util/routeUtil";
@@ -13,7 +13,10 @@ import Tasks from "./features/calendar/tasks/Tasks";
 import TaskForm from "./features/taskForm/TaskForm";
 import Pets from "./features/pets/Pets";
 import PetForm from "./features/petForm/PetForm";
-
+// import SvgWave from "./features/svgWaves/SvgWave";
+import SplashPage from "./features/splashpage/SplashPage";
+import UserMenue from "./features/userMenue/UserMenue";
+import Blob from "./features/blob/Blob.js";
 // import Messaging from './features/messaging/Messaging/Messaging'
 import DoctorHome from './features/docPortal/DoctorHome/DoctorHome';
 import DoctorLogin from './features/docPortal/DoctorLogin/DoctorLogin';
@@ -21,94 +24,152 @@ import DoctorSignup from './features/docPortal/DoctorSignup/DoctorSignup';
 import DoctorPortal from "./features/docPortal/DoctorPortal/DoctorPortal";
 import DoctorInquire from './features/docPortal/DoctorInquire/DoctorInquire';
 import VideoChat from './features/videoChat/videoChat';
-
 import { useDispatch, useSelector } from 'react-redux';
 
 function App() {
   const location = useLocation();
+
   return (
     <AuthProvider>
       <div className="App">
-        <ProtectedRoute>
-          <Nav />
-        </ProtectedRoute>
-        <Switch>
-          <AuthRoute exact path="/login">
-            <LandingPage />
-          </AuthRoute>
-          <ProtectedRoute exact path="/pets/create">
-            <PetForm />
-          </ProtectedRoute>
+        <div className="appCont">
+          {/* <Route path={["/home", "/calendar", "/pets", "/tasks/create"]}>
+            <SvgWave />
+          </Route> */}
+          <Switch>
+            <AuthRoute exact path="/">
+              <SplashPage />
+            </AuthRoute>
 
-          <AnimatePresence exitBeforeEnter>
-            <Switch location={location} key={location.pathname}>
-              <ProtectedRoute exact path="/home">
-                <Home />
-              </ProtectedRoute>
+            <AuthRoute exact path="/signup">
+              <SignUp />
+            </AuthRoute>
 
-              <ProtectedRoute exact path="/pets">
-                <Pets />
-              </ProtectedRoute>
+            <AuthRoute exact path="/login">
+              <LandingPage />
+            </AuthRoute>
 
-              <ProtectedRoute exact path="/calendar/tasks/:day">
-                <Tasks />
-              </ProtectedRoute>
+            <>
+              <div className="inAppContent">
+                <div className="inAppTop">
+                  <Blob
+                    size={"45vh"}
+                    style={{ position: "absolute", margin: "-20vh" }}
+                  />
+                  <Blob
+                    style={{ alignSelf: "flex-end", position: "absolute" }}
+                  />
+                  <UserMenue />
+                </div>
+                <div className="inAppMain">
+                  <Blob
+                    size={"30vh"}
+                    style={{
+                      position: "absolute",
+                      marginTop: "30vh",
+                      marginLeft: "-11vw",
+                    }}
+                  />
+                  <Blob
+                    size={"25vh"}
+                    style={{
+                      position: "absolute",
+                      marginLeft: "20vw",
+                    }}
+                  />
+                  <AnimatePresence exitBeforeEnter>
+                    <Switch location={location} key={location.pathname}>
+                      <ProtectedRoute exact path="/home">
+                        <Home />
+                      </ProtectedRoute>
 
-              <ProtectedRoute exact path="/tasks/create">
-                <TaskForm />
-              </ProtectedRoute>
+                      <ProtectedRoute exact path="/pets">
+                        <Pets />
+                      </ProtectedRoute>
 
-              <ProtectedRoute exact path="/calendar">
-                <CalendarPage />
-              </ProtectedRoute>
+                      <ProtectedRoute exact path="/pets/create">
+                        <PetForm />
+                      </ProtectedRoute>
 
-              {/* ----------doc portal-------------------- */}
-              <DoctorAuthRoute exact path="/doctor/portal">
-            <DoctorPortal/>
-          </DoctorAuthRoute>
+                      <ProtectedRoute exact path="/calendar/tasks/:day">
+                        <Tasks />
+                      </ProtectedRoute>
 
-          <PrivateRoute exact path="/doctor/home">
-            <DoctorHome/>
-          </PrivateRoute>
+                      <ProtectedRoute exact path="/tasks/create/:page">
+                        <TaskForm />
+                      </ProtectedRoute>
 
+                      <ProtectedRoute exact path="/calendar">
+                        <CalendarPage />
+                      </ProtectedRoute>
+    
+                      <DoctorAuthRoute exact path="/doctor/portal">
+                        <DoctorPortal/>
+                      </DoctorAuthRoute>
 
-          <DoctorAuthRoute exact path="/doctor/signup">
-            <DoctorSignup/>
-          </DoctorAuthRoute>
-
-
-          <DoctorAuthRoute exact path="/doctor/login">
-            <DoctorLogin/>
-          </DoctorAuthRoute>
-          {/* ------------------- */}
-          {/* <PrivateRoute exact path="/messaging">
-            <Messaging/>
-          </PrivateRoute> */}
+                      <PrivateRoute exact path="/doctor/home">
+                        <DoctorHome/>
+                      </PrivateRoute>
 
 
-          <DoctorAuthRoute exact path="/doctor/inquire">
-            <DoctorInquire/>
-          </DoctorAuthRoute>
+                      <DoctorAuthRoute exact path="/doctor/signup">
+                        <DoctorSignup/>
+                      </DoctorAuthRoute>
+
+
+                      <DoctorAuthRoute exact path="/doctor/login">
+                        <DoctorLogin/>
+                      </DoctorAuthRoute>
+    
+                      {/* ------------------- */}
+    
+                      {/* <PrivateRoute exact path="/messaging">
+                            <Messaging/>
+                          </PrivateRoute> */}
+
+
+                      <DoctorAuthRoute exact path="/doctor/inquire">
+                        <DoctorInquire/>
+                      </DoctorAuthRoute>
         
-          <PrivateRoute exact path="/doctor/virtual-appointment">
-            <VideoChat/>
-          </PrivateRoute>
+                      <PrivateRoute exact path="/doctor/virtual-appointment">
+                        <VideoChat/>
+                      </PrivateRoute>
 
-            </Switch>
-          </AnimatePresence>
+                      <AuthRoute path="*">
+                        <LandingPage />
+                      </AuthRoute>
+                    </Switch>
+                  </AnimatePresence>
+                </div>
+                <Route path={["/home", "/pets", "/calendar", "/tasks"]}>
+                  <div className="inAppBottom">
+                    <Blob
+                      size={"70vh"}
+                      style={{
+                        position: "absolute",
+                        marginLeft: "-20vw",
+                      }}
+                    />
+                    <Nav />
 
-          <AuthRoute exact path="/">
-            <LandingPage />
-          </AuthRoute>
+                    <Blob
+                      size={"40vh"}
+                      style={{
+                        position: "absolute",
+                        marginLeft: "85vw",
+                      }}
+                    />
+                  </div>
+                </Route>
+              </div>
+            </>
 
-          <AuthRoute exact path="/signup">
-            <SignUp />
-          </AuthRoute>
-
-          <AuthRoute path="*">
-            <LandingPage />
-          </AuthRoute>
-        </Switch>
+            <AuthRoute path="*">
+              <LandingPage />
+            </AuthRoute>
+          </Switch>
+        </div>
       </div>
     </AuthProvider>
   );

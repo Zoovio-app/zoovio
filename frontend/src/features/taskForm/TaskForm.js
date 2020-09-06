@@ -4,8 +4,13 @@ import axios from "axios";
 import { AuthContext } from "../../providers/AuthContext";
 import { pageVariants, pageTransition } from "../../util/framerStyles";
 import { motion } from "framer-motion";
-import { useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "./css/taskForm.css";
+import { Button } from "react-bootstrap";
+import BackButton from "../backButton/BackButton";
+import Toast from "../toast/Toast";
+import { useDispatch } from "react-redux";
+import { setToast } from "../toastSlice/toastSlice";
 
 const date = new Date();
 
@@ -13,15 +18,15 @@ const TaskForm = () => {
   const API = apiUrl();
   const { token, currentUser } = useContext(AuthContext);
   const [allPetNames, setAllPetNames] = useState([]);
-  const [dueDate, setDueDate] = useState(
-    date.toLocaleDateString("pt-br").split("/").reverse().join("-")
-  );
+  const [dueTime, setDueTime] = useState(date);
   const [petID, setPetID] = useState("");
   const [newTask, setNewTask] = useState("");
-  const history = useHistory();
+  const dispatch = useDispatch();
+  const { page } = useParams();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
       await axios({
         method: "POST",
@@ -29,14 +34,15 @@ const TaskForm = () => {
         data: {
           pet_id: petID,
           task: newTask,
-          due_date: dueDate,
+          due_date: new Date(dueTime.slice(0, 10)),
+          due_time: new Date(dueTime).toLocaleTimeString(),
+          dueTime: new Date(dueTime).toLocaleTimeString(),
         },
         headers: {
           authToken: token,
         },
       });
-
-      history.push("/home");
+      dispatch(setToast(true));
     } catch (err) {
       alert(err.message);
     }
@@ -61,7 +67,7 @@ const TaskForm = () => {
             AuthToken: token,
           },
         });
-        // debugger;
+
         setAllPetNames(res.data.payload.pets);
       } catch (error) {
         setAllPetNames([]);
@@ -78,34 +84,52 @@ const TaskForm = () => {
       transition={pageTransition}
       variants={pageVariants}
     >
-      <h2>Create new task</h2>
-      <form className="tasksForm" onSubmit={handleSubmit}>
-        <select
-          className="tasks_input"
-          onChange={(e) => setPetID(e.target.value)}
-        >
-          <option>Choose Pet</option>
-          {petNames}
-        </select>
+      <div className="taskFormMain">
+        <div className="toastDiv">
+          <Toast text={"Your task was successfully added."} />
+        </div>
+        <div className="taskFormHead">
+          <BackButton location={page} />
+          <div className="taskFormH2">
+            <h2>Create new task</h2>
+          </div>
+        </div>
+        <div className="tasksForm">
+          <form onSubmit={handleSubmit}>
+            <select
+              defaultValue={"a"}
+              required
+              className="tasks_input"
+              onChange={(e) => setPetID(e.target.value)}
+            >
+              <option value={"a"} disabled>
+                Choose Pet
+              </option>
+              {petNames}
+            </select>
 
-        <input
-          className="tasks_input"
-          type="text"
-          placeholder="New task"
-          onChange={(e) => setNewTask(e.target.value)}
-          value={newTask}
-        />
-        <input
-          className="tasks_input"
-          type="date"
-          placeholder="Pick a Date"
-          onChange={(e) => setDueDate(e.target.value)}
-          value={dueDate}
-        />
-        <button className="tasks_input addTaskButton" type="submit">
-          Add
-        </button>
-      </form>
+            <input
+              required
+              className="tasks_input"
+              type="text"
+              placeholder="New task"
+              onChange={(e) => setNewTask(e.target.value)}
+              value={newTask}
+            />
+            <input
+              required
+              type="datetime-local"
+              className="tasks_input"
+              max="24:00"
+              onChange={(e) => setDueTime(e.target.value)}
+            />
+
+            <Button variant="primary" type="submit">
+              Add
+            </Button>
+          </form>
+        </div>
+      </div>
     </motion.div>
   );
 };

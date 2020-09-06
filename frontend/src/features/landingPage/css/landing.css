@@ -1,0 +1,48 @@
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 25vw;
+  height: 19vh;
+  justify-content: space-around;
+}
+
+.formContainer {
+  display: flex;
+  /* justify-content: center; */
+  height: 70vh;
+  /* z-index: -1; */
+  flex-direction: column;
+  align-items: center;
+}
+
+.landingInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  /* align-items: center; */
+}
+
+/* svg {
+    position: fixed;
+    z-index: -1;
+  } */
+
+.loginImgCont img {
+  object-fit: cover;
+  width: 300px;
+}
+
+.loginImgCont {
+  display: flex;
+}
+
+.loginSvg {
+  height: 30vh;
+  position: relative;
+  z-index: -1;
+}
+
+/* .vectorImg {
+    z-index: -1;
+  } */

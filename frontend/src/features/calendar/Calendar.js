@@ -1,7 +1,7 @@
 import React, { useEffect, useContext, useState } from "react";
 import { Calendar } from "react-calendar";
-import "./css/styles.css";
 import "react-calendar/dist/Calendar.css";
+import "./css/styles.css";
 import { motion } from "framer-motion";
 import { useHistory } from "react-router-dom";
 import { pageVariants, pageTransition } from "../../util/framerStyles";
@@ -51,27 +51,31 @@ const CalendarPage = () => {
   }, [API, currentDate.month, currentDate.year, currentUser.id, token]);
 
   return (
-    <motion.div
-      initial="initial"
-      animate="in"
-      exit="out"
-      variants={pageVariants}
-      transition={pageTransition}
-      className="calDiv"
-    >
-      <Calendar
-        className={"cally"}
-        showNavigation={true}
-        tileContent={({ activeStartDate, date, view }) =>
-          func(date, taskDatesArr(tasks), view)
-        }
-        onClickDay={dayClick}
-        onClickMonth={onClick}
-        value={new Date()}
-        onActiveStartDateChange={onClick}
-        showNeighboringMonth={false}
-      />
-    </motion.div>
+    <div>
+      <motion.div
+        initial="initial"
+        animate="in"
+        exit="out"
+        variants={pageVariants}
+        transition={pageTransition}
+        className="calDiv"
+      >
+        <h1>ZooVio</h1>
+        <Calendar
+          tileClassName={"tileClass"}
+          className={"cally"}
+          showNavigation={true}
+          tileContent={({ activeStartDate, date, view }) =>
+            func(date, taskDatesArr(tasks), view)
+          }
+          onClickDay={dayClick}
+          onClickMonth={onClick}
+          value={new Date()}
+          onActiveStartDateChange={onClick}
+          showNeighboringMonth={false}
+        />
+      </motion.div>
+    </div>
   );
 };
 
