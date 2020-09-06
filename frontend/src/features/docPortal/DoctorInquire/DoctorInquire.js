@@ -1,33 +1,26 @@
 import React, { useState } from 'react';
-// import { cloudSignup } from '../../../util/loginFunctions';
+// import { cloudSignup } from '../../actions';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
+import './docInquire.css';
 import zoovioDocPet from '../../../assets/img/zoovioDocPet.png'
-import './docSignup.css';
 
 
 
 
-const DoctorSignup = (props) => {
-    const [ firstName, setFirstName ] = useState('');
+const DoctorInquire = (props) => {
+    const [ fullName, setFullName ] = useState('');
     const [ lastName, setLastName ] = useState('');
-    // const [ companyName, setCompanyName ] = useState('');
     const [ email, setEmail ] = useState('');
-    // const [ userType, setUserType ] = useState('');
     const [ phoneNumber, setPhoneNumber ] = useState('');
-    const [ password, setPassword ] = useState('');
-    const history = useHistory();
-    
     const dispatch = useDispatch();
     const auth = useSelector(state => state.auth);
 
-    const registerUser = (e) => {
-        e.preventDefault();
-        const user = {
-          /*companyName,*/ firstName, lastName, email, /*userType,*/ phoneNumber, password
-        }
-        // dispatch(cloudSignup(user))
-      }
+
+      // if(authenticated){
+      //   history.push("/doctor/home")
+      //   // return <Redirect to={`/doctor/home`} />
+      // }
 
 
     return (
@@ -49,8 +42,8 @@ const DoctorSignup = (props) => {
 
 
             <div className="docSignupFormMain">
-            <form className="docSignupForm" onSubmit={registerUser}>
-              <h2 className="welcomeSignup">Sign Up Today</h2>
+            <form className="docSignupForm">
+              <h2 className="welcomeSignup">Inquire About ZooVio</h2>
 
 
               <div className="inputDiv2 two">
@@ -58,13 +51,13 @@ const DoctorSignup = (props) => {
                   <i class="fas fa-user"></i>
                 </div>
                 <div class="div">
-                  <h5>First Name:</h5>
+                  <h5>Name:</h5>
                   <input 
-                    name="firstName"
+                    name="fullName"
                     type="text"
-                    value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)}
-                    placeholder="First Name"
+                    // value={fullName}
+                    // onChange={(e) => setFullName(e.target.value)}
+                    placeholder="Full Name"
                     />
                 </div>
               </div>
@@ -74,24 +67,18 @@ const DoctorSignup = (props) => {
                   <i class="fas fa-user"></i>
                 </div>
                 <div class="div">
-                  <h5>Last Name:</h5>
+                  <h5>Clinic:</h5>
                   <input 
-                    name="lastName"
+                    name="company"
                     type="text"
-                    value={lastName}
-                    onChange={(e) => setLastName(e.target.value)}
-                    placeholder="Last Name"
+                    // value={company}
+                    // onChange={(e) => setCompany(e.target.value)}
+                    placeholder="Veterinary Clinic / Hospital"
                     />
                 </div>
               </div>
 
-            {/* <input 
-              name="companyName"
-              type="text"
-              value={companyName}
-              onChange={(e) => setCompanyName(e.target.value)}
-              placeholder="Company Name"
-            /> */}
+              
 
             <div className="inputDiv2 two">
                 <div class="i2">
@@ -109,21 +96,7 @@ const DoctorSignup = (props) => {
                 </div>
               </div>
 
-            {/* <input 
-              name="userType"
-              type="radio"
-              value={userType}
-              onChange={(e) => setUserType(e.target.value)}
-              placeholder="Doctor?"
-            /> */}
-
-            {/* <input 
-              name="userType"
-              type="radio"
-              value={userType}
-              onChange={(e) => setUserType(e.target.value)}
-              placeholder="Pet Owner?"
-            /> */}
+        
 
             <div className="inputDiv2 two">
                 <div class="i2">
@@ -142,42 +115,25 @@ const DoctorSignup = (props) => {
               </div>
 
         
-              <div className="inputDiv2 pass2">
-                <div class="i2"> 
-                  <i class="fas fa-lock"></i>
+              <div className="inputDiv2 three">
+                <div class="i2">
+                  <i class="fas fa-user"></i>
                 </div>
                 <div class="div">
-                  <h5>Password:</h5>
+                  <h5>Inquiry:</h5>
                   <input 
-                    name="password"
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    placeholder="Password"
-                    required
+                    name="inquiry"
+                    type="textarea"
+                    // value={company}
+                    // onChange={(e) => setCompany(e.target.value)}
+                    placeholder="Ask about our servies"
                     />
-                  </div>
                 </div>
+              </div>
 
-                <div className="inputDiv2 pass2">
-                <div class="i2"> 
-                  <i class="fas fa-lock"></i>
-                </div>
-                <div class="div">
-                  <h5>Token:</h5>
-                  <input 
-                    name="token"
-                    type="password"
-                    // value={token}
-                    // onChange={(e) => setToken(e.target.value)}
-                    placeholder="Token is provided by ZooVio"
-                    required
-                    />
-                  </div>
-                </div>
 
             <div>
-              <button className="docSignupBtn"> Sign up</button>
+              <button className="docSignupBtn"> Submit Inquiry</button>
             </div>
 
             </form>
@@ -190,4 +146,4 @@ const DoctorSignup = (props) => {
 
 
 
-export default DoctorSignup;
+export default DoctorInquire;

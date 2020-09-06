@@ -2,7 +2,12 @@ import React from "react";
 import { Switch, useLocation, Route } from "react-router-dom";
 import "./App.css";
 import LandingPage from "./features/landingPage/LandingPage";
-import { AuthRoute, ProtectedRoute } from "./util/routeUtil";
+import {
+  AuthRoute,
+  ProtectedRoute,
+  DoctorAuthRoute,
+  PrivateRoute,
+} from "./util/routeUtil";
 import AuthProvider from "./providers/AuthContext";
 import Home from "./features/home/Home";
 import SignUp from "./features/signUp/SignUp";
@@ -94,6 +99,36 @@ function App() {
                       <ProtectedRoute exact path="/calendar">
                         <CalendarPage />
                       </ProtectedRoute>
+
+                      <DoctorAuthRoute exact path="/doctor/portal">
+                        <DoctorPortal />
+                      </DoctorAuthRoute>
+
+                      <PrivateRoute exact path="/doctor/home">
+                        <DoctorHome />
+                      </PrivateRoute>
+
+                      <DoctorAuthRoute exact path="/doctor/signup">
+                        <DoctorSignup />
+                      </DoctorAuthRoute>
+
+                      <DoctorAuthRoute exact path="/doctor/login">
+                        <DoctorLogin />
+                      </DoctorAuthRoute>
+
+                      {/* ------------------- */}
+
+                      {/* <PrivateRoute exact path="/messaging">
+                            <Messaging/>
+                          </PrivateRoute> */}
+
+                      <DoctorAuthRoute exact path="/doctor/inquire">
+                        <DoctorInquire />
+                      </DoctorAuthRoute>
+
+                      <PrivateRoute exact path="/doctor/virtual-appointment">
+                        <VideoChat />
+                      </PrivateRoute>
 
                       <AuthRoute path="*">
                         <LandingPage />

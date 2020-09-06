@@ -53,7 +53,7 @@ export const PrivateRoute = ({component: Component, ...rest}) => {
     <Route
       {...rest}
       render={({ location }) => {
-        return !currentUser ? children : <Redirect to="/doctor/portal" />;
+        return !currentUser ? children : <Redirect to="/doctor/home" />;
       }}
     />
   );
