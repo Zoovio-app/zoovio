@@ -3,7 +3,7 @@ import io from "socket.io-client";
 import Peer from "simple-peer";
 import styled from "styled-components";
 import { AuthContext } from '../../providers/AuthContext';
-import DoctorNav from '../docSRC/docPortal/DoctorNav/DoctorNav';
+import DoctorNav from '../docPortal/DoctorNav/DoctorNav';
 
 
 
