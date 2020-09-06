@@ -19,8 +19,8 @@ import DoctorHome from './features/docPortal/DoctorHome/DoctorHome';
 import DoctorLogin from './features/docPortal/DoctorLogin/DoctorLogin';
 import DoctorSignup from './features/docPortal/DoctorSignup/DoctorSignup';
 import DoctorPortal from "./features/docPortal/DoctorPortal/DoctorPortal";
-import DoctorInquire from './features/docSRC/docPortal/DoctorInquire/DoctorInquire';
-import VideoChat from './features/videoChat/VideoChat';
+import DoctorInquire from './features/docPortal/DoctorInquire/DoctorInquire';
+import VideoChat from './features/videoChat/videoChat';
 
 import { useDispatch, useSelector } from 'react-redux';
 
