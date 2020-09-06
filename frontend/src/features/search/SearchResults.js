@@ -1,6 +1,6 @@
 import React from "react";
 import SingleResult from "./SingleResult";
-import "./CSS/SearchResults.css";
+// import "./CSS/SearchResults.css";
 
 const SearchResults = (props) => {
  
