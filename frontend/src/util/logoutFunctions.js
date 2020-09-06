@@ -1,16 +1,17 @@
-import { auth, firestore } from "firebase";
+import firebase from "../firebase";
 import { USER_LOGOUT } from "../features/authInfoSlice/authInfoSlice";
 
 export const cloudLogout = (uid) => async (dispatch, getState) => {
   //logout user
-  const db = firestore();
+  const db = firebase.firestore();
   db.collection("users")
     .doc(uid)
     .update({
       isOnline: false,
     })
     .then(() => {
-      auth()
+      firebase
+        .auth()
         .signOut()
         .then(() => {
           //successfully
