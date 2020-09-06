@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import { apiUrl } from "../../util/apiUrl";
 import axios from "axios";
 import { AuthContext } from "../../providers/AuthContext";
+
 const SplashPage = () => {
   const history = useHistory();
   const API = apiUrl();
@@ -36,6 +37,7 @@ const SplashPage = () => {
     <div className="splashMain">
       <div className="topCont">
         <div className="titleCont">
+          <button onClick={() => history.push("/doctor")}>Doc Portal</button>
           <h1 className="titleE">ZooVio</h1>
         </div>
         <div>
