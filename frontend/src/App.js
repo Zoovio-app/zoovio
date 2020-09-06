@@ -30,7 +30,7 @@ function App() {
               <SplashPage />
             </AuthRoute>
 
-            <Route exact path="/doctor">
+            <Route exact path={["/doctor", "/doctor/login", "/doctor/home"]}>
               <DoctorsApp />
             </Route>
 

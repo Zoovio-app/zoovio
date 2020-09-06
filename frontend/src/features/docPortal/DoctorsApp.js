@@ -10,7 +10,7 @@ const DoctorsApp = () => {
   return (
     <div>
       <Switch>
-        <DoctorAuthRoute exact path="/doctor/portal">
+        <DoctorAuthRoute exact path="/doctor">
           <DoctorPortal />
         </DoctorAuthRoute>
 
