@@ -1,6 +1,7 @@
 const express = require("express");
 // for socket io
 const http = require("http");
+// ---------------------------------------
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const usersRouter = require("./routes/users/users");
@@ -8,9 +9,16 @@ const tasksRouter = require("./routes/tasks/tasks");
 const petsRouter = require("./routes/pets/pets");
 require("dotenv").config();
 const port = process.env.PORT;
-
 const app = express();
-app.use(cors());
+// -------------------------------------
+// socket io
+const server = http.createServer(app);
+// app.use(cors());
+app.use(cors({credentials: true, origin: "http://localhost:3002"}));
+const socket = require("socket.io");
+const io = socket(server);
+
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
