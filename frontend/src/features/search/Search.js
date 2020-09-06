@@ -1,9 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import SearchResults from "./SearchResults";
 import SearchBar from "./SearchBar";
-import useReactRouter from "use-react-router";
-import YelpBussiness from "./api/YelpBusiness";
-import { useHistory } from "react-router-dom";
 import { pageVariants, pageTransition } from "../../util/framerStyles";
 import { motion } from "framer-motion";
 import axios from "axios";

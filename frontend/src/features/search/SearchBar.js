@@ -1,7 +1,4 @@
-import React, { useState, useHistory, useEffect } from "react";
-import useReactRouter from "use-react-router";
-import Search from "./Search";
-import YelpBusiness from "./api/YelpBusiness";
+import React, { useState } from "react";
 import axios from "axios";
 const { REACT_APP_YELP_API } = process.env;
 
@@ -9,8 +6,6 @@ const SearchBar = (props) => {
   console.log(props);
   const [term, setTerm] = useState("");
   const [location, setLocation] = useState("");
-  const { history } = useReactRouter();
-
   const headers = {
     Authorization: `Bearer ${REACT_APP_YELP_API}`,
   };
