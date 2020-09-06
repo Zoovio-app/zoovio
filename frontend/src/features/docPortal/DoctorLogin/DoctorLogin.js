@@ -3,6 +3,7 @@ import Layout from "../../messaging/layout/Layout";
 import { cloudSignin } from "../../../util/loginFunctions";
 import { useDispatch, useSelector } from "react-redux";
 import { authInfoState } from "../../authInfoSlice/authInfoSlice";
+import "./css/docLogin.css";
 
 const DoctorLogin = (props) => {
   const [email, setEmail] = useState("");
