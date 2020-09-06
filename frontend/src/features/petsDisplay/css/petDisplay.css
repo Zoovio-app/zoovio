@@ -1,16 +1,40 @@
 .petCard {
   display: flex;
+  flex-direction: column;
   border-style: solid;
   border-width: thin;
-  width: 400px;
-  max-width: 27vw;
-  border-color: lightgrey;
+  height: 25vh;
+  margin-bottom: 1vh;
+  border-radius: 1vh;
+  border-color: #e9eef4;
+  box-shadow: 4px 4px 14px 0px #e9eef4;
+  padding: 1vh;
 }
 
 .pets {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
   height: 50vh;
-  justify-content: space-evenly;
+}
+.petCardImg {
+  align-self: center;
+  border-radius: 99999999999999px;
+  border-style: solid;
+  border-color: #e9eef4;
+  border-width: 0px;
+  height: 17vh;
+  width: 10vw;
+}
+
+.petCardImg img {
+  border-radius: 999999999999999999999px;
+  position: relative;
+  z-index: -1;
+  width: inherit;
+  height: inherit;
+}
+
+.ageSpan span {
+  color: #91a8ca;
+}
+.ageSpan {
+  display: flex;
 }

@@ -1,18 +1,15 @@
 import React, { useContext, useState, useLayoutEffect } from "react";
-
+import "./css/home.css";
 import axios from "axios";
 import { apiUrl } from "../../util/apiUrl";
 import { AuthContext } from "../../providers/AuthContext";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  updateUserInfo,
-  userInfoState,
-  clearUserInfo,
-} from "../userInfo/userInfoSlice";
+import { updateUserInfo, userInfoState } from "../userInfo/userInfoSlice";
 import TasksDisplay from "../tasksDisplay/TasksDisplay";
-import { useHistory } from "react-router-dom";
 import { pageTransition, pageVariants } from "../../util/framerStyles";
 import { motion } from "framer-motion";
+import AddButton from "../addButton/AddButton";
+
 const date = new Date();
 let apiCalls = 0;
 
@@ -22,7 +19,6 @@ const Home = () => {
   const dispatch = useDispatch();
   const API = apiUrl();
   const state = useSelector(userInfoState);
-  const history = useHistory();
 
   const [tasks, setTasks] = useState([]);
 
@@ -39,6 +35,7 @@ const Home = () => {
             authToken: token,
           },
         });
+
         setTasks(rez.data.tasks);
         let res = await axios({
           method: "get",
@@ -74,11 +71,11 @@ const Home = () => {
       transition={pageTransition}
       variants={pageVariants}
     >
-      <h1>hi,{state.user ? state.user.name : null} </h1>
-      <button onClick={() => history.push("/tasks/create")}>
-        Create New Task
-      </button>
-      <TasksDisplay tasks={tasks} />
+      <div className="homeCont">
+        <h1>hi,{state.user ? state.user.name : null} </h1>
+        <AddButton page={"home"} />
+        <TasksDisplay tasks={tasks} />
+      </div>
     </motion.div>
   );
 };

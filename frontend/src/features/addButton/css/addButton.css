@@ -1,0 +1,27 @@
+.addButton {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 15vh;
+
+  padding: 5px;
+  cursor: pointer;
+}
+
+.addButton img {
+  height: 4vh;
+  position: absolute;
+  z-index: 1;
+  align-self: center;
+}
+
+.addButton svg {
+  height: 25vh;
+  margin-bottom: -2vh;
+  margin-left: -1.05vw;
+}
+
+.addButton:hover svg path {
+  fill: #3862a0;
+}

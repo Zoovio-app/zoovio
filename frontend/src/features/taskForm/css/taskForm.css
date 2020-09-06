@@ -10,6 +10,12 @@
   flex-shrink: 0;
   padding: 0;
   position: relative;
+
+  align-self: center;
+  border-width: 1px;
+  border-color: lightgray;
+  border-radius: 20px;
+  height: 40vh;
 }
 .tasks_input {
   font: inherit;
@@ -37,4 +43,48 @@
 .addTaskButton:hover {
   background-color: #255f85;
   opacity: 0.7;
+}
+
+.taskFormMain {
+  display: flex;
+  height: 70vh;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.taskFormMain h2 {
+  align-self: center;
+  color: #225095;
+  margin-bottom: 5vh;
+}
+
+.taskFormHead {
+  display: flex;
+  align-self: center;
+  width: 35vw;
+  margin-bottom: 5vh;
+}
+
+.taskFormBack img {
+  height: 7vh;
+}
+.taskFormBack:hover {
+  border-radius: 99999999px;
+  background-color: #225095;
+  cursor: pointer;
+}
+
+.taskFormH2 h2 {
+  margin: unset;
+}
+
+.taskFormH2 {
+  display: flex;
+  flex-grow: 0.8;
+  justify-content: center;
+}
+
+.toastDiv {
+  align-self: center;
+  height: 11vh;
 }
