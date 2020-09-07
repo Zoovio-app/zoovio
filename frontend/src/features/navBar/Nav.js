@@ -5,6 +5,7 @@ import pet from "../../images/paw.png";
 import home from "../../images/browser.png";
 import calendar from "../../images/appointment.png";
 import vet from "../../images/vet.png";
+import messages from "../../images/speak.png";
 
 const Nav = () => {
   return (
@@ -42,6 +43,17 @@ const Nav = () => {
           <NavLink activeClassName={"linkF"} className="link" to="/calendar">
             <div className="navImgCont">
               <img alt="" src={vet} />
+            </div>
+          </NavLink>
+        </div>
+
+        <div
+          style={{ borderBottomRightRadius: "20px" }}
+          className="navLinksCont"
+        >
+          <NavLink activeClassName={"linkF"} className="link" to="/calendar">
+            <div className="navImgCont">
+              <img alt="" src={messages} />
             </div>
           </NavLink>
         </div>
