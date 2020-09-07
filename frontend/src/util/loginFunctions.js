@@ -32,7 +32,7 @@ export const cloudSignin = (e, user) => async (dispatch, getState) => {
         .update({
           isOnline: true,
         })
-        .then(() => {
+        .then((res) => {
           const name = data.user.displayName.split(" ");
           const firstName = name[0];
           const lastName = name[1];
@@ -46,8 +46,9 @@ export const cloudSignin = (e, user) => async (dispatch, getState) => {
             authenticated: true,
             authenticating: false,
           };
-          localStorage.setItem("user", JSON.stringify(loggedInUser));
-          dispatch(USER_LOGIN({ user: loggedInUser }));
+
+          // localStorage.setItem("user", JSON.stringify(loggedInUser));
+          dispatch(USER_LOGIN(loggedInUser));
         })
         .catch((error) => {
           console.log(error);

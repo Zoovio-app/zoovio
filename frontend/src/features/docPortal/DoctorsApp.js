@@ -4,7 +4,8 @@ import { DoctorAuthRoute, DocProtectedRoute } from "../../util/routeUtil";
 import DoctorHome from "./DoctorHome/DoctorHome";
 import DoctorLogin from "./DoctorLogin/DoctorLogin";
 import DoctorPortal from "./DoctorPortal/DoctorPortal";
-// import Messaging from "../messaging/Messaging/Messaging";
+import DoctorInquire from "./DoctorInquire/DoctorInquire";
+import Messaging from "../messaging/Messaging/Messaging";
 
 const DoctorsApp = () => {
   return (
@@ -12,6 +13,10 @@ const DoctorsApp = () => {
       <Switch>
         <DoctorAuthRoute exact path="/doctor">
           <DoctorPortal />
+        </DoctorAuthRoute>
+
+        <DoctorAuthRoute exact path="/doctor/inquire">
+          <DoctorInquire />
         </DoctorAuthRoute>
 
         <DocProtectedRoute exact path="/doctor/home">
@@ -22,9 +27,9 @@ const DoctorsApp = () => {
           <DoctorLogin />
         </DoctorAuthRoute>
 
-        {/* <PrivateRoute exact path="/messaging">
+        <DocProtectedRoute exact path="/doctor/messaging">
           <Messaging />
-        </PrivateRoute> */}
+        </DocProtectedRoute>
       </Switch>
     </div>
   );

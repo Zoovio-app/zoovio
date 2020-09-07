@@ -20,7 +20,7 @@ const DoctorNav = () => {
               </a>
             </li>
             <li className="style-navigation">
-              <a class="hoverable" href="/messaging">
+              <a class="hoverable" href="/doctor/messaging">
                 {" "}
                 Messages{" "}
               </a>
