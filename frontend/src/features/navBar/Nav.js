@@ -51,7 +51,7 @@ const Nav = () => {
           style={{ borderBottomRightRadius: "20px" }}
           className="navLinksCont"
         >
-          <NavLink activeClassName={"linkF"} className="link" to="/calendar">
+          <NavLink activeClassName={"linkF"} className="link" to="/messages">
             <div className="navImgCont">
               <img alt="" src={messages} />
             </div>

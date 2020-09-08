@@ -9,6 +9,7 @@ export const getRealtimeUsers = (uid) => async (dispatch, getState) => {
   db.collection("users").onSnapshot((querySnapshot) => {
     const users = [];
     querySnapshot.forEach(function (doc) {
+      console.log(doc.data());
       if (doc.data().uid !== uid) {
         users.push(doc.data());
       }

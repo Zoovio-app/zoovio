@@ -14,6 +14,7 @@ import { AuthContext } from "../../../providers/AuthContext";
 
 const User = (props) => {
   const { user, onClick } = props;
+
   return (
     <div onClick={() => onClick(user)} className="displayName">
       <div className="displayPic">
@@ -79,7 +80,7 @@ const HomePage = (props) => {
         setMessage("");
       });
     }
-    console.log(msgObj);
+    // console.log(msgObj);
   };
 
   return (

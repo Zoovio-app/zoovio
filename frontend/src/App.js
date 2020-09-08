@@ -17,6 +17,7 @@ import SplashPage from "./features/splashpage/SplashPage";
 import UserMenue from "./features/userMenue/UserMenue";
 import Blob from "./features/blob/Blob.js";
 import DoctorsApp from "./features/docPortal/DoctorsApp";
+import UserMessages from "./features/userMessages/UserMessages";
 
 function App() {
   const location = useLocation();
@@ -95,6 +96,10 @@ function App() {
                         <CalendarPage />
                       </ProtectedRoute>
 
+                      <ProtectedRoute exact path="/messages">
+                        <UserMessages />
+                      </ProtectedRoute>
+
                       {/* <PrivateRoute exact path="/doctor/virtual-appointment">
                         <VideoChat />
                       </PrivateRoute> */}
@@ -105,7 +110,9 @@ function App() {
                     </Switch>
                   </AnimatePresence>
                 </div>
-                <Route path={["/home", "/pets", "/calendar", "/tasks"]}>
+                <Route
+                  path={["/home", "/pets", "/calendar", "/tasks", "/messages"]}
+                >
                   <div className="inAppBottom">
                     <Blob
                       size={"70vh"}
