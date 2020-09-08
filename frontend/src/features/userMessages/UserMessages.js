@@ -55,7 +55,45 @@ const UserMessages = () => {
           <div className="usersChatBox">
             <div className="usersOpenConvos"></div>
             <div className="usersChatArea">
-              <div className="userChatDisplay"></div>
+              <div className="userChatDisplay">
+                <div className="userChatView"></div>
+                <div className="sugestedTextMain">
+                  <div className="sugestedTextCont">
+                    <div className="sugestedText">
+                      <span>Hello world</span>
+                    </div>
+                    <div className="sugestedText">
+                      <span>Hello world</span>
+                    </div>
+                    <div className="sugestedText">
+                      <span>Hello world</span>
+                    </div>
+                    <div className="sugestedText">
+                      <span>Hello world</span>
+                    </div>
+
+                    <div className="sugestedText">
+                      <span>Hello world</span>
+                    </div>
+
+                    {/* <div className="sugestedText">
+                    <span>Hello world</span>
+                  </div>
+
+                  <div className="sugestedText">
+                    <span>Hello world</span>
+                  </div>
+
+                  <div className="sugestedText">
+                    <span>Hello world</span>
+                  </div>
+
+                  <div className="sugestedText">
+                    <span>Hello world</span>
+                  </div> */}
+                  </div>
+                </div>
+              </div>
               <div className="userChatFeatures">
                 <div className="usersChatText">
                   <div className="textAreaHolder">

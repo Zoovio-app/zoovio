@@ -24,7 +24,7 @@
 
 .usersOpenConvos {
   height: 50.5vh;
-  /* width: 20vw; */
+  width: 25vw;
   /* background-color:#e9eef4; #fef4f2; */
   /* border-bottom-left-radius: 1vh;
   border-top-left-radius: 1vh; */
@@ -38,14 +38,17 @@
 .usersChatArea {
   display: flex;
   flex-direction: column;
-
+  width: 70vw;
   padding-right: 1vw;
   flex-grow: 2;
   height: 50.5vh;
 }
 
 .userChatDisplay {
+  display: flex;
+  flex-direction: column;
   flex-grow: 2;
+  max-width: 47vw;
 }
 
 .userChatFeatures {
@@ -114,4 +117,38 @@
 
 .textAreaHolder:focus-within {
   border-color: #91a8ca;
+}
+
+.userChatView {
+  flex-grow: 1;
+}
+
+.sugestedTextCont {
+  display: flex;
+  max-height: 6vh;
+  flex-grow: 0.15;
+  align-content: space-around;
+  padding: 5px;
+  height: 7vh;
+  overflow-x: scroll;
+  justify-content: space-around;
+  width: 100vw;
+}
+
+.sugestedText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 19.5vw;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #e9eef4;
+  border-radius: 0.7vh;
+}
+
+.sugestedTextMain {
+  height: 6vh;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
 }
