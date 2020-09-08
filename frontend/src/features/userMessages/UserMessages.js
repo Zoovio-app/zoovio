@@ -60,7 +60,7 @@ const UserMessages = () => {
                 <div className="sugestedTextMain">
                   <div className="sugestedTextCont">
                     <div className="sugestedText">
-                      <span>Hello world</span>
+                      <span>Schedual apppointment</span>
                     </div>
                     <div className="sugestedText">
                       <span>Hello world</span>
