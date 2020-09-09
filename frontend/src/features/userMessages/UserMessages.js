@@ -12,6 +12,7 @@ import { motion } from "framer-motion";
 import "./css/userMessages.css";
 import Toastt from "../toast/Toast";
 import { Button } from "react-bootstrap";
+import UserThreadCard from "../userThreadCard/UserThreadCard";
 
 const UserMessages = () => {
   const dispatch = useDispatch();
@@ -19,7 +20,6 @@ const UserMessages = () => {
   const [chatUser, setChatUser] = useState("");
   const [message, setMessage] = useState("");
   const [userUid, setUserUid] = useState(null);
-  const { users } = useSelector(messagingInfoState);
 
   useEffect(() => {
     dispatch(getRealtimeUsers(currentUser.id));
@@ -57,7 +57,9 @@ const UserMessages = () => {
         <div></div>
         <div className="usersChatBoxCont">
           <div className="usersChatBox">
-            <div className="usersOpenConvos"></div>
+            <div className="usersOpenConvos">
+              <UserThreadCard />
+            </div>
             <div className="usersChatArea">
               <div className="userChatDisplay">
                 <div className="userChatViewMain">

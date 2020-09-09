@@ -7,11 +7,11 @@ import { getUsersId } from "./helpers";
 
 export const getRealtimeUsers = (uid) => async (dispatch, getState) => {
   const db = firebase.firestore();
-  const users = [];
 
   await new Promise((resolve) => {
     db.collection("chats").onSnapshot((querySnapshot) => {
       const chats = [];
+      console.log(chats);
       querySnapshot.forEach(function (doc) {
         if (doc.data().user_uid_1 === uid) {
           chats.push(doc.data());
@@ -21,6 +21,7 @@ export const getRealtimeUsers = (uid) => async (dispatch, getState) => {
     });
   }).then((res) => {
     db.collection("users").onSnapshot((querySnapshot) => {
+      const users = [];
       let usersIds = getUsersId(res);
       querySnapshot.forEach((doc) => {
         if (usersIds.has(doc.data().uid)) {
