@@ -48,7 +48,7 @@ const HomePage = (props) => {
   let unsubscribe;
 
   useEffect(() => {
-    dispatch(getRealtimeUsers(currentUser.id));
+    dispatch(getRealtimeUsers(currentUser.id, "petOwnerId"));
   }, [currentUser, dispatch, unsubscribe]);
 
   //componentWillUnmount
@@ -71,8 +71,8 @@ const HomePage = (props) => {
 
   const submitMessage = (e) => {
     const msgObj = {
-      user_uid_1: currentUser.id,
-      user_uid_2: userUid,
+      senderId: currentUser.id,
+      recieverId: userUid,
       message,
     };
     if (message !== "") {
@@ -112,7 +112,7 @@ const HomePage = (props) => {
                       className="indi-messages"
                       style={{
                         textAlign:
-                          chat.user_uid_1 === currentUser.id ? "right" : "left",
+                          chat.senderId === currentUser.id ? "right" : "left",
                       }}
                     >
                       <p className="messageStyle">{chat.message}</p>

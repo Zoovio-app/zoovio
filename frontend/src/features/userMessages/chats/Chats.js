@@ -11,16 +11,19 @@ const Chats = () => {
     return (
       <div
         key={i}
-        className={
-          currentUser.id === chat.user_uid_1 ? "rightText" : "leftText"
-        }
+        className={currentUser.id === chat.senderId ? "rightText" : "leftText"}
       >
         <p>{chat.message}</p>
       </div>
     );
   });
 
-  return <div className="chatMain">{chatMap}</div>;
+  return (
+    <div className="chatMain">
+      {chatMap}
+      <div className="anchor"></div>
+    </div>
+  );
 };
 
 export default Chats;

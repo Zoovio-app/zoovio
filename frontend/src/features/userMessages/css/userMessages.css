@@ -129,7 +129,7 @@
   display: flex;
   flex-direction: column;
   /* flex-grow: 1; */
-  height: 99vh;
+  /* height: 99vh; */
 }
 
 .sugestedTextCont {
@@ -161,6 +161,9 @@
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
+  overflow-anchor: none;
+  scroll-snap-align: end;
+
   /* scrollbar-arrow-color: transparent; */
 }
 .sugestedTextMain::-webkit-scrollbar {
@@ -169,31 +172,34 @@
 
 .leftText {
   min-height: 7vh;
-  border-radius: 50vh;
+  border-radius: 1vh;
   background-color: #91a8ca;
   display: flex;
   align-items: center;
   padding: 0.5vh;
   align-self: flex-start;
   max-width: 20vw;
+  margin-bottom: 1vh;
 }
 
 .rightText {
   min-height: 7vh;
-  border-radius: 50vh;
+  border-radius: 1vh;
   background-color: #225095;
   display: flex;
   align-items: center;
   padding: 0.5vh;
   align-self: flex-end;
   max-width: 20vw;
+  margin-bottom: 1vh;
 }
 
 .chatMain {
-  height: inherit;
+  /* height: inherit; */
   display: flex;
   flex-direction: column;
   padding: 2vh;
+  justify-content: flex-end;
 }
 
 .rightText p,
@@ -202,4 +208,12 @@
   font-size: 15px;
   font-weight: 600;
   margin: unset;
+}
+
+.anchor {
+  /* allow the final child to be selected as an anchor node */
+  overflow-anchor: auto;
+
+  /* anchor nodes are required to have non-zero area */
+  height: 1px;
 }

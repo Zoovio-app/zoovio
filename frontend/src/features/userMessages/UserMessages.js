@@ -19,9 +19,9 @@ import Chats from "./chats/Chats";
 const UserMessages = () => {
   const dispatch = useDispatch();
   const { currentUser } = useContext(AuthContext);
-  const [chatUser, setChatUser] = useState("");
+  //   const [chatUser, setChatUser] = useState("");
   const [message, setMessage] = useState("");
-  const [userUid, setUserUid] = useState(null);
+  const [reciever, setReciever] = useState(null);
 
   useEffect(() => {
     dispatch(getRealtimeUsers(currentUser.id));
@@ -29,8 +29,8 @@ const UserMessages = () => {
 
   const submitMessage = (e) => {
     const msgObj = {
-      user_uid_1: currentUser.id,
-      user_uid_2: userUid,
+      senderId: currentUser.id,
+      recieverId: reciever,
       message,
     };
     if (message !== "") {
@@ -59,7 +59,7 @@ const UserMessages = () => {
         <div className="usersChatBoxCont">
           <div className="usersChatBox">
             <div className="usersOpenConvos">
-              <UserThreadCard />
+              <UserThreadCard setReciever={setReciever} />
             </div>
             <div className="usersChatArea">
               <div className="userChatDisplay">

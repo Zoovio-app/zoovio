@@ -11,9 +11,9 @@ export const getRealtimeUsers = (uid) => async (dispatch, getState) => {
   await new Promise((resolve) => {
     db.collection("chats").onSnapshot((querySnapshot) => {
       const chats = [];
-      console.log(chats);
+
       querySnapshot.forEach(function (doc) {
-        if (doc.data().user_uid_1 === uid) {
+        if (doc.data().senderId === uid || doc.data().recieverId === uid) {
           chats.push(doc.data());
         }
       });
@@ -22,7 +22,8 @@ export const getRealtimeUsers = (uid) => async (dispatch, getState) => {
   }).then((res) => {
     db.collection("users").onSnapshot((querySnapshot) => {
       const users = [];
-      let usersIds = getUsersId(res);
+      let usersIds = getUsersId(res, uid);
+      console.log(usersIds);
       querySnapshot.forEach((doc) => {
         if (usersIds.has(doc.data().uid)) {
           users.push(doc.data());
@@ -61,10 +62,10 @@ export const getRealtimeConversations = (user) => async (
       const chats = [];
       querySnapshot.forEach((doc) => {
         if (
-          (doc.data().user_uid_1 === user.uid_1 &&
-            doc.data().user_uid_2 === user.uid_2) ||
-          (doc.data().user_uid_1 === user.uid_2 &&
-            doc.data().user_uid_2 === user.uid_1)
+          (doc.data().senderId === user.uid_1 &&
+            doc.data().recieverId === user.uid_2) ||
+          (doc.data().senderId === user.uid_2 &&
+            doc.data().recieverId === user.uid_1)
         ) {
           chats.push(doc.data());
         }
