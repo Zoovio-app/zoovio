@@ -13,6 +13,8 @@ import "./css/userMessages.css";
 import Toastt from "../toast/Toast";
 import { Button } from "react-bootstrap";
 import UserThreadCard from "../userThreadCard/UserThreadCard";
+import SuggestedTexts from "./suggestedTexts/SuggestedTexts";
+import Chats from "./chats/Chats";
 
 const UserMessages = () => {
   const dispatch = useDispatch();
@@ -54,7 +56,6 @@ const UserMessages = () => {
         <div className="toastDiv">
           <Toastt />
         </div>
-        <div></div>
         <div className="usersChatBoxCont">
           <div className="usersChatBox">
             <div className="usersOpenConvos">
@@ -64,35 +65,11 @@ const UserMessages = () => {
               <div className="userChatDisplay">
                 <div className="userChatViewMain">
                   <div className="userChatView">
-                    <div className="leftText">
-                      <p>Hello how may i help you</p>
-                    </div>
-                    <div className="rightText">
-                      <p>Hello i would like to set up an apppointment</p>
-                    </div>
+                    <Chats />
                   </div>
                 </div>
 
-                <div className="sugestedTextMain">
-                  <div className="sugestedTextCont">
-                    <div className="sugestedText">
-                      <span>Schedual apppointment</span>
-                    </div>
-                    <div className="sugestedText">
-                      <span>Hello world</span>
-                    </div>
-                    <div className="sugestedText">
-                      <span>Hello world</span>
-                    </div>
-                    <div className="sugestedText">
-                      <span>Hello world</span>
-                    </div>
-
-                    <div className="sugestedText">
-                      <span>Hello world</span>
-                    </div>
-                  </div>
-                </div>
+                <SuggestedTexts />
               </div>
               <div className="userChatFeatures">
                 <div className="usersChatText">

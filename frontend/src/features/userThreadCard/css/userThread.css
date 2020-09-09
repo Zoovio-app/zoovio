@@ -36,3 +36,14 @@
   color: #225095;
   margin: unset;
 }
+
+.userCardd:hover {
+  background-color: #225095;
+}
+.userCardd:hover p {
+  color: white;
+}
+
+.userCardd:active {
+  transform: scale(0.96);
+}

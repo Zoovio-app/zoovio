@@ -7,7 +7,7 @@
 .usersChatBoxCont {
   height: 52vh;
   align-self: center;
-  width: 65vw;
+  width: 75vw;
   border-style: solid;
   border-width: 1px;
   border-radius: 2vh;
@@ -48,7 +48,7 @@
   display: flex;
   flex-direction: column;
   flex-grow: 2;
-  max-width: 47vw;
+  max-width: 54vw;
 }
 
 .userChatFeatures {
@@ -63,7 +63,7 @@
 .usersChatText {
   display: flex;
   justify-content: center;
-  max-width: 40vw;
+  max-width: 46vw;
   height: 8.2vh;
   align-items: center;
   flex-grow: 1;
@@ -168,9 +168,38 @@
 }
 
 .leftText {
-  text-align: left;
+  min-height: 7vh;
+  border-radius: 50vh;
+  background-color: #91a8ca;
+  display: flex;
+  align-items: center;
+  padding: 0.5vh;
+  align-self: flex-start;
+  max-width: 20vw;
 }
 
 .rightText {
-  text-align: right;
+  min-height: 7vh;
+  border-radius: 50vh;
+  background-color: #225095;
+  display: flex;
+  align-items: center;
+  padding: 0.5vh;
+  align-self: flex-end;
+  max-width: 20vw;
+}
+
+.chatMain {
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  padding: 2vh;
+}
+
+.rightText p,
+.leftText p {
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  margin: unset;
 }
