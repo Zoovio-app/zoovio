@@ -19,7 +19,7 @@ const UserMessages = () => {
   const [reciever, setReciever] = useState(null);
 
   useEffect(() => {
-    // dispatch(getRealtimeUsers(currentUser.id));
+    dispatch(getRealtimeUsers(currentUser.id));
   }, [currentUser.id, dispatch]);
 
   const submitMessage = (e) => {
