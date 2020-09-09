@@ -94,7 +94,9 @@ const TasksDisplay = ({ tasks = [] }) => {
 
   return (
     <div>
-      <h3>Todays tasks</h3>
+      <h3>
+        {history.location.pathname === "/home" ? "Todays tasks" : "Tasks"}
+      </h3>
       <div className="showTasks">
         <div className="tasksContainer">{tasksMap}</div>
       </div>
