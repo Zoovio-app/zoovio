@@ -125,6 +125,10 @@
   height: 35vh;
 }
 
+.userChatViewMain::-webkit-scrollbar {
+  display: none;
+}
+
 .userChatView {
   display: flex;
   flex-direction: column;
@@ -152,8 +156,25 @@
   border-style: solid;
   border-width: 1px;
   border-color: #e9eef4;
+  border-color: transparent;
   border-radius: 0.7vh;
   cursor: pointer;
+  background-color: #f3f7fd;
+  box-shadow: 0 0 0 #91a8ca;
+}
+
+.sugestedText:hover {
+  background-color: #225095;
+}
+
+.sugestedText:hover span {
+  color: white;
+}
+
+.sugestedText span {
+  color: #225095;
+  font-size: 15px;
+  font-weight: 700;
 }
 
 .sugestedTextMain {

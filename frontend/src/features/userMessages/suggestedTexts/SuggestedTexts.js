@@ -1,24 +1,40 @@
 import React from "react";
+import { suggestions } from "./helper";
 
-const SuggestedTexts = () => {
+const SuggestedTexts = ({ setMessage }) => {
   return (
     <div className="sugestedTextMain">
       <div className="sugestedTextCont">
-        <div className="sugestedText">
-          <span>Schedual apppointment</span>
+        <div
+          onClick={() => setMessage(suggestions[1])}
+          className="sugestedText"
+        >
+          <span>Schedule general checkup</span>
         </div>
-        <div className="sugestedText">
-          <span>Hello world</span>
+        <div
+          onClick={() => setMessage(suggestions[2])}
+          className="sugestedText"
+        >
+          <span>Get pet vacinated</span>
         </div>
-        <div className="sugestedText">
-          <span>Hello world</span>
+        <div
+          onClick={() => setMessage(suggestions[3])}
+          className="sugestedText"
+        >
+          <span>Request virtual appointment</span>
         </div>
-        <div className="sugestedText">
-          <span>Hello world</span>
+        <div
+          onClick={() => setMessage(suggestions[4])}
+          className="sugestedText"
+        >
+          <span>"Thanks!"</span>
         </div>
 
-        <div className="sugestedText">
-          <span>Hello world</span>
+        <div
+          onClick={() => setMessage(suggestions[5])}
+          className="sugestedText"
+        >
+          <span>"yes"</span>
         </div>
       </div>
     </div>

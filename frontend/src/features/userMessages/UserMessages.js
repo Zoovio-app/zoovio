@@ -1,11 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  getRealtimeUsers,
-  updateMessage,
-  getRealtimeConversations,
-} from "../../util/messagingFunctions";
-import { messagingInfoState } from "../messagingInfoSlice/messagingInfoSlice";
+import { useDispatch } from "react-redux";
+import { getRealtimeUsers, updateMessage } from "../../util/messagingFunctions";
 import { AuthContext } from "../../providers/AuthContext";
 import { pageTransition, pageVariants } from "../../util/framerStyles";
 import { motion } from "framer-motion";
@@ -24,8 +19,8 @@ const UserMessages = () => {
   const [reciever, setReciever] = useState(null);
 
   useEffect(() => {
-    dispatch(getRealtimeUsers(currentUser.id));
-  }, [currentUser.id]);
+    // dispatch(getRealtimeUsers(currentUser.id));
+  }, [currentUser.id, dispatch]);
 
   const submitMessage = (e) => {
     const msgObj = {
@@ -69,7 +64,7 @@ const UserMessages = () => {
                   </div>
                 </div>
 
-                <SuggestedTexts />
+                <SuggestedTexts setMessage={setMessage} />
               </div>
               <div className="userChatFeatures">
                 <div className="usersChatText">
