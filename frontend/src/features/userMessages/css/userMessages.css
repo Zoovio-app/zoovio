@@ -119,8 +119,17 @@
   border-color: #91a8ca;
 }
 
-.userChatView {
+.userChatViewMain {
+  overflow-y: scroll;
   flex-grow: 1;
+  height: 35vh;
+}
+
+.userChatView {
+  display: flex;
+  flex-direction: column;
+  /* flex-grow: 1; */
+  height: 99vh;
 }
 
 .sugestedTextCont {
@@ -152,4 +161,16 @@
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
+  /* scrollbar-arrow-color: transparent; */
+}
+.sugestedTextMain::-webkit-scrollbar {
+  display: none;
+}
+
+.leftText {
+  text-align: left;
+}
+
+.rightText {
+  text-align: right;
 }

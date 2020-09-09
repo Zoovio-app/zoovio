@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getRealtimeUsers,
@@ -16,10 +16,14 @@ import { Button } from "react-bootstrap";
 const UserMessages = () => {
   const dispatch = useDispatch();
   const { currentUser } = useContext(AuthContext);
-  const [chatStarted, setChatStarted] = useState(false);
   const [chatUser, setChatUser] = useState("");
   const [message, setMessage] = useState("");
   const [userUid, setUserUid] = useState(null);
+  const { users } = useSelector(messagingInfoState);
+
+  useEffect(() => {
+    dispatch(getRealtimeUsers(currentUser.id));
+  }, [currentUser.id]);
 
   const submitMessage = (e) => {
     const msgObj = {
@@ -56,7 +60,17 @@ const UserMessages = () => {
             <div className="usersOpenConvos"></div>
             <div className="usersChatArea">
               <div className="userChatDisplay">
-                <div className="userChatView"></div>
+                <div className="userChatViewMain">
+                  <div className="userChatView">
+                    <div className="leftText">
+                      <p>Hello how may i help you</p>
+                    </div>
+                    <div className="rightText">
+                      <p>Hello i would like to set up an apppointment</p>
+                    </div>
+                  </div>
+                </div>
+
                 <div className="sugestedTextMain">
                   <div className="sugestedTextCont">
                     <div className="sugestedText">
@@ -75,22 +89,6 @@ const UserMessages = () => {
                     <div className="sugestedText">
                       <span>Hello world</span>
                     </div>
-
-                    {/* <div className="sugestedText">
-                    <span>Hello world</span>
-                  </div>
-
-                  <div className="sugestedText">
-                    <span>Hello world</span>
-                  </div>
-
-                  <div className="sugestedText">
-                    <span>Hello world</span>
-                  </div>
-
-                  <div className="sugestedText">
-                    <span>Hello world</span>
-                  </div> */}
                   </div>
                 </div>
               </div>

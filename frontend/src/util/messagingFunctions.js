@@ -3,18 +3,32 @@ import {
   GET_REALTIME_USERS,
   GET_REALTIME_MESSAGES,
 } from "../features/messagingInfoSlice/messagingInfoSlice";
+import { getUsersId } from "./helpers";
 
 export const getRealtimeUsers = (uid) => async (dispatch, getState) => {
   const db = firebase.firestore();
-  db.collection("users").onSnapshot((querySnapshot) => {
-    const users = [];
-    querySnapshot.forEach(function (doc) {
-      console.log(doc.data());
-      if (doc.data().uid !== uid) {
-        users.push(doc.data());
-      }
+  const users = [];
+
+  await new Promise((resolve) => {
+    db.collection("chats").onSnapshot((querySnapshot) => {
+      const chats = [];
+      querySnapshot.forEach(function (doc) {
+        if (doc.data().user_uid_1 === uid) {
+          chats.push(doc.data());
+        }
+      });
+      resolve(chats);
     });
-    dispatch(GET_REALTIME_USERS({ users }));
+  }).then((res) => {
+    db.collection("users").onSnapshot((querySnapshot) => {
+      let usersIds = getUsersId(res);
+      querySnapshot.forEach((doc) => {
+        if (usersIds.has(doc.data().uid)) {
+          users.push(doc.data());
+        }
+      });
+      dispatch(GET_REALTIME_USERS({ users }));
+    });
   });
 };
 
