@@ -1,0 +1,92 @@
+.searchMain {
+  display: flex;
+  width: 70vw;
+  height: 70vh;
+}
+.resPage {
+  width: inherit;
+}
+
+.inputsSearchMain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 1vh;
+  background: #fbfbfb;
+  border-color: #ccd8e8;
+  box-shadow: 5px 2px 11px 3px #ccd8e8;
+  width: 60vw;
+}
+
+#searchInputs {
+  border: unset;
+  width: 20vw;
+}
+
+.searchInputDiv {
+  display: flex;
+}
+
+.searchInputPp {
+  display: flex;
+  align-items: center;
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-left-color: #b9c8de;
+  padding: 8px;
+}
+
+.searchInputP {
+  display: flex;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+}
+
+.searchInputPp p {
+  margin: unset;
+  font-size: 20px;
+  font-weight: 600;
+  color: #225095;
+}
+
+#searchInputs:focus-within {
+  outline: unset;
+}
+
+.searchInputCont input {
+  font-size: 20px;
+  color: #141e27;
+}
+
+.searchInputCont input::placeholder {
+  color: #95a3b8;
+}
+
+.selectDiv select {
+  color: #95a3b8;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.resPage form {
+  display: flex;
+  justify-content: center;
+}
+
+.selectTopMain {
+  flex-grow: 0.4;
+}
+
+.findDiv {
+  display: flex;
+  align-items: center;
+}
+
+.findDiv p {
+  font-size: 20px;
+  font-weight: 600;
+  color: #225095;
+  margin: unset;
+}

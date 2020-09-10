@@ -15,7 +15,7 @@ import Pets from "./features/pets/Pets";
 import PetForm from "./features/petForm/PetForm";
 import SplashPage from "./features/splashpage/SplashPage";
 import UserMenue from "./features/userMenue/UserMenue";
-import Search from "./features/search/Search"
+import Search from "./features/search/Search";
 import Blob from "./features/blob/Blob.js";
 import DoctorsApp from "./features/docPortal/DoctorsApp";
 import UserMessages from "./features/userMessages/UserMessages";
@@ -116,7 +116,14 @@ function App() {
                   </AnimatePresence>
                 </div>
                 <Route
-                  path={["/home", "/pets", "/calendar", "/tasks", "/messages"]}
+                  path={[
+                    "/home",
+                    "/pets",
+                    "/calendar",
+                    "/tasks",
+                    "/messages",
+                    "/search",
+                  ]}
                 >
                   <div className="inAppBottom">
                     <Blob

@@ -4,12 +4,10 @@ import PawRating from "./PawRating";
 import "./CSS/SearchResults.css";
 
 const SingleResult = (props) => {
- 
-
   return (
     <div className="single-result">
       <div className="card">
-        <img className="image" src={props.result.image_url} alt="image" />
+        <img className="image" src={props.result.image_url} alt="" />
         <div className="container">
           <div className="info">
             <h2 class="subtitle">
