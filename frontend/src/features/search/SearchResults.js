@@ -1,15 +1,17 @@
 import React from "react";
 import SingleResult from "./SingleResult";
 import "./CSS/SearchResults.css";
+import { useSelector } from "react-redux";
+import { resultsState } from "./searchResultsSlice";
 
-const SearchResults = (props) => {
- 
+const SearchResults = () => {
+  const results = useSelector(resultsState);
 
-  const results = props.result.map((item) => (
+  const res = results.map((item) => (
     <SingleResult key={item.id} result={item} />
   ));
 
-  return <div className="search-results">{results}</div>;
+  return <div className="search-results">{res}</div>;
 };
 
 export default SearchResults;

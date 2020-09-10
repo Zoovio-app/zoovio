@@ -2,16 +2,19 @@ import React, { useState } from "react";
 import "./CSS/css.css";
 import axios from "axios";
 import { Button } from "react-bootstrap";
+import SearchResults from "./SearchResults";
+import { setResult } from "./searchResultsSlice";
+import { useDispatch } from "react-redux";
 
 const { REACT_APP_YELP_API } = process.env;
 
-const SearchBar = (props) => {
-  console.log(props);
+const SearchBar = () => {
+  const dispatch = useDispatch();
   const [term, setTerm] = useState("");
   const [location, setLocation] = useState("");
 
   const fetchData = async () => {
-    const BASE_URL_SEARCH = `https://api.yelp.com/v3/businesses/search?term=${term}&location=${location}&limit=${2}`;
+    const BASE_URL_SEARCH = `https://api.yelp.com/v3/businesses/search?term=${term}&location=${location}&limit=${10}`;
     const HEROKU_SEARCH = `https://cors-anywhere.herokuapp.com/${BASE_URL_SEARCH}`;
 
     try {
@@ -20,18 +23,19 @@ const SearchBar = (props) => {
           Authorization: `Bearer ${REACT_APP_YELP_API}`,
         },
       });
-      props.setResult(res.data.businesses);
+      dispatch(setResult(res.data.businesses));
+      debugger;
     } catch (error) {
       console.log(error);
-      props.setResult([]);
+      setResult([]);
     }
   };
 
   const handleSubmit = (e) => {
+    e.preventDefault();
     fetchData(term, location);
 
-    e.preventDefault();
-    console.log(term, location);
+    // console.log(term, location);
   };
 
   return (
@@ -99,6 +103,7 @@ const SearchBar = (props) => {
           </div>
         </div>
       </form>
+      <SearchResults />
     </div>
   );
 };

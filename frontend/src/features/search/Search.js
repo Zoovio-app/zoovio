@@ -1,13 +1,10 @@
-import React, { useState } from "react";
-import SearchResults from "./SearchResults";
+import React from "react";
 import SearchBar from "./SearchBar";
 import { pageVariants, pageTransition } from "../../util/framerStyles";
 import { motion } from "framer-motion";
 import "./CSS/css.css";
 
 const Search = () => {
-  const [result, setResult] = useState([]);
-  // console.log(result);
   return (
     <div className="searchTop">
       <motion.div
@@ -19,8 +16,7 @@ const Search = () => {
         className="calDiv"
       >
         <div className="searchMain">
-          <SearchBar setResult={setResult} />
-          <SearchResults result={result} />
+          <SearchBar />
         </div>
       </motion.div>
     </div>
