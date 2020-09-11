@@ -273,3 +273,12 @@
   color: #9cb6dc;
   font-size: x-large;
 }
+
+.searchPromtP p {
+  color: #8cabd8;
+  font-size: x-large;
+}
+
+.promptImgDiv img {
+  height: 30vh;
+}

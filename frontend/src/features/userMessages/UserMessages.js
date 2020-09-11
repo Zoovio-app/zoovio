@@ -14,6 +14,7 @@ import {
   messagingInfoState,
   clearChat,
 } from "../messagingInfoSlice/messagingInfoSlice";
+import SearchPrompt from "./searchPrompt/SearchPrompt";
 
 const UserMessages = () => {
   const dispatch = useDispatch();
@@ -23,6 +24,7 @@ const UserMessages = () => {
   const [message, setMessage] = useState("");
   const [reciever, setReciever] = useState(null);
   const [promptDisplay, setPromtDisplay] = useState("");
+  const { users } = useSelector(messagingInfoState);
   const { uid2 } = useSelector(messagingInfoState);
   useEffect(() => {
     dispatch(getRealtimeUsers(currentUser.id, uid2));
@@ -60,56 +62,63 @@ const UserMessages = () => {
         <div className="toastDiv">
           <Toastt />
         </div>
-        <div className="usersChatBoxCont">
-          <div className="usersChatBox">
-            <div className="usersOpenConvos">
-              <UserThreadCard
-                setPromtDisplay={setPromtDisplay}
-                setChatUser={setChatUser}
-                setDisplay={setDisplay}
-                setReciever={setReciever}
-              />
-            </div>
-            <div className="usersChatArea">
-              <div className="userChatDisplay">
-                <div className="currentChatte">
-                  <p>{chatUser}</p>
-                </div>
-                <div className="userChatViewMain">
-                  <div className="userChatView">
-                    <div
-                      style={{ display: promptDisplay }}
-                      className="chatPrompt"
-                    >
-                      <p>
-                        "You have not initiated a chat please select a thread to
-                        the left"{" "}
-                      </p>
-                    </div>
-                    <Chats />
-                  </div>
-                </div>
-
-                <SuggestedTexts display={display} setMessage={setMessage} />
+        {users.length > 0 ? (
+          <div className="usersChatBoxCont">
+            <div className="usersChatBox">
+              <div className="usersOpenConvos">
+                <UserThreadCard
+                  setPromtDisplay={setPromtDisplay}
+                  setChatUser={setChatUser}
+                  setDisplay={setDisplay}
+                  setReciever={setReciever}
+                />
               </div>
-              <div style={{ display: display }} className="userChatFeatures">
-                <div className="usersChatText">
-                  <div className="textAreaHolder">
-                    <form onSubmit={submitMessage}>
-                      <textarea
-                        value={message}
-                        onChange={(e) => setMessage(e.target.value)}
-                      ></textarea>
-                    </form>
+              <div className="usersChatArea">
+                <div className="userChatDisplay">
+                  <div className="currentChatte">
+                    <p>{chatUser}</p>
                   </div>
+                  <div className="userChatViewMain">
+                    <div className="userChatView">
+                      <div
+                        style={{ display: promptDisplay }}
+                        className="chatPrompt"
+                      >
+                        <p>
+                          "You have not initiated a chat please select a thread
+                          to the left"{" "}
+                        </p>
+                      </div>
+                      <Chats />
+                    </div>
+                  </div>
+
+                  <SuggestedTexts display={display} setMessage={setMessage} />
                 </div>
-                <div className="usersChatSendButton">
-                  <Button onClick={submitMessage}>Send</Button>
+                <div style={{ display: display }} className="userChatFeatures">
+                  <div className="usersChatText">
+                    <div className="textAreaHolder">
+                      <form onSubmit={submitMessage}>
+                        <textarea
+                          value={message}
+                          onChange={(e) => setMessage(e.target.value)}
+                        ></textarea>
+                      </form>
+                    </div>
+                  </div>
+                  <div className="usersChatSendButton">
+                    <Button onClick={submitMessage}>Send</Button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <>
+            {" "}
+            <SearchPrompt />{" "}
+          </>
+        )}
       </div>
     </motion.div>
   );

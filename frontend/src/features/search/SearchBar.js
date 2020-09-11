@@ -14,7 +14,7 @@ const SearchBar = () => {
   const [location, setLocation] = useState("");
 
   const fetchData = async () => {
-    const BASE_URL_SEARCH = `https://api.yelp.com/v3/businesses/search?term=${term}&location=${location}&limit=${1}`;
+    const BASE_URL_SEARCH = `https://api.yelp.com/v3/businesses/search?term=${term}&location=${location}&limit=${10}`;
     const HEROKU_SEARCH = `https://cors-anywhere.herokuapp.com/${BASE_URL_SEARCH}`;
 
     try {
