@@ -250,6 +250,7 @@
   border-bottom-right-radius: 1vh;
   border-color: #d9e3f3;
   box-shadow: 1px 3px 4px 3px #d9e3f3;
+  position: absolute;
 }
 
 .currentChatte p {
@@ -257,4 +258,18 @@
   font-size: larger;
   font-weight: 600;
   margin: unset;
+}
+
+.chatPrompt {
+  height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25vw;
+  align-self: center;
+}
+
+.chatPrompt p {
+  color: #9cb6dc;
+  font-size: x-large;
 }

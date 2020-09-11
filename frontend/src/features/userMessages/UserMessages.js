@@ -22,6 +22,7 @@ const UserMessages = () => {
   const [display, setDisplay] = useState("none");
   const [message, setMessage] = useState("");
   const [reciever, setReciever] = useState(null);
+  const [promptDisplay, setPromtDisplay] = useState("");
   const { uid2 } = useSelector(messagingInfoState);
   useEffect(() => {
     dispatch(getRealtimeUsers(currentUser.id, uid2));
@@ -63,6 +64,7 @@ const UserMessages = () => {
           <div className="usersChatBox">
             <div className="usersOpenConvos">
               <UserThreadCard
+                setPromtDisplay={setPromtDisplay}
                 setChatUser={setChatUser}
                 setDisplay={setDisplay}
                 setReciever={setReciever}
@@ -75,6 +77,15 @@ const UserMessages = () => {
                 </div>
                 <div className="userChatViewMain">
                   <div className="userChatView">
+                    <div
+                      style={{ display: promptDisplay }}
+                      className="chatPrompt"
+                    >
+                      <p>
+                        "You have not initiated a chat please select a thread to
+                        the left"{" "}
+                      </p>
+                    </div>
                     <Chats />
                   </div>
                 </div>
