@@ -17,10 +17,10 @@ const UserMessages = () => {
   //   const [chatUser, setChatUser] = useState("");
   const [message, setMessage] = useState("");
   const [reciever, setReciever] = useState(null);
-
+  const uid2 = null;
   useEffect(() => {
-    dispatch(getRealtimeUsers(currentUser.id));
-  }, [currentUser.id, dispatch]);
+    dispatch(getRealtimeUsers(currentUser.id, uid2));
+  }, [currentUser.id, dispatch, uid2]);
 
   const submitMessage = (e) => {
     const msgObj = {

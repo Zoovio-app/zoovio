@@ -1,4 +1,4 @@
-export const getUsersId = (chats, currentUserId) => {
+export const getUsersId = (chats, currentUserId, uid2) => {
   const set = new Set();
 
   chats.forEach((chat) => {
@@ -10,6 +10,10 @@ export const getUsersId = (chats, currentUserId) => {
       }
     }
   });
-
-  return set;
+  if (uid2) {
+    set.add(uid2);
+    return set;
+  } else {
+    return set;
+  }
 };

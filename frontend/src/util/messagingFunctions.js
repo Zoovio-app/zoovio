@@ -5,7 +5,7 @@ import {
 } from "../features/messagingInfoSlice/messagingInfoSlice";
 import { getUsersId } from "./helpers";
 
-export const getRealtimeUsers = (uid) => async (dispatch, getState) => {
+export const getRealtimeUsers = (uid, uid2) => async (dispatch, getState) => {
   const db = firebase.firestore();
 
   await new Promise((resolve) => {
@@ -22,8 +22,8 @@ export const getRealtimeUsers = (uid) => async (dispatch, getState) => {
   }).then((res) => {
     db.collection("users").onSnapshot((querySnapshot) => {
       const users = [];
-      let usersIds = getUsersId(res, uid);
-      console.log(usersIds);
+      let usersIds = getUsersId(res, uid, uid2);
+
       querySnapshot.forEach((doc) => {
         if (usersIds.has(doc.data().uid)) {
           users.push(doc.data());
