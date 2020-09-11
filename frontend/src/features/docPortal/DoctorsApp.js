@@ -6,6 +6,7 @@ import DoctorLogin from "./DoctorLogin/DoctorLogin";
 import DoctorPortal from "./DoctorPortal/DoctorPortal";
 import DoctorInquire from "./DoctorInquire/DoctorInquire";
 import Messaging from "../messaging/Messaging/Messaging";
+import VideoChat from "../videoChat/videoChat";
 
 const DoctorsApp = () => {
   return (
@@ -29,6 +30,10 @@ const DoctorsApp = () => {
 
         <DocProtectedRoute exact path="/doctor/messaging">
           <Messaging />
+        </DocProtectedRoute>
+
+        <DocProtectedRoute exact path="/doctor/virtual-appointment">
+          <VideoChat />
         </DocProtectedRoute>
       </Switch>
     </div>

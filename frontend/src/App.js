@@ -105,10 +105,6 @@ function App() {
                         <UserMessages />
                       </ProtectedRoute>
 
-                      {/* <PrivateRoute exact path="/doctor/virtual-appointment">
-                        <VideoChat />
-                      </PrivateRoute> */}
-
                       <AuthRoute path="*">
                         <LandingPage />
                       </AuthRoute>
