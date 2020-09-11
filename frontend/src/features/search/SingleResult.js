@@ -49,9 +49,11 @@ const SingleResult = ({ result }) => {
           </a>
         </div>
         <div>
-          <Button value={result.id} onClick={onClick}>
-            Contact Provider
-          </Button>
+          {result.isPartner ? (
+            <Button value={result.id} onClick={onClick}>
+              Contact Provider
+            </Button>
+          ) : null}
         </div>
       </div>
     </div>

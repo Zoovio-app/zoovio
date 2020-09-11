@@ -15,11 +15,12 @@ let obj = {
     state: "NY",
     zip_code: "10031",
   },
-  name: "Community Veterinary Medicine",
+  name: "TEST TEST TEST",
   display_phone: "(646) 912-9513",
   rating: 3,
   review_count: 36,
   url:
     "https://www.yelp.com/biz/community-veterinary-medicine-new-york-2?adjust_creative=OFkL8UmGCxV2Y0p1Bzy0kg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=OFkL8UmGCxV2Y0p1Bzy0kg",
+  isPartner: true,
 };
-export const testData = [obj, obj, obj, obj, obj];
+export const testData = [obj, obj];

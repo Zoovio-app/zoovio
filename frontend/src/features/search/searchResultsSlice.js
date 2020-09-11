@@ -3,10 +3,13 @@ import { testData } from "./helper";
 
 export const resultsSlice = createSlice({
   name: "results",
-  initialState: testData,
+  initialState: [],
   reducers: {
     setResult: (state, action) => {
-      return action.payload;
+      return [
+        ...action.payload,
+        ...testData,
+      ]; /*.sort(() => Math.random() - 0.5);*/
     },
   },
 });
