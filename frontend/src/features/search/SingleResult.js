@@ -2,8 +2,19 @@ import React from "react";
 import "./CSS/SingleResult.css";
 import PawRating from "./PawRating";
 import { Button } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { setUid2 } from "../messagingInfoSlice/messagingInfoSlice";
+import { useHistory } from "react-router-dom";
 
 const SingleResult = ({ result }) => {
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const onClick = (e) => {
+    dispatch(setUid2(e.target.value));
+    history.push("/messages");
+  };
+
   return (
     <div title={result.id} className="single-result">
       <div className="cardTop">
@@ -38,7 +49,9 @@ const SingleResult = ({ result }) => {
           </a>
         </div>
         <div>
-          <Button>Contact Provider</Button>
+          <Button value={result.id} onClick={onClick}>
+            Contact Provider
+          </Button>
         </div>
       </div>
     </div>

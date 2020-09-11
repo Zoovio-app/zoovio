@@ -1,9 +1,9 @@
 import React from "react";
 import { suggestions } from "./helper";
 
-const SuggestedTexts = ({ setMessage }) => {
+const SuggestedTexts = ({ setMessage, display }) => {
   return (
-    <div className="sugestedTextMain">
+    <div style={{ display: display }} className="sugestedTextMain">
       <div className="sugestedTextCont">
         <div
           onClick={() => setMessage(suggestions[1])}

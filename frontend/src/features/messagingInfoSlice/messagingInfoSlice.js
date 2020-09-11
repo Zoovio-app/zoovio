@@ -25,5 +25,6 @@ export const messagingInfoState = (state) => state.messagingInfo;
 export const {
   GET_REALTIME_USERS,
   GET_REALTIME_MESSAGES,
+  setUid2,
 } = messagingInfoSlice.actions;
 export default messagingInfoSlice.reducer;

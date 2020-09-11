@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getRealtimeUsers, updateMessage } from "../../util/messagingFunctions";
 import { AuthContext } from "../../providers/AuthContext";
 import { pageTransition, pageVariants } from "../../util/framerStyles";
@@ -10,14 +10,16 @@ import { Button } from "react-bootstrap";
 import UserThreadCard from "../userThreadCard/UserThreadCard";
 import SuggestedTexts from "./suggestedTexts/SuggestedTexts";
 import Chats from "./chats/Chats";
+import { messagingInfoState } from "../messagingInfoSlice/messagingInfoSlice";
 
 const UserMessages = () => {
   const dispatch = useDispatch();
   const { currentUser } = useContext(AuthContext);
-  //   const [chatUser, setChatUser] = useState("");
+  const [chatUser, setChatUser] = useState("");
+  const [display, setDisplay] = useState("none");
   const [message, setMessage] = useState("");
   const [reciever, setReciever] = useState(null);
-  const uid2 = null;
+  const { uid2 } = useSelector(messagingInfoState);
   useEffect(() => {
     dispatch(getRealtimeUsers(currentUser.id, uid2));
   }, [currentUser.id, dispatch, uid2]);
@@ -54,7 +56,10 @@ const UserMessages = () => {
         <div className="usersChatBoxCont">
           <div className="usersChatBox">
             <div className="usersOpenConvos">
-              <UserThreadCard setReciever={setReciever} />
+              <UserThreadCard
+                setDisplay={setDisplay}
+                setReciever={setReciever}
+              />
             </div>
             <div className="usersChatArea">
               <div className="userChatDisplay">
@@ -64,9 +69,9 @@ const UserMessages = () => {
                   </div>
                 </div>
 
-                <SuggestedTexts setMessage={setMessage} />
+                <SuggestedTexts display={display} setMessage={setMessage} />
               </div>
-              <div className="userChatFeatures">
+              <div style={{ display: display }} className="userChatFeatures">
                 <div className="usersChatText">
                   <div className="textAreaHolder">
                     <form onSubmit={submitMessage}>
