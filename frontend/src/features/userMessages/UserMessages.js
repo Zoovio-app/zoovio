@@ -63,12 +63,16 @@ const UserMessages = () => {
           <div className="usersChatBox">
             <div className="usersOpenConvos">
               <UserThreadCard
+                setChatUser={setChatUser}
                 setDisplay={setDisplay}
                 setReciever={setReciever}
               />
             </div>
             <div className="usersChatArea">
               <div className="userChatDisplay">
+                <div className="currentChatte">
+                  <p>{chatUser}</p>
+                </div>
                 <div className="userChatViewMain">
                   <div className="userChatView">
                     <Chats />

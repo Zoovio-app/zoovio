@@ -238,3 +238,23 @@
   /* anchor nodes are required to have non-zero area */
   height: 1px;
 }
+
+.currentChatte {
+  align-self: center;
+  padding: 1vh;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-right-style: solid;
+  border-bottom-left-radius: 1vh;
+  border-width: 1px;
+  border-bottom-right-radius: 1vh;
+  border-color: #d9e3f3;
+  box-shadow: 1px 3px 4px 3px #d9e3f3;
+}
+
+.currentChatte p {
+  color: #225095;
+  font-size: larger;
+  font-weight: 600;
+  margin: unset;
+}

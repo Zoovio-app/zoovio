@@ -5,7 +5,7 @@ import "./css/userThread.css";
 import { getRealtimeConversations } from "../../util/messagingFunctions";
 import { AuthContext } from "../../providers/AuthContext";
 
-const UserThreadCard = ({ setReciever, setDisplay }) => {
+const UserThreadCard = ({ setReciever, setDisplay, setChatUser }) => {
   const { users } = useSelector(messagingInfoState);
   const dispatch = useDispatch();
   const { currentUser } = useContext(AuthContext);
@@ -15,6 +15,7 @@ const UserThreadCard = ({ setReciever, setDisplay }) => {
     // setChatUser(`${user.firstName} ${user.lastName}`);
     // setUserUid(user.uid);
     // console.log(user);
+    setChatUser(e.target.id);
     setDisplay(null);
     setReciever(e.target.title);
     dispatch(
@@ -29,9 +30,10 @@ const UserThreadCard = ({ setReciever, setDisplay }) => {
         className="userCardd"
         title={user.uid}
         key={user.uid}
+        id={`Dr.${user.firstName}`}
       >
-        <div title={user.uid} className="userCardP">
-          <p title={user.uid}>
+        <div id={`Dr.${user.firstName}`} title={user.uid} className="userCardP">
+          <p id={`Dr.${user.firstName}`} title={user.uid}>
             Dr. {user.firstName} {user.lastName}
           </p>
         </div>

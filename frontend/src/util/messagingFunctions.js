@@ -71,6 +71,6 @@ export const getRealtimeConversations = (user) => async (
         }
       });
       dispatch(GET_REALTIME_MESSAGES({ chats }));
-      console.log(chats);
+      // console.log(chats);
     });
 };
