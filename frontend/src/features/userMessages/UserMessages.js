@@ -10,7 +10,10 @@ import { Button } from "react-bootstrap";
 import UserThreadCard from "../userThreadCard/UserThreadCard";
 import SuggestedTexts from "./suggestedTexts/SuggestedTexts";
 import Chats from "./chats/Chats";
-import { messagingInfoState } from "../messagingInfoSlice/messagingInfoSlice";
+import {
+  messagingInfoState,
+  clearChat,
+} from "../messagingInfoSlice/messagingInfoSlice";
 
 const UserMessages = () => {
   const dispatch = useDispatch();
@@ -22,6 +25,9 @@ const UserMessages = () => {
   const { uid2 } = useSelector(messagingInfoState);
   useEffect(() => {
     dispatch(getRealtimeUsers(currentUser.id, uid2));
+    return () => {
+      dispatch(clearChat());
+    };
   }, [currentUser.id, dispatch, uid2]);
 
   const submitMessage = (e) => {

@@ -18,6 +18,9 @@ export const messagingInfoSlice = createSlice({
     setUid2: (state, action) => {
       state.uid2 = action.payload;
     },
+    clearChat: (state, action) => {
+      state.chats = [];
+    },
   },
 });
 
@@ -26,5 +29,6 @@ export const {
   GET_REALTIME_USERS,
   GET_REALTIME_MESSAGES,
   setUid2,
+  clearChat,
 } = messagingInfoSlice.actions;
 export default messagingInfoSlice.reducer;
