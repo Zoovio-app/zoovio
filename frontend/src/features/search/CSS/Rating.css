@@ -1,29 +1,27 @@
-.rating{
-    display: flex;
-    align-items: center;
+.rating {
+  display: flex;
+  align-items: center;
 }
 
 .rating * > {
-    margin-right: 4px;
+  margin-right: 4px;
 }
 
 /* .rating p {
     font-size: 1px
 } */
 
-
-.WhitePaw{
-    height: 14px;
-    width: 19px;
-    
+.WhitePaw {
+  height: 14px;
+  width: 19px;
 }
 
-.HalfPaw{
-    height: 30px;
-    width: 30px;
+.HalfPaw {
+  height: 30px;
+  width: 30px;
 }
 
-.GreyPaw2{
-    height: 30px;
-    width: 30px;
+.GreyPaw2 {
+  height: 30px;
+  width: 30px;
 }

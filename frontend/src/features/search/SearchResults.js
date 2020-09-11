@@ -11,7 +11,11 @@ const SearchResults = () => {
     <SingleResult key={item.id} result={item} />
   ));
 
-  return <div className="search-results">{res}</div>;
+  return (
+    <div className="search-results">
+      <div className="resultsCont">{res}</div>
+    </div>
+  );
 };
 
 export default SearchResults;
