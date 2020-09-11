@@ -8,7 +8,7 @@ export const taskFormSlice = createSlice({
       return action.payload;
     },
     clearForm: (state, action) => {
-      return state.initialState;
+      return "";
     },
   },
 });

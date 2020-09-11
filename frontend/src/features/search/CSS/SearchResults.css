@@ -20,6 +20,9 @@
 .noResImg img {
   height: 40vh;
 }
+.noResImg {
+  margin: unset;
+}
 
 .noResPromt p {
   font-size: larger;

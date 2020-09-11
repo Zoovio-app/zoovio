@@ -11,7 +11,7 @@ import BackButton from "../backButton/BackButton";
 import Toast from "../toast/Toast";
 import { useDispatch, useSelector } from "react-redux";
 import { setToast } from "../toastSlice/toastSlice";
-import { taskState, setTask } from "./taskFormSlice";
+import { taskState, setTask, clearForm } from "./taskFormSlice";
 
 const date = new Date();
 
@@ -44,6 +44,7 @@ const TaskForm = () => {
         },
       });
       dispatch(setToast(true));
+      dispatch(clearForm());
     } catch (err) {
       alert(err.message);
     }
@@ -86,6 +87,9 @@ const TaskForm = () => {
       variants={pageVariants}
     >
       <div className="taskFormMain">
+        <div>
+          <h1>ZooVio</h1>
+        </div>
         <div className="toastDiv">
           <Toast text={"Your task was successfully added."} />
         </div>
