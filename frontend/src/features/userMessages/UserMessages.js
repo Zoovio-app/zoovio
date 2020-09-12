@@ -15,6 +15,7 @@ import {
   clearChat,
 } from "../messagingInfoSlice/messagingInfoSlice";
 import SearchPrompt from "./searchPrompt/SearchPrompt";
+import UserVideoChat from "../userVideoChat/UserVideoChat";
 
 const UserMessages = () => {
   const dispatch = useDispatch();
@@ -63,7 +64,7 @@ const UserMessages = () => {
           <Toastt />
         </div>
         {users.length > 0 ? (
-          <div className="usersChatBoxCont">
+          <div style={{ display: "none" }} className="usersChatBoxCont">
             <div className="usersChatBox">
               <div className="usersOpenConvos">
                 <UserThreadCard
@@ -119,6 +120,8 @@ const UserMessages = () => {
             <SearchPrompt />{" "}
           </>
         )}
+
+        <UserVideoChat />
       </div>
     </motion.div>
   );

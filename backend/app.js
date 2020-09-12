@@ -10,7 +10,7 @@ const port = process.env.PORT;
 const app = express();
 
 const server = http.createServer(app);
-// app.use(cors());
+
 app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
 const socket = require("socket.io");
 const io = socket(server);
@@ -37,10 +37,12 @@ const errorHandling = (error, req, res, next) => {
 const users = {};
 
 io.on("connection", (socket) => {
-  if (!users[socket.id]) {
-    users[socket.id] = socket.id;
-  }
   socket.emit("yourID", socket.id);
+  socket.on("currentUser", (user) => {
+    if (!users[socket.id]) {
+      users[socket.id] = { name: user.name, socketId: socket.id };
+    }
+  });
   io.sockets.emit("allUsers", users);
   socket.on("disconnect", () => {
     delete users[socket.id];
@@ -56,6 +58,10 @@ io.on("connection", (socket) => {
   socket.on("acceptCall", (data) => {
     io.to(data.to).emit("callAccepted", data.signal);
   });
+
+  socket.on("declineCall", (data) => {
+    io.to(data.to).emit("callDeclined", data.name);
+  });
 });
 
 app.use(errorHandling);
@@ -63,7 +69,3 @@ app.use(errorHandling);
 server.listen(port, () => {
   console.log(`LISTENING TO PORT ${port}`);
 });
-
-// app.listen(port, () => {
-//   console.log(`LISTENING TO PORT ${port}`);
-// });
