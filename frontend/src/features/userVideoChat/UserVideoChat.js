@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
 import io from "socket.io-client";
 import { apiUrl } from "../../util/apiUrl";
-import Peer from "simple-peer";
+import { acceptCall, declineCall } from "./helper";
+
 import styled from "styled-components";
 
 const Video1 = styled.video`
@@ -27,33 +28,25 @@ const UserVideoChat = () => {
   const [caller, setCaller] = useState("");
   const [callerSignal, setCallerSignal] = useState();
   const [yourID, setYourID] = useState("");
-  const [users, setUsers] = useState({ 1: "dee" });
   const [display, setDisplay] = useState("none");
-
-  const acceptCall = () => {
-    setCallAccepted(true);
-    setDisplay("");
-
-    const peer = new Peer({
-      initiator: false,
-      trickle: false,
-      stream: stream,
-    });
-
-    peer.on("signal", (data) => {
-      socket.current.emit("acceptCall", { signal: data, to: caller });
-    });
-
-    peer.on("stream", (stream) => {
-      partnerVideo.current.srcObject = stream;
-    });
-
-    peer.signal(callerSignal);
+  const args = {
+    setCallAccepted,
+    setDisplay,
+    socket,
+    callerSignal,
+    stream,
+    caller,
+    partnerVideo,
+    setCaller,
+    setReceivingCall,
   };
-  const declineCall = () => {
-    socket.current.emit("declineCall", { name: "danny", to: caller });
-    setCaller("");
-    setReceivingCall(false);
+
+  const accept = () => {
+    acceptCall(args);
+  };
+
+  const decline = () => {
+    declineCall(args);
   };
 
   useEffect(() => {
@@ -74,10 +67,6 @@ const UserVideoChat = () => {
       setYourID(id);
     });
 
-    socket.current.on("allUsers", (users) => {
-      setUsers(users);
-    });
-
     socket.current.on("hey", (data) => {
       setReceivingCall(true);
       setCaller(data.from);
@@ -91,8 +80,8 @@ const UserVideoChat = () => {
         {receivingCall ? (
           <>
             <h1>{caller} is calling you</h1>
-            <button onClick={acceptCall}>Accept</button>{" "}
-            <button onClick={declineCall}>Decline</button>
+            <button onClick={accept}>Accept</button>{" "}
+            <button onClick={decline}>Decline</button>
           </>
         ) : null}
       </div>

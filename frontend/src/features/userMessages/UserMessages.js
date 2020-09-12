@@ -87,7 +87,7 @@ const UserMessages = () => {
                       >
                         <p>
                           "You have not initiated a chat please select a thread
-                          to the left"{" "}
+                          from the list to the left"
                         </p>
                       </div>
                       <Chats />

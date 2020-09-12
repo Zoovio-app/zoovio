@@ -47,10 +47,6 @@ const VideoChat = () => {
         if (userVideo.current) {
           userVideo.current.srcObject = stream;
         }
-
-        // if (partnerVideo.current) {
-        //     partnerVideo.current.srcObject = stream;
-        // }
       });
 
     socket.current.on("yourID", (id) => {
