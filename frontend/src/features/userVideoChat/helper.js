@@ -2,7 +2,6 @@ import Peer from "simple-peer";
 
 export const acceptCall = ({
   setCallAccepted,
-  setDisplay,
   socket,
   callerSignal,
   stream,
@@ -10,7 +9,6 @@ export const acceptCall = ({
   partnerVideo,
 }) => {
   setCallAccepted(true);
-  setDisplay("");
 
   const peer = new Peer({
     initiator: false,
@@ -29,13 +27,9 @@ export const acceptCall = ({
   peer.signal(callerSignal);
 };
 
-export const declineCall = ({
-  socket,
-  caller,
-  setCaller,
-  setReceivingCall,
-}) => {
+export const declineCall = ({ socket, caller, setCaller }) => {
   socket.current.emit("declineCall", { name: "danny", to: caller });
   setCaller("");
-  setReceivingCall(false);
 };
+
+export const endCall = ({ socket }) => {};

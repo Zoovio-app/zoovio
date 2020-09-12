@@ -20,6 +20,7 @@ const UserMessages = () => {
   const { users } = useSelector(messagingInfoState);
   const { uid2 } = useSelector(messagingInfoState);
   const [videoDisplay, setVideoDisplay] = useState("");
+  const [chatBoxDisplay, setChatBoxDisplay] = useState("");
   const [toast, setToast] = useState("");
 
   useEffect(() => {
@@ -44,8 +45,17 @@ const UserMessages = () => {
         <div style={{ display: toast }} className="toastDiv">
           <Toastt />
         </div>
-        <UserVideoChat setToast={setToast} />
-        {users.length > 0 ? <UserChatBox /> : <SearchPrompt />}
+        <UserVideoChat
+          setChatBoxDisplay={setChatBoxDisplay}
+          videoDisplay={videoDisplay}
+          setVideoDisplay={setVideoDisplay}
+          setToast={setToast}
+        />
+        {users.length > 0 ? (
+          <UserChatBox chatBoxDisplay={chatBoxDisplay} />
+        ) : (
+          <SearchPrompt />
+        )}
       </div>
     </motion.div>
   );

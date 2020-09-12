@@ -7,7 +7,7 @@ import { updateMessage } from "../../../util/messagingFunctions";
 import { useDispatch } from "react-redux";
 import { AuthContext } from "../../../providers/AuthContext";
 
-const UserChatBox = () => {
+const UserChatBox = ({ chatBoxDisplay }) => {
   const [chatUser, setChatUser] = useState("");
   const [display, setDisplay] = useState("none");
   const [promptDisplay, setPromtDisplay] = useState("");
@@ -31,7 +31,7 @@ const UserChatBox = () => {
   };
 
   return (
-    <div className="usersChatBoxCont">
+    <div style={{ display: chatBoxDisplay }} className="usersChatBoxCont">
       <div className="usersChatBox">
         <div className="usersOpenConvos">
           <UserThreadCard

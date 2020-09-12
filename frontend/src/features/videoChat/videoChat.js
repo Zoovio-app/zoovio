@@ -73,7 +73,6 @@ const VideoChat = () => {
     });
 
     peer.on("signal", (data) => {
-      console.log(data);
       socket.current.emit("callUser", {
         userToCall: id,
         signalData: data,
@@ -90,6 +89,7 @@ const VideoChat = () => {
     socket.current.on("callAccepted", (signal) => {
       setCallAccepted(true);
       peer.signal(signal);
+      setIsCalling(false);
     });
 
     socket.current.on("callDeclined", (data) => {
