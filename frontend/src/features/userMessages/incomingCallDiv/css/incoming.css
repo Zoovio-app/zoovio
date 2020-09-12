@@ -1,0 +1,21 @@
+.incomingDiv {
+  display: flex;
+  align-self: center;
+  height: 11vh;
+}
+
+.incomingCont h2 {
+  font-size: 4vh;
+  font-weight: 600;
+  color: #225095;
+}
+
+.blink_me {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}

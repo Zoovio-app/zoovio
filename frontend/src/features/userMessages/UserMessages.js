@@ -20,6 +20,7 @@ const UserMessages = () => {
   const { users } = useSelector(messagingInfoState);
   const { uid2 } = useSelector(messagingInfoState);
   const [videoDisplay, setVideoDisplay] = useState("");
+  const [toast, setToast] = useState("");
 
   useEffect(() => {
     dispatch(getRealtimeUsers(currentUser.id, uid2));
@@ -40,11 +41,11 @@ const UserMessages = () => {
         <div>
           <h1>ZooVio</h1>
         </div>
-        <div className="toastDiv">
+        <div style={{ display: toast }} className="toastDiv">
           <Toastt />
         </div>
+        <UserVideoChat setToast={setToast} />
         {users.length > 0 ? <UserChatBox /> : <SearchPrompt />}
-        <UserVideoChat />
       </div>
     </motion.div>
   );

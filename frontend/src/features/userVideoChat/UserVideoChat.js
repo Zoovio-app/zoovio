@@ -2,8 +2,8 @@ import React, { useEffect, useState, useRef } from "react";
 import io from "socket.io-client";
 import { apiUrl } from "../../util/apiUrl";
 import { acceptCall, declineCall } from "./helper";
-
 import styled from "styled-components";
+import IncomingCall from "../userMessages/incomingCallDiv/IncomingCall";
 
 const Video1 = styled.video`
   border: 1px solid orange;
@@ -17,7 +17,7 @@ const Video2 = styled.video`
   width: 15%;
   height: 15%;
 `;
-const UserVideoChat = () => {
+const UserVideoChat = ({ setToast }) => {
   const socket = useRef();
   const userVideo = useRef();
   const partnerVideo = useRef();
@@ -29,6 +29,7 @@ const UserVideoChat = () => {
   const [callerSignal, setCallerSignal] = useState();
   const [yourID, setYourID] = useState("");
   const [display, setDisplay] = useState("none");
+  const [incomingDisplay, setIncomingDisplay] = useState("none");
   const args = {
     setCallAccepted,
     setDisplay,
@@ -47,6 +48,8 @@ const UserVideoChat = () => {
 
   const decline = () => {
     declineCall(args);
+    setToast("");
+    setIncomingDisplay("none");
   };
 
   useEffect(() => {
@@ -69,41 +72,43 @@ const UserVideoChat = () => {
 
     socket.current.on("hey", (data) => {
       setReceivingCall(true);
+      setToast("none");
+      setIncomingDisplay("");
       setCaller(data.from);
       setCallerSignal(data.signal);
     });
-  }, [API]);
+  }, [API, setToast]);
 
   return (
-    <div>
-      <div className="incomingDiv">
-        {receivingCall ? (
-          <>
-            <h1>{caller} is calling you</h1>
-            <button onClick={accept}>Accept</button>{" "}
-            <button onClick={decline}>Decline</button>
-          </>
-        ) : null}
-      </div>
+    <>
+      <IncomingCall
+        receivingCall={receivingCall}
+        caller={caller}
+        accept={accept}
+        decline={decline}
+        incomingDisplay={incomingDisplay}
+      />
 
-      <div className="myVideo">
-        {stream ? (
-          <Video2
-            style={{ display: display }}
-            playsInline
-            muted
-            ref={userVideo}
-            autoPlay
-          />
-        ) : null}
-      </div>
+      <div className="videoChatBox">
+        <div className="myVideo">
+          {stream ? (
+            <Video2
+              style={{ display: display }}
+              playsInline
+              muted
+              ref={userVideo}
+              autoPlay
+            />
+          ) : null}
+        </div>
 
-      <div className="callerDiv">
-        {callAccepted ? (
-          <Video1 playsInline ref={partnerVideo} autoPlay />
-        ) : null}
+        <div className="callerDiv">
+          {callAccepted ? (
+            <Video1 playsInline ref={partnerVideo} autoPlay />
+          ) : null}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
