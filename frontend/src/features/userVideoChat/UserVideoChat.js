@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useContext } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import io from "socket.io-client";
 import { apiUrl } from "../../util/apiUrl";
 import { acceptCall, declineCall } from "./helper";
