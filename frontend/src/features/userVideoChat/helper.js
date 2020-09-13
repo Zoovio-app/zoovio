@@ -7,6 +7,7 @@ export const acceptCall = ({
   stream,
   caller,
   partnerVideo,
+  setPeer,
 }) => {
   setCallAccepted(true);
 
@@ -25,10 +26,12 @@ export const acceptCall = ({
   });
 
   peer.signal(callerSignal);
+
+  setPeer(peer);
 };
 
-export const declineCall = ({ socket, caller, setCaller }) => {
-  socket.current.emit("declineCall", { name: "danny", to: caller });
+export const declineCall = ({ socket, caller, setCaller, name }) => {
+  socket.current.emit("declineCall", { name, to: caller });
   setCaller("");
 };
 

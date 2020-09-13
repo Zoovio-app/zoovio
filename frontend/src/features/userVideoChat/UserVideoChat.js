@@ -3,9 +3,11 @@ import io from "socket.io-client";
 import { apiUrl } from "../../util/apiUrl";
 import { acceptCall, declineCall } from "./helper";
 import styled from "styled-components";
-// import IncomingCall from "../userMessages/incomingCallDiv/IncomingCall";
 import "../userMessages/incomingCallDiv/css/incoming.css";
 import { Button } from "react-bootstrap";
+import { useSelector } from "react-redux";
+import { userInfoState } from "../userInfo/userInfoSlice";
+import "./css/userVideoChat.css";
 
 const Video1 = styled.video`
   border: 1px solid orange;
@@ -39,6 +41,8 @@ const UserVideoChat = ({
   const [callerSignal, setCallerSignal] = useState("");
   const [yourID, setYourID] = useState("");
   const [incomingDisplay, setIncomingDisplay] = useState("none");
+  const { user } = useSelector(userInfoState);
+  const [peer, setPeer] = useState("");
 
   const args = {
     setCallAccepted,
@@ -48,6 +52,7 @@ const UserVideoChat = ({
     caller,
     partnerVideo,
     setCaller,
+    setPeer,
   };
 
   const accept = () => {
@@ -65,12 +70,21 @@ const UserVideoChat = ({
     count = 0;
   };
 
-  const endCall = () => {};
+  const endCall = () => {
+    peer.destroy();
+    console.log(peer, "here");
+    socket.current.emit("endCall", caller);
+    setCallAccepted(false);
+    setChatBoxDisplay("");
+    setVideoDisplay("none");
+    setStream("");
+    socket.current.emit("disconnect");
+  };
 
   useEffect(() => {
     socket.current = io.connect(API);
     navigator.mediaDevices
-      .getUserMedia({ video: true, audio: true })
+      .getUserMedia({ video: true, audio: false })
       .then((stream) => {
         setStream(stream);
         if (userVideo) {
@@ -78,7 +92,7 @@ const UserVideoChat = ({
         }
       });
 
-    socket.current.emit("currentUser", { name: "danny" });
+    socket.current.emit("currentUser", { name: "lo" });
 
     socket.current.on("yourID", (id) => {
       setYourID(id);
@@ -95,9 +109,13 @@ const UserVideoChat = ({
       setCaller(data.from);
       setCallerSignal(data.signal);
     });
-
+    return () => {
+      return socket.current.emit("disconnect");
+    };
     /////////
-  }, [API, setToast]);
+  }, [API, setToast, socket]);
+
+  console.log(peer);
 
   return (
     <>
@@ -119,8 +137,8 @@ const UserVideoChat = ({
         <div className="callerDiv">
           {callAccepted ? (
             <>
-              <Button>End Call</Button>
               <Video1 playsInline ref={partnerVideo} autoPlay />
+              <Button onClick={endCall}>End Call</Button>
             </>
           ) : null}
         </div>

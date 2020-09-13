@@ -1,0 +1,23 @@
+.videoChatBox {
+  align-self: center;
+  display: flex;
+  position: relative;
+  left: -1%;
+  top: -5%;
+}
+
+.callerDiv {
+  align-self: center;
+  display: flex;
+  align-items: center;
+  padding: 1vh;
+}
+
+.callerDiv video {
+  height: 55vh;
+  border-radius: 5vh;
+  box-shadow: 9px -4px 11px 4px #d6deea;
+  border: unset;
+  margin: unset;
+  width: unset;
+}

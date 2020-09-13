@@ -62,6 +62,10 @@ io.on("connection", (socket) => {
   socket.on("declineCall", (data) => {
     io.to(data.to).emit("callDeclined", data.name);
   });
+
+  socket.on("endCall", (data) => {
+    socket.disconnect(true);
+  });
 });
 
 app.use(errorHandling);
