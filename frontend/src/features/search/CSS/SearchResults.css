@@ -1,0 +1,39 @@
+.search-results > * {
+  margin-top: 1rem;
+}
+
+.search-results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 55vh;
+}
+
+.resultsCont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 53vh;
+  overflow-y: scroll;
+}
+
+.noResImg img {
+  height: 40vh;
+}
+.noResImg {
+  margin: unset;
+}
+
+.noResPromt p {
+  font-size: larger;
+  color: #b8cae4;
+  font-weight: 200;
+}
+
+.noResPromtNote {
+  width: 30vw;
+}
+
+.noResPromtNote p {
+  color: #f16643;
+}

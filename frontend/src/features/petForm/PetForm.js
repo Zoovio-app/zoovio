@@ -11,6 +11,7 @@ import { Button } from "react-bootstrap";
 import "./css/petForm.css";
 import { useDispatch } from "react-redux";
 import { setToast } from "../toastSlice/toastSlice";
+import upload from "../../images/up.png";
 
 const PetForm = () => {
   const [image, setImage] = useState(null);
@@ -82,7 +83,21 @@ const PetForm = () => {
           </div>
         </div>
         <div className="petFormAdd">
-          <Button onClick={func}>Add image</Button>
+          <Button
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-around",
+              width: "30vh",
+            }}
+            onClick={func}
+          >
+            {" "}
+            <img style={{ height: "5vh" }} alt="" src={upload} />
+            <p style={{ fontWeight: "600", margin: "unset" }}>
+              Upload an image
+            </p>
+          </Button>
         </div>
         <div
           className="petForm"

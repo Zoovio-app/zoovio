@@ -1,0 +1,93 @@
+.single-result {
+  border-style: solid;
+  width: 45vw;
+  border-width: 2px;
+  border-radius: 0.5vh;
+  border-color: #dae4f3;
+  height: 30vh;
+  padding: 2.7vh;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2vh;
+}
+
+/* .single-result:hover {
+  background-color: #f7faff;
+  transition: ease;
+  padding: 5px;
+} */
+
+.cardTop {
+  height: 19vh;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #dae4f3;
+  flex-grow: 1;
+}
+
+.cardTopCont {
+  display: flex;
+  height: 19vh;
+}
+
+.cardBottom {
+  flex-grow: 5.5;
+}
+
+.cardImg {
+  align-self: flex-start;
+}
+
+.cardImg img {
+  height: 14vh;
+  border-radius: 1vh;
+}
+
+.cardInfo {
+  flex-grow: 1;
+  padding-left: 1vh;
+  padding-bottom: 1vh;
+}
+
+.cardInfoName p {
+  margin: unset;
+  font-weight: 600;
+  color: #225095;
+  font-size: 20px;
+}
+
+.cardInfoName {
+  display: flex;
+}
+
+.cardInfoAddy p {
+  padding: unset;
+  margin: unset;
+  padding: 0.3vh;
+  font-weight: 300;
+  color: #99a2af;
+}
+
+.cardInfoAddy {
+  display: flex;
+}
+
+.ratingCont {
+  display: flex;
+}
+
+.Rating {
+  display: flex;
+}
+
+.cardBottom {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+}
+
+.moreInfoCard {
+  display: flex;
+  align-items: center;
+}

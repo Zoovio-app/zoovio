@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import { apiUrl } from "../../util/apiUrl";
 import axios from "axios";
 import { AuthContext } from "../../providers/AuthContext";
+
 const SplashPage = () => {
   const history = useHistory();
   const API = apiUrl();
@@ -98,7 +99,7 @@ const SplashPage = () => {
                     fontWeight: "500",
                   }}
                 >
-                  keep track of your pets daily activities.
+                  Keep track of your pets daily activities.
                 </p>
               </div>
             </Carousel.Caption>
@@ -133,6 +134,32 @@ const SplashPage = () => {
           </Carousel.Item>
           <Carousel.Item>
             <img src={relax} alt="" />
+            <Carousel.Caption>
+              <div>
+                {/* <h3
+                  style={{
+                    color: "#141827",
+                    fontWeight: "700",
+                    marginBottom: "1.25rem",
+                    marginTop: "1.25rem",
+                  }}
+                >
+                  {" "}
+                  Celebrate!
+                </h3> */}
+                <p
+                  style={{
+                    marginBottom: "-1vh",
+                    color: "#225095",
+                    fontSize: "20px",
+                    fontWeight: "500",
+                  }}
+                >
+                  Enjoy the peace mind knowing that all your pets needs can be
+                  managed all in one App!
+                </p>
+              </div>
+            </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
       </div>
@@ -161,7 +188,7 @@ const SplashPage = () => {
 
           <div className="footerDiv">
             <Link to="/about">About</Link>
-            <Link to="/faq">Faq</Link>
+            <Link to="/doctor">Doc Portal</Link>
             <Link to="/other">Other</Link>
           </div>
         </div>

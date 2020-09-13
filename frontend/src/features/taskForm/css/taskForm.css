@@ -62,7 +62,7 @@
   display: flex;
   align-self: center;
   width: 35vw;
-  margin-bottom: 5vh;
+  margin-bottom: 4vh;
 }
 
 .taskFormBack img {
@@ -87,4 +87,8 @@
 .toastDiv {
   align-self: center;
   height: 11vh;
+}
+
+.tasksForm form {
+  padding: 4vh;
 }

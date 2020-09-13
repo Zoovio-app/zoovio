@@ -6,8 +6,18 @@ import food from "../../images/pet-food2.png";
 import groom from "../../images/saloon2.png";
 import taskPic from "../../images/taskpic2.png";
 import { strFormat } from "./helper/helper";
+import { useDispatch } from "react-redux";
+import { setTask } from "../taskForm/taskFormSlice";
+import { useHistory } from "react-router-dom";
 
 const TasksDisplay = ({ tasks = [] }) => {
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const onClick = (task) => {
+    dispatch(setTask(task));
+    history.push(`/tasks/create${history.location.pathname}`);
+  };
   if (tasks.length === 0)
     return (
       <div>
@@ -19,7 +29,10 @@ const TasksDisplay = ({ tasks = [] }) => {
           </p>
         </div>
         <div className="examplesCont">
-          <div className="examples">
+          <div
+            onClick={() => onClick("Administer medication")}
+            className="examples"
+          >
             <div className="exampleImgHolder">
               <img alt="" src={meds} />
             </div>
@@ -27,7 +40,10 @@ const TasksDisplay = ({ tasks = [] }) => {
               <p>Give your pet medication</p>
             </div>
           </div>
-          <div className="examples">
+          <div
+            onClick={() => onClick("Buy food/supplies")}
+            className="examples"
+          >
             <div className="exampleImgHolder">
               <img alt="" src={food} />
             </div>
@@ -36,6 +52,7 @@ const TasksDisplay = ({ tasks = [] }) => {
             </div>
           </div>
           <div
+            onClick={() => onClick("Take to the groomer")}
             style={{ borderBottomColor: "transparent" }}
             className="examples"
           >
@@ -77,7 +94,9 @@ const TasksDisplay = ({ tasks = [] }) => {
 
   return (
     <div>
-      <h3>Todays tasks</h3>
+      <h3>
+        {history.location.pathname === "/home" ? "Todays tasks" : "Tasks"}
+      </h3>
       <div className="showTasks">
         <div className="tasksContainer">{tasksMap}</div>
       </div>

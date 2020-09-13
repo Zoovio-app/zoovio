@@ -9,8 +9,9 @@ import "./css/taskForm.css";
 import { Button } from "react-bootstrap";
 import BackButton from "../backButton/BackButton";
 import Toast from "../toast/Toast";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setToast } from "../toastSlice/toastSlice";
+import { taskState, setTask, clearForm } from "./taskFormSlice";
 
 const date = new Date();
 
@@ -20,9 +21,9 @@ const TaskForm = () => {
   const [allPetNames, setAllPetNames] = useState([]);
   const [dueTime, setDueTime] = useState(date);
   const [petID, setPetID] = useState("");
-  const [newTask, setNewTask] = useState("");
   const dispatch = useDispatch();
   const { page } = useParams();
+  const task = useSelector(taskState);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -33,7 +34,7 @@ const TaskForm = () => {
         url: `${API}/api/users/tasks/`,
         data: {
           pet_id: petID,
-          task: newTask,
+          task: task,
           due_date: new Date(dueTime.slice(0, 10)),
           due_time: new Date(dueTime).toLocaleTimeString(),
           dueTime: new Date(dueTime).toLocaleTimeString(),
@@ -43,6 +44,7 @@ const TaskForm = () => {
         },
       });
       dispatch(setToast(true));
+      dispatch(clearForm());
     } catch (err) {
       alert(err.message);
     }
@@ -85,6 +87,9 @@ const TaskForm = () => {
       variants={pageVariants}
     >
       <div className="taskFormMain">
+        <div>
+          <h1>ZooVio</h1>
+        </div>
         <div className="toastDiv">
           <Toast text={"Your task was successfully added."} />
         </div>
@@ -113,8 +118,8 @@ const TaskForm = () => {
               className="tasks_input"
               type="text"
               placeholder="New task"
-              onChange={(e) => setNewTask(e.target.value)}
-              value={newTask}
+              onChange={(e) => dispatch(setTask(e.target.value))}
+              value={task}
             />
             <input
               required

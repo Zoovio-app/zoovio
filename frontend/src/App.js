@@ -13,10 +13,12 @@ import Tasks from "./features/calendar/tasks/Tasks";
 import TaskForm from "./features/taskForm/TaskForm";
 import Pets from "./features/pets/Pets";
 import PetForm from "./features/petForm/PetForm";
-// import SvgWave from "./features/svgWaves/SvgWave";
 import SplashPage from "./features/splashpage/SplashPage";
 import UserMenue from "./features/userMenue/UserMenue";
+import Search from "./features/search/Search";
 import Blob from "./features/blob/Blob.js";
+import DoctorsApp from "./features/docPortal/DoctorsApp";
+import UserMessages from "./features/userMessages/UserMessages";
 
 function App() {
   const location = useLocation();
@@ -25,13 +27,14 @@ function App() {
     <AuthProvider>
       <div className="App">
         <div className="appCont">
-          {/* <Route path={["/home", "/calendar", "/pets", "/tasks/create"]}>
-            <SvgWave />
-          </Route> */}
           <Switch>
             <AuthRoute exact path="/">
               <SplashPage />
             </AuthRoute>
+
+            <Route path={["/doctor"]}>
+              <DoctorsApp />
+            </Route>
 
             <AuthRoute exact path="/signup">
               <SignUp />
@@ -40,7 +43,6 @@ function App() {
             <AuthRoute exact path="/login">
               <LandingPage />
             </AuthRoute>
-
             <>
               <div className="inAppContent">
                 <div className="inAppTop">
@@ -91,8 +93,16 @@ function App() {
                         <TaskForm />
                       </ProtectedRoute>
 
+                      <ProtectedRoute exact path="/search">
+                        <Search />
+                      </ProtectedRoute>
+
                       <ProtectedRoute exact path="/calendar">
                         <CalendarPage />
+                      </ProtectedRoute>
+
+                      <ProtectedRoute exact path="/messages">
+                        <UserMessages />
                       </ProtectedRoute>
 
                       <AuthRoute path="*">
@@ -101,7 +111,16 @@ function App() {
                     </Switch>
                   </AnimatePresence>
                 </div>
-                <Route path={["/home", "/pets", "/calendar", "/tasks"]}>
+                <Route
+                  path={[
+                    "/home",
+                    "/pets",
+                    "/calendar",
+                    "/tasks",
+                    "/messages",
+                    "/search",
+                  ]}
+                >
                   <div className="inAppBottom">
                     <Blob
                       size={"70vh"}
