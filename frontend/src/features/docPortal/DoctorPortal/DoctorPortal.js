@@ -17,7 +17,6 @@ const DoctorPortal = () => {
     const history = useHistory();
     return (
         <div className="mainContainer4DocPortal">
-
             <div className="topCont">
                 <div className="titleCont">
                     <button onClick={() => history.push("/")}>Pet Owner?</button>
@@ -169,8 +168,8 @@ const DoctorPortal = () => {
 
 
 
-    <div className="bottomCont">
-        <div className="splashButtonsCont">
+    <div className="bottomCont2">
+        <div className="splashButtonsCont2">
           <div className="buttsHolder">
             <div className="splashSignUpCont">
               <Button className="docSignupBtn" onClick={() => history.push("/doctor/inquire")}> Inquire </Button>
@@ -187,13 +186,8 @@ const DoctorPortal = () => {
         </div>
     </div>
     
-      
-    
 
-
-            
-
-            <div className="docPortalBox"> 
+            {/* <div className="docPortalBox">  */}
 
                 {/* <div className="carousel4DocPortal">
                     <Slider className="sliderDesign" slides={images} />   
@@ -212,7 +206,7 @@ const DoctorPortal = () => {
                     </svg>
                 </div> */}
 
-            </div>
+            {/* </div> */}
         </div>
     )
 }
@@ -278,3 +272,32 @@ export default DoctorPortal;
 // };
 
 // export default DoctorPortal;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

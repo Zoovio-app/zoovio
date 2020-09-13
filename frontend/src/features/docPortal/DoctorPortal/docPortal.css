@@ -1,28 +1,120 @@
-/* 
-* {
-    margin: 0;
-    padding: 0;
-  } */
+.carousel-indicators li {
+  background-color: #f16643;
+  }
+  
+  .carousel-item img {
+  height: 60vh;
+  }
+  
+  .carousel-item {
+  height: 65vh;
+  }
+  
+  
+  .titleE2 {
+  color: "#F16643";
+  }
+
 
 .mainContainer4DocPortal {
-  /* background-color: red; */
-  height: 100vh;
-  width: 100vw;
-  display: grid;
-  justify-items: center;
-  background-image: url(../../../assets/img/docportalBGROUND4.png);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  /* height: 100vh;
+  width: 100vw; */
+  /* justify-items: center; */
+
+  height: 90vh;
+  margin-top: -30px;
+  background-image: url(../../../assets/img/vetPortalBG.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.navBar4DocPortal {
+
+.topCont {
+  display: flex;
+  justify-content: space-around;
+  box-sizing: border-box;
+}
+    
+    
+.titleCont {
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  z-index: 1;
+}
+
+.carousel {
+  width: 50vw;
+  }
+
+.bottomCont2 {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: -285px;
+}
+
+
+.splashButtonsCont2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 0.7;
+  padding: 5px;
+  align-items: flex-start;
+  height: 25vh;
+}
+
+.appCont {
+  overflow-y: hidden;
+}
+      
+.buttsHolder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 15vh;
+  justify-content: space-evenly;
+}
+
+
+.splashSignUpCont {
+  width: 20vw;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+}
+  
+.docSignupBtn {
+  background-image: linear-gradient(to right, #225095, #F18E7C, #F16643);
+}
+
+.footerDiv {
+  display: flex;
+  justify-content: space-around;
+}
+
+.footerDiv a {
+  color: #8b9cac;
+}
+
+
+
+
+
+
+
+/* .navBar4DocPortal {
   display: flex;
   justify-items: center;
   justify-content: space-evenly;
   align-items: stretch;
   margin-bottom: 1rem;
-}
+} */
 
 .docPortalNavUl {
   list-style-type: none;
@@ -50,8 +142,7 @@
   /* background-color: #F3BFD0; */
 }
 
-.docPortalNavLiLeft {
-  /* display: inline; */
+/* .docPortalNavLiLeft {
   color: rgb(255, 255, 255);
   font-size: 1.5rem;
   font-weight: 700;
@@ -59,12 +150,16 @@
   float: left;
   padding-left: 1.5rem;
   padding-top: 1.5rem;
-}
+} */
 
-.syleA {
+/* .syleA {
   color: rgb(255, 255, 255);
   text-decoration: none;
-}
+} */
+
+/* .syleA:hover{
+  color: #225095;
+} */
 
 .docPortalNavLiRight {
   /* display: inline; */
@@ -86,20 +181,13 @@
   float: left;
   margin-left: 22rem;
   border-radius: 1.5rem;
-  /* background-color: brown; */
-  /* background-color: #F18E7C; */
-  box-shadow: 5px 10px 5px 10px #f16643;
-  /* background-color:  #225095; */
-  /* background-color:  rgb(0, 0, 0); */
-  /* width: 52rem; */
-  /* height: 27.35rem; */
+  box-shadow: 5px 10px 5px 10px #F16643;
   height: 30rem;
-  /* padding-top: 5rem; */
   justify-content: center;
   align-items: center;
   margin-top: 0.5rem;
-  /* width: 75rem */
 }
+
 
 .inquiryForm4DocPortal {
   float: right;
@@ -124,15 +212,14 @@
 }
 
 .zoovioInquiryLink {
-  color: rgb(255, 255, 255);
-  font-weight: 700;
+  color: #F16643;
+  font-size: 24px;
+  font-weight: 800;
   font-variant-caps: all-petite-caps;
   /* font-style: italic; */
   font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
   display: inline;
   text-decoration: none;
-  font-style: oblique;
-  /* margin-bottom: 3rem; */
 }
 
 .zoovioInquiryLink:hover {
@@ -142,10 +229,28 @@
   color: #f16643;
 }
 
+
+
+.bottomCont {
+  display: flex;
+  justify-content: space-around;
+  /* margin-bottom: -285px; */
+}
+
+.footerDiv {
+  display: flex;
+  justify-content: space-around;
+}
+
+.footerDiv a {
+  color: #8b9cac;
+}
+
+
 .zoovioInfo {
   display: inline;
   /* color:  #225095; */
-  color: rgb(0, 0, 0);
+  color:rgb(0, 0, 0);
   font-weight: 700;
   font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
   line-height: 0.5;
