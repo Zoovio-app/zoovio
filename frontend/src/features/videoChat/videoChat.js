@@ -4,7 +4,7 @@ import Peer from "simple-peer";
 import styled from "styled-components";
 import { AuthContext } from "../../providers/AuthContext";
 import InAppDocNav from "../docPortal/DoctorNav/inAppDocNav/InAppDocNav";
-
+import { apiUrl } from "../../util/apiUrl";
 const Container = styled.div`
   height: 100vh;
   width: 100%;
@@ -33,13 +33,14 @@ const VideoChat = () => {
   const [isCalling, setIsCalling] = useState(false);
   const [callReciever, setCallReciever] = useState("");
   const { id } = currentUser;
+  const API = apiUrl();
 
   const userVideo = useRef();
   const partnerVideo = useRef();
   const socket = useRef();
 
   useEffect(() => {
-    socket.current = io.connect("http://localhost:3001");
+    socket.current = io.connect(API);
     navigator.mediaDevices
       .getUserMedia({ video: true, audio: false })
       .then((stream) => {
