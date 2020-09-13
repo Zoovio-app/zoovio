@@ -37,12 +37,8 @@ const SignUpForm = () => {
         <div className="loginImgCont">
           <img src={hangout} className="ls-is-cached lazyloaded" alt="" />
         </div>
-        <form>
-          <FormGroup
-            style={{ height: "25vh" }}
-            className="primaryForm"
-            onSubmit={handleSubmit}
-          >
+        <form onSubmit={handleSubmit}>
+          <FormGroup style={{ height: "25vh" }} className="primaryForm">
             <FormControl
               className="signup_input"
               type="email"
