@@ -63,7 +63,7 @@ const DoctorLogin = (props) => {
     // <Layout>
       <div className="loginContainer">
 
-      <div className="navBar4DocPortal">
+      {/* <div className="navBar4DocPortal">
                 <ul className="docPortalNavUl">
                     <li className="docPortalNavLiLeft"><a className="syleA" href="/doctor/portal">ZooVio</a></li>
                     <li className="docPortalNavLiRight"><a className="syleA" href="/doctor/inquire">Inquire</a></li>
@@ -71,7 +71,7 @@ const DoctorLogin = (props) => {
                     <li className="docPortalNavLiRight"><a className="syleA" href="/doctor/login">Login</a></li>
                     <li className="docPortalNavLiRight"><a className="syleA" href="/about">About</a></li>
                 </ul>
-            </div>
+            </div> */}
 
             <div className= "zoovioMain4img"> 
                 <img className="zoovioImage" src={zoovioDocPet}/>

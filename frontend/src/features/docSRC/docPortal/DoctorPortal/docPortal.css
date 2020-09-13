@@ -1,19 +1,85 @@
-/* 
 * {
     margin: 0;
     padding: 0;
-  } */
+  }
+
   
   .mainContainer4DocPortal {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     height: 100vh;
     width: 100vw;
     display: grid;
     justify-items: center;
-    background-image: url(../../../../assets//img/docportalBGROUND4.png);
+    background-image: url(../../../../assets//img/vetPortalBG.png);
     background-position: center; /* Center the image */
     background-repeat: no-repeat;
     background-size: cover;
-    /* background-image: url(./../assets/img/docportalBGROUND.png); */
+}
+
+.carousel-indicators li {
+  background-color: #f16643;
+}
+
+.carousel-item img {
+  height: 60vh;
+}
+
+.carousel-item {
+  height: 65vh;
+}
+
+.carousel {
+  width: 50vw;
+}
+
+.titleE2 {
+  color: "#F16643";
+}
+
+
+.topCont {
+  display: flex;
+  justify-content: space-around;
+  box-sizing: border-box;
+}
+
+
+.titleCont {
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  z-index: 1;
+}
+
+.splashButtonsCont {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 0.7;
+  padding: 5px;
+  align-items: flex-start;
+  height: 25vh;
+}
+
+.buttsHolder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 15vh;
+  justify-content: space-evenly;
+}
+
+.splashSignUpCont {
+  width: 20vw;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+}
+
+.docSignupBtn {
+  background-image: linear-gradient(to right, #225095, #F18E7C, #F16643);
 }
 
   .navBar4DocPortal {
@@ -39,7 +105,7 @@
 
 
     /* orange */
-    background-color: #F16643;
+    /* background-color: #F16643; */
 
     /* salmon  */
     /* background-color: #F18E7C; */
@@ -120,15 +186,32 @@
   }
 
   .zoovioInquiryLink {
-    color:rgb(255, 255, 255);
-    font-weight: 700;
+    /* color:rgb(255, 255, 255); */
+    color: #F16643;
+    font-size: 24px;
+    font-weight: 800;
     font-variant-caps: all-petite-caps;
     /* font-style: italic; */
     font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
     display: inline;
     text-decoration: none;
-    font-style: oblique;
+    /* font-style: oblique; */
     /* margin-bottom: 3rem; */
+  }
+
+  .bottomCont {
+    display: flex;
+    justify-content: space-around;
+    /* margin-bottom: -285px; */
+  }
+
+  .footerDiv {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .footerDiv a {
+    color: #8b9cac;
   }
 
   .zoovioInquiryLink:hover {

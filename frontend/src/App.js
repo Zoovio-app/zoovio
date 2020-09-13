@@ -51,6 +51,13 @@ function App() {
         {/* <ProtectedRoute>
           <Nav />
         </ProtectedRoute> */}
+
+        <div className="appCont"> 
+        <DoctorAuthRoute exact path="/doctor/portal">
+            <DoctorPortal/>
+          </DoctorAuthRoute>
+        
+        </div>
         <Switch>
 
           <AuthRoute exact path="/login">
@@ -61,10 +68,9 @@ function App() {
             <Home />
           </ProtectedRoute>
 
-          <DoctorAuthRoute exact path="/doctor/portal">
+          {/* <DoctorAuthRoute exact path="/doctor/portal">
             <DoctorPortal/>
-
-          </DoctorAuthRoute>
+          </DoctorAuthRoute> */}
 
           <PrivateRoute exact path="/doctor/home">
             <DoctorHome/>
