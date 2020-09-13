@@ -69,10 +69,10 @@ const SearchBar = () => {
                     </option>
                     <option value="Veterinarian">Veterinarian</option>
                     <option value="Pet Shop">Pet Shop</option>
-                    <option value="Pet Grooming">Pet Grooming</option>
-                    <option value="Pet Adoption">Pet Adoption</option>
-                    <option value="Pet Shelter">Pet Shelter</option>
-                    <option value="Pet Daycare">Pet Daycare</option>
+                    <option value="Pet Grooming">Grooming</option>
+                    <option value="Pet Adoption">Adoption</option>
+                    <option value="Pet Shelter">Shelter</option>
+                    <option value="Pet Daycare">Daycare</option>
                     <option value="Pet Training">Pet Training</option>
                   </select>
                 </div>
