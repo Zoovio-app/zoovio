@@ -14,7 +14,7 @@ let test = "test";
 app.use(
   cors({
     credentials: true,
-    origin: "https://5f5e35cb598fe1061a97da52--zoovio.netlify.app",
+    origin: "https://zoovio.netlify.app",
   })
 );
 const socket = require("socket.io");
