@@ -19,11 +19,8 @@ const LandingPage = () => {
         <div className="loginImgCont">
           <img src={vet} alt=""></img>
         </div>
-        <form>
-          <FormGroup
-            onSubmit={(e) => dispatch(userLogin(e, email, password))}
-            controlId="primaryForm"
-          >
+        <form onSubmit={(e) => dispatch(userLogin(e, email, password))}>
+          <FormGroup controlId="primaryForm">
             <Button bsstyle="primary" onClick={demoLogin}>
               Demo Login
             </Button>
