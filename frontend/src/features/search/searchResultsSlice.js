@@ -6,10 +6,7 @@ export const resultsSlice = createSlice({
   initialState: [],
   reducers: {
     setResult: (state, action) => {
-      return [
-        ...action.payload,
-        ...testData,
-      ]; /*.sort(() => Math.random() - 0.5);*/
+      return [...action.payload, ...testData].sort(() => Math.random() - 0.5);
     },
   },
 });

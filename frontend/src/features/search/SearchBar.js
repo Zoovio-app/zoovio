@@ -12,6 +12,7 @@ const SearchBar = () => {
   const dispatch = useDispatch();
   const [term, setTerm] = useState("");
   const [location, setLocation] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchData = async () => {
     const BASE_URL_SEARCH = `https://api.yelp.com/v3/businesses/search?term=${term}&location=${location}&limit=${10}`;
@@ -24,15 +25,17 @@ const SearchBar = () => {
         },
       });
       dispatch(setResult(res.data.businesses));
-      // debugger;
+      setIsLoading(false);
     } catch (error) {
       console.log(error);
       setResult([]);
+      setIsLoading(false);
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsLoading(true);
     fetchData(term, location);
 
     // console.log(term, location);
@@ -103,7 +106,13 @@ const SearchBar = () => {
           </div>
         </div>
       </form>
-      <SearchResults />
+      {isLoading ? (
+        <div id="isLoadingDiv" className="blink_me">
+          <p>Loading....</p>
+        </div>
+      ) : (
+        <SearchResults />
+      )}
     </div>
   );
 };

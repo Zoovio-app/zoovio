@@ -90,3 +90,8 @@
   color: #225095;
   margin: unset;
 }
+
+#isLoadingDiv p {
+  font-size: xx-large;
+  color: #225095;
+}
