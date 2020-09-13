@@ -37,7 +37,6 @@ const SplashPage = () => {
     <div className="splashMain">
       <div className="topCont">
         <div className="titleCont">
-          <button onClick={() => history.push("/doctor")}>Doc Portal</button>
           <h1 className="titleE">ZooVio</h1>
         </div>
         <div>
@@ -189,7 +188,7 @@ const SplashPage = () => {
 
           <div className="footerDiv">
             <Link to="/about">About</Link>
-            <Link to="/faq">Faq</Link>
+            <Link to="/doctor">Doc Portal</Link>
             <Link to="/other">Other</Link>
           </div>
         </div>
