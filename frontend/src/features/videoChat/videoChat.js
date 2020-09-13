@@ -59,7 +59,6 @@ const VideoChat = () => {
     });
   }, []);
 
-  console.log(users, yourID);
   const callPeer = (id, e) => {
     setIsCalling(true);
     setCallReciever(e.target.value);
