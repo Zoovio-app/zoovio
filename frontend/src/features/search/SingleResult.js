@@ -44,7 +44,7 @@ const SingleResult = ({ result }) => {
       </div>
       <div className="cardBottom">
         <div className="moreInfoCard">
-          <a href={result.url}>
+          <a href={result.url} target="_blank">
             <p style={{ margin: "unset" }}>More information</p>
           </a>
         </div>
