@@ -11,7 +11,12 @@ const app = express();
 
 const server = http.createServer(app);
 
-app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+app.use(
+  cors({
+    credentials: true,
+    origin: "https://5f5e35cb598fe1061a97da52--zoovio.netlify.app",
+  })
+);
 const socket = require("socket.io");
 const io = socket(server);
 
