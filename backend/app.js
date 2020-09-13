@@ -10,7 +10,7 @@ const port = process.env.PORT;
 const app = express();
 
 const server = http.createServer(app);
-
+let test = "test";
 app.use(
   cors({
     credentials: true,
