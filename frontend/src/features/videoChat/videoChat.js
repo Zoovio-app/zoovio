@@ -3,7 +3,7 @@ import io from "socket.io-client";
 import Peer from "simple-peer";
 import styled from "styled-components";
 import { AuthContext } from "../../providers/AuthContext";
-import DoctorNav from "../docPortal/DoctorNav/DoctorNav";
+import InAppDocNav from "../docPortal/DoctorNav/inAppDocNav/InAppDocNav";
 
 const Container = styled.div`
   height: 100vh;
@@ -111,7 +111,7 @@ const VideoChat = () => {
   return (
     <Container>
       <div>
-        <DoctorNav />
+        <InAppDocNav />
       </div>
 
       <div>

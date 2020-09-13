@@ -7,10 +7,10 @@ import {
   updateMessage,
   getRealtimeConversations,
 } from "../../../util/messagingFunctions";
-import DoctorNav from "../../docPortal/DoctorNav/DoctorNav";
 // import { authInfoState } from "../../authInfoSlice/authInfoSlice";
 import { messagingInfoState } from "../../messagingInfoSlice/messagingInfoSlice";
 import { AuthContext } from "../../../providers/AuthContext";
+import InAppDocNav from "../../docPortal/DoctorNav/inAppDocNav/InAppDocNav";
 
 const User = (props) => {
   const { user, onClick } = props;
@@ -86,7 +86,7 @@ const HomePage = (props) => {
   return (
     <div>
       <div>
-        <DoctorNav />
+        <InAppDocNav />
       </div>
 
       <Layout>

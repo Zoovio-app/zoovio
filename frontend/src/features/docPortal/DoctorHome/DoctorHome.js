@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { authInfoState } from "../../authInfoSlice/authInfoSlice";
 import { cloudLogout } from "../../../util/logoutFunctions";
 import "../DoctorHome/doctorHome.css";
-import DoctorNav from "../DoctorNav/DoctorNav";
 import { AuthContext } from "../../../providers/AuthContext";
+import InAppDocNav from "../DoctorNav/inAppDocNav/InAppDocNav";
 
 const DoctorHome = (props) => {
   const auth = useSelector(authInfoState);
@@ -12,7 +12,6 @@ const DoctorHome = (props) => {
   // const state = useSelector(authInfoState);
   const { currentUser } = useContext(AuthContext);
 
-  console.log(auth);
   const signOut = () => {
     dispatch(cloudLogout(currentUser.id));
   };
@@ -20,7 +19,7 @@ const DoctorHome = (props) => {
   return (
     <div className="doctor-home">
       <div className="nav4docPort">
-        <DoctorNav />
+        <InAppDocNav />
       </div>
 
       <div className="welcome-doctor">
