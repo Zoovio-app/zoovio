@@ -11,7 +11,7 @@ import zooviosimplicity from '../../../../assets/img/zooviosimplicity.png';
 import zooviodoctors from '../../../../assets/img/zooviodoctors.png';
 import "bootstrap/dist/css/bootstrap.min.css";
 import './docPortal.css';
-import './docPortal2.css';
+
 
 const DoctorPortal = () => {
     const history = useHistory();
