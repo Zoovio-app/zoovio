@@ -17,5 +17,5 @@ const reducer = {
 
 export default configureStore({
   reducer,
-  middleware: [...getDefaultMiddleware(), logger],
+  // middleware: [...getDefaultMiddleware(), logger],
 });
