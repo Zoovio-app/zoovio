@@ -5,6 +5,9 @@ import styled from "styled-components";
 import { AuthContext } from "../../providers/AuthContext";
 import InAppDocNav from "../docPortal/DoctorNav/inAppDocNav/InAppDocNav";
 import { apiUrl } from "../../util/apiUrl";
+import "./css/video.css";
+import { Button } from "react-bootstrap";
+
 const Container = styled.div`
   height: 100vh;
   width: 100%;
@@ -109,7 +112,8 @@ const VideoChat = () => {
   }
 
   return (
-    <Container>
+    // <Container>
+    <div className="videoDIVV">
       <div>
         <InAppDocNav />
       </div>
@@ -127,13 +131,13 @@ const VideoChat = () => {
             ? users.map((user) => {
                 if (user.socketId !== yourID) {
                   return (
-                    <button
+                    <Button
                       value={user.name}
                       key={user.socketId}
                       onClick={(e) => callPeer(user.socketId, e)}
                     >
                       Call {user.name}{" "}
-                    </button>
+                    </Button>
                   );
                 }
                 return <div> hello</div>;
@@ -143,7 +147,8 @@ const VideoChat = () => {
           {isCalling ? <div>calling{callReciever}</div> : null}
         </Row>
       </div>
-    </Container>
+    </div>
+    // </Container>
   );
 };
 

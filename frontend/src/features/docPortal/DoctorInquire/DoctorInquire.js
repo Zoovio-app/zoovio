@@ -1,152 +1,101 @@
 import React, { useState } from "react";
-// import { cloudSignup } from '../../actions';
-// import { useDispatch, useSelector } from "react-redux";
-// import { useHistory } from "react-router-dom";
 import "./docInquire.css";
-import zoovioDocPet from "../../../assets/img/zoovioDocPet.png";
+import { NavLink, Link } from "react-router-dom";
+import { Button, FormGroup, FormControl } from "react-bootstrap";
+import docInquire from "../../../assets/img/docInquire.png";
+import logo from "../../../assets/img/logo.png";
 
 const DoctorInquire = (props) => {
-  // const [fullName, setFullName] = useState("");
-  // const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
-  // const dispatch = useDispatch();
-  // const auth = useSelector((state) => state.auth);
-
-  // if(authenticated){
-  //   history.push("/doctor/home")
-  //   // return <Redirect to={`/doctor/home`} />
-  // }
-
   return (
-    <div className="doctorRegistrationContainer">
-      <div className="navBar4DocPortal">
-        <ul className="docPortalNavUl">
-          <li className="docPortalNavLiLeft">
-            <a className="syleA" href="/doctor/portal">
-              ZooVio
-            </a>
-          </li>
-          <li className="docPortalNavLiRight">
-            <a className="syleA" href="/doctor/inquire">
-              Inquire
-            </a>
-          </li>
-          <li className="docPortalNavLiRight">
-            <a className="syleA" href="/doctor/signup">
-              Signup
-            </a>
-          </li>
-          <li className="docPortalNavLiRight">
-            <a className="syleA" href="/doctor/login">
-              Login
-            </a>
-          </li>
-          <li className="docPortalNavLiRight">
-            <a className="syleA" href="/about">
-              About
-            </a>
-          </li>
-        </ul>
+    <div className="doctorRegistrationContainer2">
+      <div className="zoovioMain4img3">
+        <img alt="" src={logo} />
       </div>
-
-      <div className="zoovioMain4img2">
-        <img
-          alt=""
-          style={{ height: "30vh" }}
-          className="zoovioImage2"
-          src={zoovioDocPet}
-        />
-      </div>
-
-      <div className="docSignupFormMain">
+      <div className="docSignupFormMain2">
         <form className="docSignupForm">
-          <h2 className="welcomeSignup">Inquire About ZooVio</h2>
-
-          <div className="inputDiv2 two">
-            <div class="i2">
-              <i class="fas fa-user"></i>
-            </div>
-            <div class="div">
-              <h5>Name:</h5>
-              <input
-                name="fullName"
-                type="text"
-                // value={fullName}
-                // onChange={(e) => setFullName(e.target.value)}
-                placeholder="Full Name"
+          ​
+          <div className="formContainer2">
+            <div className="loginImgCont2">
+              <img
+                src={docInquire}
+                className="ls-is-cached lazyloaded"
+                alt=""
               />
             </div>
-          </div>
+            <form>
+              <FormGroup
+                style={{ height: "25vh" }}
+                className="primaryForm"
+                // onSubmit={userLogin}
+              >
+                <FormControl
+                  className="inquire_input"
+                  placeholder="Full Name"
+                  // onChange={(e) => setCompany(e.target.value)}
+                  // value={company}
+                  autoComplete="on"
+                />
+                ​
+                <FormControl
+                  placeholder="Business Name"
+                  // onChange={(e) => setPhoneNumber(e.target.value)}
+                  // value={phoneNumber}
+                  autoComplete="on"
+                />
+                ​
+                <FormControl
+                  // className="inquire_input"
 
-          <div className="inputDiv2 two">
-            <div class="i2">
-              <i class="fas fa-user"></i>
-            </div>
-            <div class="div">
-              <h5>Clinic:</h5>
-              <input
-                name="company"
-                type="text"
-                // value={company}
-                // onChange={(e) => setCompany(e.target.value)}
-                placeholder="Veterinary Clinic / Hospital"
-              />
-            </div>
-          </div>
-
-          <div className="inputDiv2 two">
-            <div class="i2">
-              <i class="fas fa-user"></i>
-            </div>
-            <div class="div">
-              <h5>Email:</h5>
-              <input
-                name="email"
-                type="text"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Email"
-              />
-            </div>
-          </div>
-
-          <div className="inputDiv2 two">
-            <div class="i2">
-              <i class="fas fa-user"></i>
-            </div>
-            <div class="div">
-              <h5>Number:</h5>
-              <input
-                name="phoneNumber"
-                type="text"
-                value={phoneNumber}
-                onChange={(e) => setPhoneNumber(e.target.value)}
-                placeholder="Contact Number"
-              />
-            </div>
-          </div>
-
-          <div className="inputDiv2 three">
-            <div class="i2">
-              <i class="fas fa-user"></i>
-            </div>
-            <div class="div">
-              <h5>Inquiry:</h5>
-              <input
-                name="inquiry"
-                type="textarea"
-                // value={company}
-                // onChange={(e) => setCompany(e.target.value)}
-                placeholder="Ask about our servies"
-              />
-            </div>
-          </div>
-
-          <div>
-            <button className="docSignupBtn"> Submit Inquiry</button>
+                  placeholder="Email"
+                  // onChange={(e) => setEmail(e.target.value)}
+                  // value={email}
+                  autoComplete="on"
+                />
+                ​
+                <FormControl
+                  placeholder="Hi, I'd love to know more about ZooVio"
+                  // onChange={(e) => setEmail(e.target.value)}
+                  // value={email}
+                  autoComplete="on"
+                />
+                <Button
+                  style={{ borderRadius: "1vh" }}
+                  className="docLoginBtn"
+                  controlid="primary"
+                  type="submit"
+                >
+                  Inquire
+                </Button>
+              </FormGroup>
+            </form>
+            <nav className="midNav2">
+              Already have an account?{" "}
+              <NavLink className="login" exact to={"/doctor/login"}>
+                Login!
+              </NavLink>
+            </nav>
           </div>
         </form>
+        <div>
+          <div>
+            <p>Already a user?</p>
+          </div>
+          <div>
+            <a href="/doctor/login">Login</a>
+          </div>
+        </div>
+      </div>
+
+      <div className="bottomCont3">
+        <div className="splashButtonsCont2">
+          <div className="footerDiv2">
+            <Link to="/about">About</Link>
+            <Link to="/">Pet Owners</Link>
+            <Link to="/other">Other</Link>
+          </div>
+        </div>
       </div>
     </div>
   );

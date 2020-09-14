@@ -7,10 +7,27 @@ import DoctorPortal from "./DoctorPortal/DoctorPortal";
 import DoctorInquire from "./DoctorInquire/DoctorInquire";
 import Messaging from "../messaging/Messaging/Messaging";
 import VideoChat from "../videoChat/videoChat";
-
+import Blob from "../blob/Blob";
 const DoctorsApp = () => {
   return (
     <div>
+      {/* <Blob
+        size={"30vh"}
+        style={{
+          position: "absolute",
+          marginTop: "30vh",
+          marginLeft: "-11vw",
+        }}
+      />
+
+      <Blob
+        size={"25vh"}
+        style={{
+          position: "absolute",
+          marginLeft: "20vw",
+        }}
+      /> */}
+
       <Switch>
         <DoctorAuthRoute exact path="/doctor">
           <DoctorPortal />

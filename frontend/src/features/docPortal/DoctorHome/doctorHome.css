@@ -1,26 +1,27 @@
-* {
+/* * {
   padding: 0;
   margin: 0;
 }
-
+/*  */
 .doctor-home {
   display: flex;
   width: 100%;
   height: 100vh;
-  background-image: url(../../../assets/img/docHomeLayout.png);
+  background-image: url(../../../assets/img/vetPortalBG3.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  flex-direction: column;
 }
 
 .welcome-doctor {
   /* background-color: purple; */
-  width: 100%;
+  /* width: 100%;
   height: 5rem;
-  margin-top: 6rem;
+  margin-top: 6rem; */
 }
 
-.helloDocGreeting {
+/* .helloDocGreeting {
   padding-top: 2rem;
 }
 
@@ -30,60 +31,22 @@
 
 .upcomingAppointments {
   justify-content: center;
-}
+} */
 
 .listOfApptsForDay {
   display: flex;
-  /* margin-left: 5rem; */
-  padding-left: 6.5rem;
-  /* padding-top: 6rem; */
-}
 
-.apptOne {
-  padding-right: 2.5rem;
-  padding-top: 1.5rem;
-  padding-left: 1rem;
-  padding-bottom: 1.5rem;
-  margin-left: -4.5rem;
-  border-radius: 1rem;
-  border: 2px solid;
-  width: 14rem;
-  box-shadow: 5px 10px 5px 10px #f16643;
+  justify-content: center;
 }
 
 .apptTwo {
   padding-right: 4rem;
   padding-top: 1.5rem;
-  padding-left: 1rem;
-  padding-bottom: 1.5rem;
-  margin-left: 2rem;
+  padding-left: 3rem;
   border-radius: 1rem;
-  border: 2px solid;
-  width: 12.5rem;
-  box-shadow: 5px 10px 5px 10px #f16643;
-}
-
-.apptThree {
-  padding-right: 4rem;
-  padding-top: 1.5rem;
-  padding-left: 1rem;
-  padding-bottom: 1.5rem;
-  margin-left: 2rem;
-  border-radius: 1rem;
-  border: 2px solid;
-  width: 12.5rem;
-  box-shadow: 5px 10px 5px 10px #f16643;
-}
-
-.apptFour {
-  padding-left: 1rem;
-  padding-top: 1.5rem;
-  margin-left: 2rem;
-  padding-bottom: 1.5rem;
-  border-radius: 1rem;
-  border: 2px solid;
-  width: 15rem;
-  box-shadow: 5px 10px 5px 10px #f16643;
+  border: 4px solid;
+  width: 25.5rem;
+  background: #b0c7e8;
 }
 
 .apptDisplayLabels {
@@ -106,6 +69,12 @@
   justify-content: center;
   text-align: center;
   justify-items: center;
+  padding-left: 3vw;
+  padding-right: 3vw;
+}
+
+.aptBtns button {
+  border-radius: 1vh;
 }
 
 .cancelApt {
@@ -129,6 +98,10 @@
 
 .cancelApt:hover {
   background-position: right;
+}
+#menuId {
+  position: unset;
+  margin: unset;
 }
 
 .rescheduleApt {

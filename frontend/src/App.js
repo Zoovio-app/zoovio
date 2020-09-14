@@ -31,7 +31,6 @@ function App() {
             <AuthRoute exact path="/">
               <SplashPage />
             </AuthRoute>
-
             <Route path={["/doctor"]}>
               <DoctorsApp />
             </Route>
@@ -53,7 +52,18 @@ function App() {
                   <Blob
                     style={{ alignSelf: "flex-end", position: "absolute" }}
                   />
-                  <UserMenue />
+                  <Route
+                    path={[
+                      "/home",
+                      "/calendar",
+                      "/tasks",
+                      "/messages",
+                      "/search",
+                      "/pets",
+                    ]}
+                  >
+                    <UserMenue />
+                  </Route>
                 </div>
                 <div className="inAppMain">
                   <Blob
@@ -71,6 +81,7 @@ function App() {
                       marginLeft: "20vw",
                     }}
                   />
+
                   <AnimatePresence exitBeforeEnter>
                     <Switch location={location} key={location.pathname}>
                       <ProtectedRoute exact path="/home">
@@ -119,6 +130,7 @@ function App() {
                     "/tasks",
                     "/messages",
                     "/search",
+                    "/doctor",
                   ]}
                 >
                   <div className="inAppBottom">
