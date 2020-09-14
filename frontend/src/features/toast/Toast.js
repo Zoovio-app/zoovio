@@ -20,7 +20,7 @@ const Toastt = ({ text }) => {
           opacity: "1",
         }}
         animation={true}
-        delay={3000}
+        delay={1000}
         onClose={() => dispatch(setToast(false))}
         show={show}
         autohide
