@@ -4,7 +4,7 @@ import { USER_LOGIN } from "../features/authInfoSlice/authInfoSlice";
 
 export const demoLogin = async () => {
   try {
-    await login("user1@gmail.com", "testtest");
+    await login("samtest5@gmail.com", "test123");
   } catch (error) {
     console.log(error);
   }
