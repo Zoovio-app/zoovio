@@ -9,6 +9,7 @@ import axios from "axios";
 import { apiUrl } from "../../util/apiUrl";
 import { AuthContext } from "../../providers/AuthContext";
 import { taskDatesArr, func } from "./helpers/helpers";
+import logo from "../../assets/img/logo.png";
 
 const CalendarPage = () => {
   const API = apiUrl();
@@ -60,7 +61,9 @@ const CalendarPage = () => {
         transition={pageTransition}
         className="calDiv"
       >
-        <h1>ZooVio</h1>
+        <div>
+          <img style={{ height: "12vh" }} alt="" src={logo} />
+        </div>
         <Calendar
           tileClassName={"tileClass"}
           className={"cally"}

@@ -10,9 +10,15 @@ import { useDispatch } from "react-redux";
 import { setTask } from "../taskForm/taskFormSlice";
 import { useHistory } from "react-router-dom";
 
-const TasksDisplay = ({ tasks = [] }) => {
+const TasksDisplay = ({ tasks = [], name, day }) => {
   const dispatch = useDispatch();
   const history = useHistory();
+
+  const dayy = (
+    <span style={{ color: "#225095" }}>
+      {new Date(day).toLocaleDateString()}
+    </span>
+  );
 
   const onClick = (task) => {
     dispatch(setTask(task));
@@ -22,7 +28,9 @@ const TasksDisplay = ({ tasks = [] }) => {
     return (
       <div>
         <div>
-          <h3>You haven't created a Task yet.</h3>
+          <h3 style={{ color: "#225095" }}>
+            Hi,{name}! you haven't created a Task yet.
+          </h3>
           <p style={{ color: "#91a8ca", fontWeight: "500" }}>
             Select an option below or create your own by clicking the button
             above.
@@ -94,9 +102,19 @@ const TasksDisplay = ({ tasks = [] }) => {
 
   return (
     <div>
-      <h3>
-        {history.location.pathname === "/home" ? "Todays tasks" : "Tasks"}
-      </h3>
+      {history.location.pathname === "/home" ? (
+        <h3>"Tasks for today"</h3>
+      ) : (
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <div style={{ display: "flex" }}>
+            <h3 style={{ marginRight: "1vw", color: "#a6bbda" }}>Tasks for:</h3>
+            <h3 style={{ color: "#225095" }}>
+              {new Date(day).toLocaleDateString()}
+            </h3>
+          </div>
+        </div>
+      )}
+
       <div className="showTasks">
         <div className="tasksContainer">{tasksMap}</div>
       </div>

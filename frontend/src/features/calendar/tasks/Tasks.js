@@ -13,6 +13,7 @@ import { AuthContext } from "../../../providers/AuthContext";
 import { useParams } from "react-router-dom";
 import AddButton from "../../addButton/AddButton";
 import BackButton from "../../backButton/BackButton";
+import logo from "../../../assets/img/logo.png";
 
 const Tasks = () => {
   const API = apiUrl();
@@ -52,17 +53,14 @@ const Tasks = () => {
     >
       <div className="dayTasksCont">
         <div>
-          <h2>Showing tasks for</h2>
-          <h3 style={{ color: "#225095" }}>
-            {new Date(day).toLocaleDateString()}
-          </h3>
+          <img style={{ height: "12vh" }} alt="" src={logo} />
         </div>
         <div className="calTasksTop">
           <BackButton location={"calendar"} />
           <AddButton page={"calendar"} />
         </div>
         <div className="calTasksBody">
-          <TasksDisplay tasks={tasks} />
+          <TasksDisplay day={day} tasks={tasks} />
         </div>
       </div>
     </motion.div>

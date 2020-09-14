@@ -6,6 +6,7 @@ import axios from "axios";
 import { apiUrl } from "../../util/apiUrl";
 import PetsDisplay from "../petsDisplay/PetsDisplay";
 import AddButton from "../addButton/AddButton";
+import logo from "../../assets/img/logo.png";
 import "./css/pets.css";
 
 const Pets = () => {
@@ -41,7 +42,7 @@ const Pets = () => {
     >
       <div className="petsMain">
         <div className="petsMainTitle">
-          <h1>ZooVio</h1>
+          <img style={{ height: "12vh" }} alt="" src={logo} />
         </div>
         <div className="petsAdd">
           <AddButton pets={true}>Add new pet</AddButton>

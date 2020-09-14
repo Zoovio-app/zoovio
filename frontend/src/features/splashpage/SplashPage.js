@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import { apiUrl } from "../../util/apiUrl";
 import axios from "axios";
 import { AuthContext } from "../../providers/AuthContext";
+import logo from "../../assets/img/logo.png";
 
 const SplashPage = () => {
   const history = useHistory();
@@ -37,7 +38,7 @@ const SplashPage = () => {
     <div className="splashMain">
       <div className="topCont">
         <div className="titleCont">
-          <h1 className="titleE">ZooVio</h1>
+          <img style={{ height: "12vh" }} alt="" src={logo} />
         </div>
         <div>
           <svg

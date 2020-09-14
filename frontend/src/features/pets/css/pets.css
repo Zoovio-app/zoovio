@@ -5,14 +5,17 @@
 
 .petsMainTitle {
   align-self: center;
+  margin-left: -1vh;
 }
 
 .petsAdd {
   align-self: center;
+  height: 13vh;
 }
 
 .PetCardsDiv {
   align-self: center;
   overflow-y: scroll;
   width: 35vw;
+  height: 44vh;
 }

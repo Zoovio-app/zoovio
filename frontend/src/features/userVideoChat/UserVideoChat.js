@@ -42,7 +42,7 @@ const UserVideoChat = ({
   const [yourID, setYourID] = useState("");
   const [incomingDisplay, setIncomingDisplay] = useState("none");
   const { user } = useSelector(userInfoState);
-  console.log(user);
+  const namee = user ? user.name : "Samm";
   const [peer, setPeer] = useState("");
 
   const args = {
@@ -93,7 +93,7 @@ const UserVideoChat = ({
         }
       });
 
-    socket.current.emit("currentUser", { name: user.name });
+    socket.current.emit("currentUser", { name: namee });
 
     socket.current.on("yourID", (id) => {
       setYourID(id);

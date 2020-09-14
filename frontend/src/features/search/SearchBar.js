@@ -5,6 +5,7 @@ import { Button } from "react-bootstrap";
 import SearchResults from "./SearchResults";
 import { setResult } from "./searchResultsSlice";
 import { useDispatch } from "react-redux";
+import logo from "../../assets/img/logo.png";
 
 const { REACT_APP_YELP_API } = process.env;
 
@@ -44,7 +45,7 @@ const SearchBar = () => {
   return (
     <div className="resPage">
       <div className="searchH1">
-        <h1>ZooVio</h1>
+        <img style={{ height: "10vh" }} alt="" src={logo} />
       </div>
       <form onSubmit={handleSubmit}>
         <div className="inputsSearchMain">

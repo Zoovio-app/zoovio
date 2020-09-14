@@ -13,6 +13,7 @@ import {
 import SearchPrompt from "./searchPrompt/SearchPrompt";
 import UserVideoChat from "../userVideoChat/UserVideoChat";
 import UserChatBox from "./userChatBox/UserChatBox";
+import logo from "../../assets/img/logo.png";
 
 const UserMessages = () => {
   const dispatch = useDispatch();
@@ -40,7 +41,7 @@ const UserMessages = () => {
     >
       <div className="useMessagesMain">
         <div>
-          <h1>ZooVio</h1>
+          <img style={{ height: "7vh" }} alt="" src={logo} />
         </div>
         <div style={{ display: toast }} className="toastDiv">
           <Toastt />

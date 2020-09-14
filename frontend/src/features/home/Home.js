@@ -9,6 +9,7 @@ import TasksDisplay from "../tasksDisplay/TasksDisplay";
 import { pageTransition, pageVariants } from "../../util/framerStyles";
 import { motion } from "framer-motion";
 import AddButton from "../addButton/AddButton";
+import logo from "../../assets/img/logo.png";
 
 const date = new Date();
 let apiCalls = 0;
@@ -72,9 +73,14 @@ const Home = () => {
       variants={pageVariants}
     >
       <div className="homeCont">
-        <h1>hi,{state.user ? state.user.name : null} </h1>
+        <div>
+          <img style={{ height: "12vh" }} alt="" src={logo} />
+        </div>
         <AddButton page={"home"} />
-        <TasksDisplay tasks={tasks} />
+        <TasksDisplay
+          name={state.user ? state.user.name : null}
+          tasks={tasks}
+        />
       </div>
     </motion.div>
   );

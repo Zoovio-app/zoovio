@@ -12,6 +12,7 @@ import Toast from "../toast/Toast";
 import { useDispatch, useSelector } from "react-redux";
 import { setToast } from "../toastSlice/toastSlice";
 import { taskState, setTask, clearForm } from "./taskFormSlice";
+import logo from "../../assets/img/logo.png";
 
 const date = new Date();
 
@@ -24,6 +25,13 @@ const TaskForm = () => {
   const dispatch = useDispatch();
   const { page } = useParams();
   const task = useSelector(taskState);
+  const [dateDis, setDateDis] = useState("none");
+  const [dateBox, setDateBox] = useState(null);
+
+  const func2 = () => {
+    setDateDis(null);
+    setDateBox("none");
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -88,7 +96,7 @@ const TaskForm = () => {
     >
       <div className="taskFormMain">
         <div>
-          <h1>ZooVio</h1>
+          <img style={{ height: "7vh" }} alt="" src={logo} />
         </div>
         <div className="toastDiv">
           <Toast text={"Your task was successfully added."} />
@@ -107,7 +115,7 @@ const TaskForm = () => {
               className="tasks_input"
               onChange={(e) => setPetID(e.target.value)}
             >
-              <option value={"a"} disabled>
+              <option style={{ color: "#82878e" }} value={"a"} disabled>
                 Choose Pet
               </option>
               {petNames}
@@ -121,13 +129,22 @@ const TaskForm = () => {
               onChange={(e) => dispatch(setTask(e.target.value))}
               value={task}
             />
-            <input
-              required
-              type="datetime-local"
+            <div
+              onClick={func2}
+              style={{ height: "5.5vh", display: dateBox }}
               className="tasks_input"
-              max="24:00"
-              onChange={(e) => setDueTime(e.target.value)}
-            />
+            >
+              <p style={{ color: "#82878e", margin: "unset" }}>Date & Time</p>
+            </div>
+            <div style={{ display: dateDis }}>
+              <input
+                required
+                type="datetime-local"
+                className="tasks_input"
+                max="24:00"
+                onChange={(e) => setDueTime(e.target.value)}
+              />
+            </div>
 
             <Button variant="primary" type="submit">
               Add

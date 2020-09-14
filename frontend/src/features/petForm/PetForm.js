@@ -12,6 +12,7 @@ import "./css/petForm.css";
 import { useDispatch } from "react-redux";
 import { setToast } from "../toastSlice/toastSlice";
 import upload from "../../images/up.png";
+import logo from "../../assets/img/logo.png";
 
 const PetForm = () => {
   const [image, setImage] = useState(null);
@@ -24,6 +25,8 @@ const PetForm = () => {
   const API = apiUrl();
   const input = useRef();
   const dispatch = useDispatch();
+  const [birthDis, setBirthDis] = useState("none");
+  const [birthBox, setBirthBox] = useState(null);
 
   const handleChange = async (e) => {
     setImage(e.target.files[0]);
@@ -37,7 +40,10 @@ const PetForm = () => {
     input.current.click();
     setDisplay(null);
   };
-
+  const func2 = () => {
+    setBirthDis(null);
+    setBirthBox("none");
+  };
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -70,7 +76,7 @@ const PetForm = () => {
     >
       <div className="petFormMain">
         <div className="petFormTitle">
-          <h1>ZooVio</h1>
+          <img style={{ height: "12vh" }} alt="" src={logo} />
         </div>
         <div className="toastDiv">
           <Toast text={"Your pet was succesfully added."} />
@@ -121,13 +127,22 @@ const PetForm = () => {
             <input
               className="tasks_input"
               onChange={(e) => setName(e.target.value)}
-              placeholder={"name"}
+              placeholder={"Name"}
             />
-            <input
+            <div
+              onClick={func2}
+              style={{ height: "5.5vh", display: birthBox }}
               className="tasks_input"
-              onChange={(e) => setDob(e.target.value)}
-              type="date"
-            />
+            >
+              <p style={{ color: "#82878e", margin: "unset" }}>Birthdate</p>
+            </div>
+            <div style={{ display: birthDis }}>
+              <input
+                className="tasks_input"
+                onChange={(e) => setDob(e.target.value)}
+                type="date"
+              />
+            </div>
             <div className="petFormSubmit">
               <Button type="submit">Submit</Button>
             </div>

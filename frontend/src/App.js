@@ -139,6 +139,7 @@ function App() {
                       style={{
                         position: "absolute",
                         marginLeft: "-20vw",
+                        zIndex: "-1",
                       }}
                     />
                     <Nav />
