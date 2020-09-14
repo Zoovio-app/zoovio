@@ -49,7 +49,7 @@ const obj2 = {
 };
 
 const obj3 = {
-  alias: "community-veterinary-medicine-new-york-2",
+  alias: "Dr.Benders Pet Clinic",
   categories: [],
   id: "87dGWFRSfAS0CsMJoeKonBPOneF2",
   image_url:
@@ -65,7 +65,7 @@ const obj3 = {
     state: "NY",
     zip_code: "10031",
   },
-  name: "Center For Pet Care",
+  name: "Dr.Benders Pet Clinic",
   display_phone: "(646) 912-9513",
   rating: 4.5,
   review_count: 101,
