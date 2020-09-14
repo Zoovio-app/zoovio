@@ -26,7 +26,7 @@ const Pets = () => {
         });
         setPets(res.data.payload.pets);
       } catch (error) {
-        alert(error);
+        console.log(error);
       }
     };
     getAllPets();
