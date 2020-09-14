@@ -10,7 +10,7 @@ import { useDispatch } from "react-redux";
 import { setTask } from "../taskForm/taskFormSlice";
 import { useHistory } from "react-router-dom";
 
-const TasksDisplay = ({ tasks = [], name, day }) => {
+const TasksDisplay = ({ tasks = [], name, day = " " }) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
