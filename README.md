@@ -1,4 +1,4 @@
-# ZooVio - Capstone Project
+# ZooVio 
 
 ## [ZooVio: Demo](https://youtu.be/fJBdcmVWWoY?t=3779 "Checkout The Demo")
 
