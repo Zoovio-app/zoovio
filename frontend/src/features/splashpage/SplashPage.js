@@ -17,6 +17,7 @@ const SplashPage = () => {
   const history = useHistory();
   const API = apiUrl();
   const { currentUser, token } = useContext(AuthContext);
+  
   useEffect(() => {
     const wakeUp = async () => {
       try {
@@ -33,6 +34,8 @@ const SplashPage = () => {
     };
     wakeUp();
   }, [API, currentUser, token]);
+  
+  
 
   return (
     <div className="splashMain">
@@ -137,17 +140,6 @@ const SplashPage = () => {
             <img src={relax} alt="" />
             <Carousel.Caption>
               <div>
-                {/* <h3
-                  style={{
-                    color: "#141827",
-                    fontWeight: "700",
-                    marginBottom: "1.25rem",
-                    marginTop: "1.25rem",
-                  }}
-                >
-                  {" "}
-                  Celebrate!
-                </h3> */}
                 <p
                   style={{
                     marginBottom: "-1vh",
