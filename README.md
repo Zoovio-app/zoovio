@@ -7,7 +7,7 @@
 ## [ZooVio: Slide Deck](https://docs.google.com/presentation/d/16satWpf_DKNiWnEDR33i76iHsiQ7J8w95zqt6KUyY20/edit?usp=sharing "ZooVio Slidedeck")
 
 
-### ZooVio is a Full-Stack Web Application where users can keep track of their pets' daily activites as well as searching for local vetenarians and pet shops amonsgt other things. Users can utilize the calander feature where they can view the dates upcoming activites and color differentiate it by pet. Users can in app message and video chat with vetenarians as well. This app is best viewed on Web as it is not completely responsive.
+### ZooVio is a Full-Stack Web Application where users can keep track of their pets' daily activities as well as searching for local veterinarians and pet shops amongst other things. Users can utilize the calendar feature where they can view the dates upcoming activities and color differentiate it by pet. Users can in app message and video chat with veterinarians as well. This app is best viewed on Web as it is not completely responsive.
 
 ### ZooVio: Landing Page
 <img width="850" alt="landingpage" src="https://user-images.githubusercontent.com/55670281/106684418-70fb1380-6594-11eb-8198-b2a628f0c212.png">
@@ -30,10 +30,10 @@
 - Create an account or utilize the demo login
 - Create pet profile with photo uploading capabilities
 - View scheduled activities in calander 
-- Search for vetenarians, pet shops, groomers, etc
-- Users have ability to message vetenarians via "Contact Provider" button while in search feature 
-- Users can have virtual appointments with vetenarians  
-- Vetenarians can utilize the messaging and video chat feature via Doctor's/Vetenarian's portal
+- Search for veterinarians, pet shops, groomers, etc
+- Users have ability to message veterinarians via "Contact Provider" button while in search feature 
+- Users can have virtual appointments with veterinarians  
+- Veterinarians can utilize the messaging and video chat feature via Doctor's/Veterinarian's portal
 
 ## Future Implementations
 - Pet play date scheduling between users
